@@ -1,0 +1,52 @@
+{
+	"version": "0.2.0",
+	"configurations": [
+		{
+			"type": "totvs_language_debug",
+			"request": "launch",
+			"name": "TOTVS Language Debug",
+			"program": "${command:AskForProgramName}",
+			"cwb": "${workspaceFolder}",
+			"smartclientBin": "E:\\Totvs\\Bases\\Protheus\\Binario\\smartclient\\smartclient.exe",
+			"isMultiSession": true,
+			"enableTableSync": true,
+			"programArguments": [],
+			"enableMultiThread": false,
+			"enableProfile": false,
+			"isAccessibilityMode": false,
+			"doNotShowSplash": true,
+			"openglMode": false,
+			"dpiMode": false,
+			"language": "1",
+			"ignoreFiles": true
+		},
+		{
+			"type": "totvs_language_web_debug",
+			"request": "launch",
+			"name": "Depuração do idioma TOTVS",
+			"program": "${command:AskForProgramName}",
+			"cwb": "${workspaceFolder}",            
+			"smartclientUrl": "http://localhost:8086/webapp",
+			"isMultiSession": true,
+			"enableTableSync": true,
+			"enableMultiThread": true,
+			"ignoreFiles": true,
+			"webNavigator": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
+		}
+	],
+	"lastPrograms": [
+		{
+			"label": "u_dbaccess"
+		},
+		{
+			"label": "u_TFWJoinFilial"
+		},
+		{
+			"label": "u_TesteMatxfis"
+		},
+		{
+			"label": "sigafis"
+		}
+	],
+	"lastProgramExecuted": "sigafis"
+}
