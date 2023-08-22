@@ -4,7 +4,7 @@
 
 O fluxograma é uma forma de representação de algoritmos que utiliza figuras geométricas para representar as etapas do algoritmo. O fluxograma é uma forma de representação de algoritmos que é padronizada, ou seja, existe uma regra que define como um algoritmo deve ser escrito em fluxograma.
 
-![Fluxograma](./imagens/fluxo.png)
+![Fluxograma](./imagens/Fluxo.png)
 
 ### Convenções
 
