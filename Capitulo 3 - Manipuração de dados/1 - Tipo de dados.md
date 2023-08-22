@@ -61,7 +61,7 @@ Exemplo de variável do tipo lógico:
 
 Os tipos de dados primitivos são os tipos de dados que já estão definidos na linguagem de programação.
 
-#### Tipos de dados primitivos do ADVPL
+#### Tipos de dados do ADVPL
 
 | Tipo de dado | Descrição | Indicador |Exemplo |
 | --- | --- | --- | --- |
@@ -75,11 +75,11 @@ Os tipos de dados primitivos são os tipos de dados que já estão definidos na 
 | variadic | Armazena um número variável de parâmetros | V | { || ... } |
 
 
-#### Tipos de dados primitivos do TlPP
+#### Tipos de dados do TlPP
 
 ![Alt text](./Imagens/Tipo_Tlpp.png)
 
-#### Tipos de dados Primitivos python
+#### Tipos de dados python
 
 | Tipo de dado | Descrição | Indicador |Exemplo |
 | --- | --- | --- | --- |
@@ -91,6 +91,58 @@ Os tipos de dados primitivos são os tipos de dados que já estão definidos na 
 | tuple | Armazena uma tupla | A | (1,2,3) |
 | dict | Armazena um dicionário | O | {1:2, 3:4} |
 | complex | Armazena um número complexo | N | 1+2j |
+
+
+### Tipos de dados primitivos e não primitivos
+
+Vamos usar o JavaScript como exemplo, pois é uma linguagem de programação que possui tipos de dados primitivos e não primitivos.
+
+Em JavaScript, existem seis tipos de dados primitivos:
+
+- Números
+- Strings
+- Booleanos
+- Booleanos
+- Null
+- Undefined
+
+Os tipos de dados primitivos são os tipos de dados básicos que são usados na linguagem JavaScript. Eles são armazenados na memória como valores, e não como referências. Isso significa que quando você atribui um valor primitivo a uma variável, a variável realmente armazena o valor, e não uma referência para o valor.
+
+Os tipos de dados não primitivos, por outro lado, são armazenados na memória como referências. Isso significa que quando você atribui um valor não primitivo a uma variável, a variável realmente armazena uma referência para o valor, e não o valor em si.
+
+Os tipos de dados não primitivos incluem:
+
+- Objetos
+- Funções
+- Arrays
+
+Os objetos são um tipo de dados complexo que pode armazenar uma variedade de valores, incluindo outros objetos, strings, números e booleanos. As funções são um tipo de dados que podem ser usadas para executar código. Os arrays são um tipo de dados que podem armazenar uma coleção de valores, e cada valor pode ser de um tipo diferente.
+
+Aqui estão alguns exemplos de como os tipos de dados primitivos e não primitivos são usados em JavaScript:
+
+```JavaScript
+// Exemplo de um tipo de dados primitivo
+let myNumber = 10;
+
+// Exemplo de um tipo de dados primitivo
+
+let myString = "Hello World";
+
+// Exemplo de um tipo de dados não primitivo
+let myObject = {
+  "name": "John Doe",
+  "age": 30
+
+// Exemplo de tipo de dado não primitivo
+let aproveitamento = {
+    "nome": "João",
+    "idade": 20,
+    "notas": [10, 9, 8, 7]
+};
+
+```
+
+No primeiro exemplo, a variável myNumber armazena o valor inteiro 10. No terceiro exemplo, a variável myObject armazena um objeto que tem duas propriedades: name e age. A propriedade name tem o valor John Doe e a propriedade age tem o valor 30.
 
 ## Referências
 
