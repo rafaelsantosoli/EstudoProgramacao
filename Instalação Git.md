@@ -32,6 +32,14 @@ Git Bash é um emulador de terminal para Git. O Git Bash permite que os usuário
 10. Execute o comando `git config --global credential.helper store` para salvar o token.
 11. Execute o comando `git config --global credential.helper cache` para salvar o token na memória.
 
+### Definir usuário e email local
+
+1. Abra o Git Bash e execute o comando `git config --global user.name "Seu Nome"` para configurar o nome do usuário.
+2. Execute o comando `git config --global user.email "Seu Email"` para configurar o email do usuário.
+3. Execute o comando `git config --global --list` para verificar as configurações do Git.
+4. Execute o comando `git config --global --unset user.name` para remover a configuração do nome do usuário.
+5. Execute o comando `git config --global --unset user.email` para remover a configuração do email do usuário.
+
 
 ### Clone do repositório
 
