@@ -4,8 +4,7 @@ Podemos definir um tipo de dado como um conjunto de valores e operações que po
 
 Por exemplo, podemos definir seres humanos como um tipo de dado que possui os valores "nome", "idade" e "sexo". Podemos realizar operações com esses valores, como por exemplo, calcular a idade de uma pessoa.
 
-Exemplo de variável do {c:red} tipo ser {/c} humano:
-
+Exemplo de variável do tipo ser humano:
 
 | Descrição | Dado | Tipo do dado |
 | --- | --- | --- |
