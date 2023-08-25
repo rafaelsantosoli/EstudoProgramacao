@@ -150,3 +150,4 @@ No primeiro exemplo, a variável myNumber armazena o valor inteiro 10. No tercei
 - [Tipos Nativos TLPP](https://tdn.totvs.com/display/tec/Tipos+Nativos)
 - [Tipos De Variáveis Disponíveis No Python](https://pythonacademy.com.br/blog/tipos-de-variaveis-no-python)
 - [JavaScript data types and data structures](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Data_structures)
+- [Classificação das Estruturas de Dados - Primitivas e Não primitivas](https://www.youtube.com/watch?v=XDgOANkoS0Q)
