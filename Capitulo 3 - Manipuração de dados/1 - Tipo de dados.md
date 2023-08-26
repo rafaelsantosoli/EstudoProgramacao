@@ -70,9 +70,9 @@ Os tipos de dados primitivos são os tipos de dados que já estão definidos na 
 | date | Armazena uma data | D | CTOD("01/01/2019") |
 | block / codeblock | Armazena um bloco de código | B | { || ... } |
 | logical | Armazena um valor lógico | L | .T. |
-| Array | Armazena um array | A | { || ... } |
-| object | Armazena um objeto | O | { || ... } |
-| variadic | Armazena um número variável de parâmetros | V | { || ... } |
+| Array | Armazena um array | A | { } |
+| object | Armazena um objeto | O |  |
+| variadic | Armazena um número variável de parâmetros | V | { .. } |
 
 
 #### Tipos de dados do TlPP
