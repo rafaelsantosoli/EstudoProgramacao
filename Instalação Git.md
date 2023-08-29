@@ -20,7 +20,7 @@ Git Bash é um emulador de terminal para Git. O Git Bash permite que os usuário
 
 ### Logar no GitHub
 
-1. Acesse o site do [GitHub](
+1. Acesse o site do [GitHub](https://github.com/rafaelsantosoli/EstudoProgramacao)
 2. Clique em "Sign in" e faça login na sua conta.
 3. Clique na sua foto de perfil e depois em "Settings".
 4. Clique em "Developer settings" e depois em "Personal access tokens".
