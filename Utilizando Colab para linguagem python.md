@@ -1,5 +1,6 @@
 # Utilizando Google Colab para linguagem python
 
+
 ## O que é o Google Colab?
 
 O Google Colab é um ambiente de desenvolvimento integrado (IDE) que roda no navegador e permite a criação de notebooks de forma colaborativa. O Colab é baseado no Jupyter Notebook, que é uma aplicação web que permite a criação e compartilhamento de documentos que contém código, equações, visualizações e texto.
