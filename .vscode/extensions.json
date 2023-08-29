@@ -10,6 +10,17 @@
         "yzhang.markdown-all-in-one",
         "davidanson.vscode-markdownlint",
         "pkief.material-icon-theme",
-        "alefragnani.project-manager"
+        "alefragnani.project-manager",
+        "alefragnani.bookmarks",
+        "visualstudioexptteam.vscodeintellicode",
+        "visualstudioexptteam.intellicode-api-usage-examples",
+        "xabikos.javascriptsnippets",
+        "ms-toolsai.jupyter",
+        "ms-python.python",
+        "donjayamanne.python-extension-pack",
+        "clarkyu.vscode-sql-beautify",
+        "humao.rest-client",
+        "redhat.vscode-yaml",
+        "dotjoshjohnson.xml"
     ]
 }

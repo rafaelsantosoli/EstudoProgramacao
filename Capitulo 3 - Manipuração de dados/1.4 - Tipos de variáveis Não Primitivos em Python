@@ -1,0 +1,21 @@
+# Declarando variáveis de tipos lista, tupla, dicionário e conjunto
+
+a = [1, 2, 3] # lista
+b = ("a", "b", "c") # tupla
+c = {"nome": "João", "idade": 30} # dicionário
+d = {1, 2, 3, 4, 5} # conjunto
+
+# Usando os tipos de dados não primitivos em operações
+
+print(a + b)
+# Output: [1, 2, 3, "a", "b", "c"]
+
+print(a[0])
+# Output: 1
+
+print(c["nome"])
+# Output: João
+
+print(d - {2, 3})
+# Output: {1, 4, 5}
+
