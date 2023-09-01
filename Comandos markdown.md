@@ -261,3 +261,109 @@ para colocar um texto em negrito, itálico, sublinhado e tachado usamos `__~~***
 exemplo:
 
 __~~***Texto em negrito, itálico, sublinhado e tachado***~~__
+
+
+Cores no markdown
+
+<a style="color: red">Texto em vermelho</a>
+
+<a style="color: blue">Texto em azul</a>
+
+<a style="color: green">Texto em verde</a>
+
+<a style="color: yellow">Texto em amarelo</a>
+
+<a style="color: orange">Texto em laranja</a>
+
+<a style="color: purple">Texto em roxo</a>
+
+<a style="color: pink">Texto em rosa</a>
+
+<a style="color: brown">Texto em marrom</a>
+
+<a style="color: gray">Texto em cinza</a>
+
+<a style="color: black">Texto em preto</a>
+
+<a style="color: white">Texto em branco</a>
+
+<a style="color: aqua">Texto em aqua</a>
+
+<a style="color: fuchsia">Texto em fuchsia</a>
+
+<a style="color: lime">Texto em lime</a>
+
+<a style="color: maroon">Texto em maroon</a>
+
+<a style="color: navy">Texto em navy</a>
+
+<a style="color: olive">Texto em olive</a>
+
+<a style="color: silver">Texto em silver</a>
+
+<a style="color: teal">Texto em teal</a>
+
+<a style="color: yellowgreen">Texto em yellowgreen</a>
+
+<a style="color: violet">Texto em violet</a>
+
+<a style="color: indigo">Texto em indigo</a>
+
+<a style="color: darkblue">Texto em darkblue</a>
+
+<a style="color: darkcyan">Texto em darkcyan</a>
+
+<a style="color: darkgoldenrod">Texto em darkgoldenrod</a>
+
+<a style="color: darkgray">Texto em darkgray</a>
+
+<a style="color: darkgreen">Texto em darkgreen</a>
+
+<a style="color: darkkhaki">Texto em darkkhaki</a>
+
+<a style="color: darkmagenta">Texto em darkmagenta</a>
+
+<a style="color: darkolivegreen">Texto em darkolivegreen</a>
+
+<a style="color: darkorange">Texto em darkorange</a>
+
+<a style="color: darkorchid">Texto em darkorchid</a>
+
+<a style="color: darkred">Texto em darkred</a>
+
+<a style="color: darksalmon">Texto em darksalmon</a>
+
+<a style="color: darkseagreen">Texto em darkseagreen</a>
+
+cores azuis
+
+<a style="color: aliceblue">Texto em aliceblue</a>
+
+<a style="color: aquamarine">Texto em aquamarine</a>
+
+<a style="color: azure">Texto em azure</a>
+
+<a style="color: blueviolet">Texto em blueviolet</a>
+
+<a style="color: cadetblue">Texto em cadetblue</a>
+
+<a style="color: cornflowerblue">Texto em cornflowerblue</a>
+
+<a style="color: cornsilk">Texto em cornsilk</a>
+
+<a style="color: cyan">Texto em cyan</a>
+
+<a style="color: deepskyblue">Texto em deepskyblue</a>
+
+<a style="color: dodgerblue">Texto em dodgerblue</a>
+
+
+titulos com cores
+
+<h1 style="color: red">Título em vermelho</h1>
+
+<h2 style="color: blue">Título em azul</h2>
+
+<h3 style="color: green">Título em verde</h3>
+
+<h4 style="color: yellow">Título em amarelo</h4>
