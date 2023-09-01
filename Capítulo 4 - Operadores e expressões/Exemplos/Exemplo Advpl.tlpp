@@ -1,0 +1,36 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+
+//Ordem de Precedência dos Operadores
+user Function OperOdern()   
+
+Local nOperacao  := 2+10/2+5*3+2^3
+
+    CONOUT( nOperacao ) // resultado 30
+Return 
+
+//Ordem de Precedência dos Operadores
+user Function OperOdern2()   
+
+Local nOperacao  := (2+10)/(2+5)*3+2^3
+
+    CONOUT( nOperacao ) // resultado 13.14285714
+Return 
+
+User Function TSTEQ()
+    cVar1 := "ABC"
+    cVar2 := "ABCD"
+
+    conout( cVar1 =  cVar2 ) // Falso
+    conout( cVar2 =  cVar1 ) // Verdadeiro 
+    conout( cVar2 == cVar1 ) // Falso
+Return
+
+
+User Function TSTEQ2()
+    cVar1 := "ABC"
+    cVar2 := "ABCD"
+    
+    conout( cVar2 != cVar1 )    // Falso
+    conout( !(cVar2 == cVar1) ) // Verdadeiro
+Return

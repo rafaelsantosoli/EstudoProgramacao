@@ -19,34 +19,18 @@
 			"dpiMode": false,
 			"language": "1",
 			"ignoreFiles": true
-		},
-		{
-			"type": "totvs_language_web_debug",
-			"request": "launch",
-			"name": "Depuração do idioma TOTVS",
-			"program": "${command:AskForProgramName}",
-			"cwb": "${workspaceFolder}",            
-			"smartclientUrl": "http://localhost:8086/webapp",
-			"isMultiSession": true,
-			"enableTableSync": true,
-			"enableMultiThread": true,
-			"ignoreFiles": true,
-			"webNavigator": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe",
 		}
 	],
 	"lastPrograms": [
 		{
-			"label": "u_dbaccess"
+			"label": "u_OrdenOper2"
 		},
 		{
-			"label": "u_TFWJoinFilial"
+			"label": "u_OperOdern"
 		},
 		{
-			"label": "u_TesteMatxfis"
-		},
-		{
-			"label": "sigafis"
+			"label": "u_TSTEQ"
 		}
 	],
-	"lastProgramExecuted": "sigafis"
+	"lastProgramExecuted": "u_TSTEQ"
 }

@@ -147,6 +147,145 @@ c = a == b; # O resultado será false
 
 ## <h2 style="color: dodgerblue">Operadores Lógicos</a>
 
+Os operadores lógicos, também conhecidos como operadores booleanos são utilizados para combinar valores lógicos. O resultado de uma expressão lógica é sempre um valor lógico (verdadeiro ou falso).
+
+Esse tipo de operador é amplamente usado na composição de expressões lógicas que são muito utilizadas nas estruturas de decisão e repetição em um programa. Os operadores lógicos são:
+
+- `E` (do inglês `AND`) - uma expressão desse tipo é verdadeira se todas as condições forem verdadeiras;
+
+- `OU` (do inglês `OR`) - uma expressão desse tipo é verdadeira se pelo menos 
+uma das condições forem verdadeiras;
+
+- `NÃO` (do inglês `NOT`) - uma expressão desse tipo inverte o valor da expressão 
+ou condição, se verdadeira inverte para falsa e vice-versa.
+
+O resultado de uma operação lógica vai depender dos valores dos termos 
+submetidos. A seguir é apresentada uma tabela com os tipos de dados resultantes de cada operador.
+
+![Operadores Lógicos](./Imagens/operador_logico.png)
+
+O quadro a seguir mostra a prioridade do uso dos operadores lógicos:
+
+![Prioridade](./Imagens/operador_logico_prioridade.png)
+
+Por exemplo, na expressão:
+(A=B) .OU. .NÃO. (A<9)
+Devemos avaliar primeiro: .NÃO. (A<9).
+Depois, avaliamos: (A=B) .OU. (resultado da expressão anterior).
+
+Exemplo:
+
+```Python
+
+a = 10 > 20 and 20 > 10; # O resultado será false
+
+b = 10 > 20 or 20 > 10; # O resultado será true
+
+c = not 10 > 20; # O resultado será true
+
+```
+
 ## <h2 style="color: dodgerblue">Operador de concatenação</a>
 
+O operador de concatenação é utilizado para juntar dois valores ou variáveis do tipo texto (String) em uma única string. O resultado da concatenação é uma string que contém os caracteres das duas strings concatenadas. O operador de concatenação é binário, ou seja, atua sobre dois termos. O operador de concatenação é utilizado em linguagens de programação para a concatenação de strings. O símbolo para o operador de concatenação é o sinal de adição (+).
+
+Exemplo:
+
+```Python
+
+a = "Hello" + "World"; # O resultado será "HelloWorld"
+
+b = "Hello" + " " + "World"; # O resultado será "Hello World"
+
+c = "Hello" + 10; # O resultado será "Hello10"
+
+d = 10 + "Hello"; # O resultado será "10Hello"
+
+```
+
 ## <h2 style="color: dodgerblue">Operador de atribuição</a>
+
+O operador de atribuição é utilizado para atribuir um valor a uma variável. O operador de atribuição é binário, ou seja, atua sobre dois termos. O símbolo para o operador de atribuição é o sinal de igual (=).
+
+Exemplo:
+
+```Python
+
+a = 10; # A variável a recebe o valor 10
+
+b = 20; # A variável b recebe o valor 20
+
+c = a + b; # A variável c recebe o valor 30
+
+```
+
+
+## <h2 style="color: dodgerblue">Operadores de incremento e decremento</a>
+
+Os operadores de incremento e decremento são utilizados para incrementar ou decrementar o valor de uma variável. O operador de incremento é unário, ou seja, atua sobre um único termo. O operador de incremento é utilizado para incrementar o valor de uma variável em uma unidade. O operador de decremento é utilizado para decrementar o valor de uma variável em uma unidade. O símbolo para o operador de incremento é o sinal de mais (+). O símbolo para o operador de decremento é o sinal de menos (-).
+
+Exemplo:
+
+```Python
+
+a = 10; # A variável a recebe o valor 10
+
+a++; # A variável a recebe o valor 11
+
+a--; # A variável a recebe o valor 10
+
+```
+
+## <h2 style="color: dodgerblue">Operadores de atribuição combinados</a>
+
+Os operadores de atribuição combinados são utilizados para atribuir um valor a uma variável e realizar uma operação aritmética ao mesmo tempo. O operador de atribuição combinado é binário, ou seja, atua sobre dois termos. O símbolo para o operador de atribuição combinado é o sinal de igual seguido do operador aritmético desejado.
+
+Exemplo:
+
+```Python
+
+a = 10; # A variável a recebe o valor 10
+
+a += 20; # A variável a recebe o valor 30
+
+a -= 10; # A variável a recebe o valor 20
+
+a *= 2; # A variável a recebe o valor 40
+
+a /= 2; # A variável a recebe o valor 20
+
+```
+
+## <h2 style="color: dodgerblue">Operadores de igualdade e diferença</a>
+
+Os operadores de igualdade e diferença são utilizados para comparar dois valores. O resultado de uma expressão de igualdade ou diferença é sempre um valor lógico (verdadeiro ou falso). O operador de igualdade é binário, ou seja, atua sobre dois termos. O operador de diferença é binário, ou seja, atua sobre dois termos. O símbolo para o operador de igualdade é o sinal de igual seguido do sinal de igual. O símbolo para o operador de diferença é o sinal de exclamação seguido do sinal de igual.
+
+Exemplo:
+
+```Python
+
+a = 10; # A variável a recebe o valor 10
+
+b = 20; # A variável b recebe o valor 20
+
+c = a == b; # O resultado será false
+
+d = a != b; # O resultado será true
+
+```
+
+## Recomendação de leitura
+
+- [Operadores Aritméticos e Lógicos em Python](https://pythonacademy.com.br/blog/operadores-aritmeticos-e-logicos-em-python)
+
+- [Expressões e operadores em JavaScript](https://developer.mozilla.org/pt-BR/docs/Web/JavaScript/Guide/Expressions_and_Operators)
+
+- [Operadores da linguagem ADVPL/TLPP](https://tdn.totvs.com/display/tec/Operadores+da+linguagem)
+
+- [Operadores lógicos e matemáticos da linguagem Java](https://www.devmedia.com.br/operadores-logicos-e-matematicos-da-linguagem-java/25248)
+
+## Referências
+
+- [Operadores e Expressões](https://www.ibm.com/docs/pt-br/tcamfma/6.3.0?topic=tesl-operators-expressions)
+- [Operadores Aritméticos e Lógicos em Python](https://pythonacademy.com.br/blog/operadores-aritmeticos-e-logicos-em-python)
+- [Operadores Lógicos - AND, OR e NOT](https://www.pythonprogressivo.net/2018/02/Operadores-logicos-AND-OR-NOT.html)
