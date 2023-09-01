@@ -197,9 +197,9 @@ a = "Hello" + "World"; # O resultado será "HelloWorld"
 
 b = "Hello" + " " + "World"; # O resultado será "Hello World"
 
-c = "Hello" + 10; # O resultado será "Hello10"
+c = "Hello" + "10"; # O resultado será "Hello10"
 
-d = 10 + "Hello"; # O resultado será "10Hello"
+d = "10" + "Hello"; # O resultado será "10Hello"
 
 ```
 
