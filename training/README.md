@@ -71,4 +71,9 @@ git reset —soft —mixed —hard  + **Ref**
 **esc : wq**
 
 * git status
-* git push --set-upstream origin edinei
+* git push --set-upstream origin Edinei
+
+## Estudo na Pratica do Capitulo 4
+* Imersão geral em todo material
+* Resolução dos exercícios propostos 
+* Subida para a Branch especifica no GitHub

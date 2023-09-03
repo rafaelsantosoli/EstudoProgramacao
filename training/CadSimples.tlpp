@@ -1,0 +1,62 @@
+
+/* 
+    Utilizando linguagem de programação de sua preferência, 
+    ou pseudocódigo, escreva um programa que leia o nome, 
+    a idade e o sexo de uma pessoa e imprima as informações na tela.
+*/
+
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+
+#DEFINE CRLF Chr(13) + Chr(10) // Define um caractere de quebra de linha
+
+
+ /*/{Protheus.doc} nomeFunction
+    (long_description)
+    @type  Function
+    @author user
+    @since 02/09/2023
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+User Function CadastroSimples()
+    Local cNome  as character
+    Local nIdade as numeric
+    Local cSexo  as character
+    Local cMsg   as character
+
+    cNome  := "João"
+    nIdade := 20
+    cSexo  := "Masculino"
+
+    CONOUT( cNome )
+    CONOUT( nIdade )
+    CONOUT( cSexo )
+
+    If cSexo = "Masculino" 
+        CONOUT( "Homem" )
+    Else
+        CONOUT( "Mulher" )
+    End
+
+    If nIdade >= 18
+        CONOUT( "Maior de Idade" )
+    Else
+        CONOUT( "Menor de Idade" )
+    End
+
+    If cNome = "João"
+        CONOUT( "O nome e? João" )
+    Else
+        CONOUT( "O nome na?o e? João" )
+    End
+
+      cMsg:= "Nome: " + cNome + CRLF + "Idade: " + cValTochar(nIdade) + CRLF + "Sexo: " + cSexo
+	
+    MsgInfo(cMsg, "Cadastro Simples")
+    
+Return
