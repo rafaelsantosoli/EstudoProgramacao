@@ -1,0 +1,155 @@
+<mxfile host="65bd71144e">
+    <diagram id="Z2gxNHxXA9Y2QVVbImBF" name="B">
+        <mxGraphModel dx="577" dy="569" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="5" value="" style="edgeStyle=none;html=1;" parent="1" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="270" y="90" as="sourcePoint"/>
+                        <mxPoint x="270" y="110" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="12" style="edgeStyle=none;html=1;entryX=-0.05;entryY=0.633;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="10" target="34" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="210" y="125" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="120" y="380"/>
+                            <mxPoint x="120" y="140"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="14" value="" style="edgeStyle=none;html=1;" parent="1" source="10" target="13" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="10" value="Números são Validos?" style="rhombus;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="340" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="16" value="" style="edgeStyle=none;html=1;" parent="1" source="13" target="15" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="13" value="Some as três notas e divida por três" style="whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="210" y="460" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="31" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" source="15" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="380" y="630" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="380" y="580"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="32" style="edgeStyle=none;html=1;entryX=0.442;entryY=0.013;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="15" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="173.03999999999996" y="631.04" as="targetPoint"/>
+                        <Array as="points">
+                            <mxPoint x="173" y="580"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="15" value="Resultado é maior que 7?" style="rhombus;whiteSpace=wrap;html=1;direction=south;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="540" width="80" height="80" as="geometry"/>
+                </mxCell>
+                <mxCell id="17" value="Não" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="350" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="18" value="Sim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="260" y="420" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="30" value="" style="edgeStyle=none;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" parent="1" target="10" edge="1">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="270" y="320" as="sourcePoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="38" value="" style="edgeStyle=none;html=1;" parent="1" source="34" target="37" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="34" value="Digite nota 1" style="shape=manualInput;whiteSpace=wrap;html=1;verticalAlign=bottom;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="100" width="80" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="40" value="" style="edgeStyle=none;html=1;" parent="1" source="37" target="39" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="37" value="Digite nota 2" style="shape=manualInput;whiteSpace=wrap;html=1;verticalAlign=bottom;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="180" width="80" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="39" value="Digite nota 3" style="shape=manualInput;whiteSpace=wrap;html=1;verticalAlign=bottom;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="260" width="80" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="48" style="edgeStyle=none;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="41" target="47" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="41" value="Aprovado" style="shape=display;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="130" y="630" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="49" style="edgeStyle=none;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" parent="1" source="42" target="47" edge="1">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="42" value="Reprovado" style="shape=display;whiteSpace=wrap;html=1;" parent="1" vertex="1">
+                    <mxGeometry x="334" y="630" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="43" value="Sim" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="160" y="555" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="44" value="Não" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+                    <mxGeometry x="330" y="555" width="60" height="30" as="geometry"/>
+                </mxCell>
+                <mxCell id="47" value="Fim" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="230" y="680" width="80" height="40" as="geometry"/>
+                </mxCell>
+                <mxCell id="50" value="Inicio" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" parent="1" vertex="1">
+                    <mxGeometry x="225" y="40" width="90" height="40" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+    <diagram id="aunRBquT-nBcSmTOPC7o" name="A">
+        <mxGraphModel dx="577" dy="569" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-4" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="PDj9KsPCws1lEHb0P5cP-1" target="PDj9KsPCws1lEHb0P5cP-2">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-1" value="Inicio" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.start_1;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="20" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-6" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="PDj9KsPCws1lEHb0P5cP-2" target="PDj9KsPCws1lEHb0P5cP-5">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-2" value="Digite um número" style="html=1;strokeWidth=2;shape=manualInput;whiteSpace=wrap;rounded=1;size=26;arcSize=11;verticalAlign=bottom;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="120" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-11" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="PDj9KsPCws1lEHb0P5cP-5">
+                    <mxGeometry relative="1" as="geometry">
+                        <mxPoint x="270" y="300" as="targetPoint"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-5" value="soma = Sobre número digitado some 1" style="whiteSpace=wrap;html=1;verticalAlign=bottom;strokeWidth=2;rounded=1;arcSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="210" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-14" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="PDj9KsPCws1lEHb0P5cP-9" target="PDj9KsPCws1lEHb0P5cP-13">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-9" value="subtração = Sobre número digitado subtraia 1" style="whiteSpace=wrap;html=1;verticalAlign=bottom;strokeWidth=2;rounded=1;arcSize=11;" vertex="1" parent="1">
+                    <mxGeometry x="210" y="300" width="120" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-16" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="PDj9KsPCws1lEHb0P5cP-13" target="PDj9KsPCws1lEHb0P5cP-15">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-13" value="Imprima soma" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="400" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-18" value="" style="edgeStyle=none;html=1;" edge="1" parent="1" source="PDj9KsPCws1lEHb0P5cP-15" target="PDj9KsPCws1lEHb0P5cP-17">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-15" value="Imprima subtração" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.document2;whiteSpace=wrap;size=0.25;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="490" width="100" height="60" as="geometry"/>
+                </mxCell>
+                <mxCell id="PDj9KsPCws1lEHb0P5cP-17" value="Fim" style="strokeWidth=2;html=1;shape=mxgraph.flowchart.terminator;whiteSpace=wrap;" vertex="1" parent="1">
+                    <mxGeometry x="220" y="600" width="100" height="60" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

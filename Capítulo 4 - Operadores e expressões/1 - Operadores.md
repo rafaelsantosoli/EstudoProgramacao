@@ -145,6 +145,41 @@ c = a == b; # O resultado será false
 
 ```
 
+Linguagens que arredondam para cima ou para baixo podem apresentar resultados diferentes para a expressão acima. Por exemplo, em Python, o resultado será true, pois a linguagem arredonda para baixo. Outras linguagens, como C ou Pascal, arredondam para cima, e o resultado será false.
+
+Exemplo:
+
+```C
+
+float a = 1.0/3.0 + 1.0/3.0 + 1.0/3.0;
+
+int b = 1;
+
+int c = a == b; // O resultado será false
+
+```
+
+Linguagens que arredondam para cima:
+
+- C
+- Pascal
+- Java
+- JavaScript
+- PHP
+- C#
+- C++
+
+Linguagens que arredondam para baixo:
+
+- Python
+- Ruby
+- Perl
+- Lua
+- BASIC
+- Fortran
+- COBOL
+
+
 ## <h2 style="color: dodgerblue">Operadores Lógicos</a>
 
 Os operadores lógicos, também conhecidos como operadores booleanos são utilizados para combinar valores lógicos. O resultado de uma expressão lógica é sempre um valor lógico (verdadeiro ou falso).

@@ -21,6 +21,7 @@
         "clarkyu.vscode-sql-beautify",
         "humao.rest-client",
         "redhat.vscode-yaml",
-        "dotjoshjohnson.xml"
+        "dotjoshjohnson.xml",
+        "hediet.vscode-drawio"
     ]
 }
