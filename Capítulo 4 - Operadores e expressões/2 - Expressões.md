@@ -1,5 +1,9 @@
 # Expressões
 
+## Índice
+
+
+
 ## Conceito de expressão
 
 O conceito de expressão, em termos computacionais, está intimamente ligado ao conceito de expressão (ou fórmula) usado na matemática, na qual 
@@ -202,6 +206,22 @@ Tabela Completa de prioridade de avaliação de operadores:
 | OR | Disjunção lógica | 3 |
 | ( ) | Parênteses | 0 |
 
+A ordem de avaliação de uma expressão e seus operadores em uma linguagem de programação é um conceito importante para entender como os valores e as operações são processados em uma expressão. Existem dois principais tipos de ordem de avaliação: a ordem de precedência dos operadores e a ordem de avaliação dos operandos.
+
+Ordem de Precedência dos Operadores:
+
+A ordem de precedência dos operadores define a prioridade de cada operador em relação aos outros. Isso significa que alguns operadores têm precedência sobre outros e serão avaliados antes.
+Em muitas linguagens de programação, os operadores aritméticos têm uma ordem de precedência comum. Por exemplo, em muitas linguagens, a multiplicação (*) e a divisão (/) têm maior precedência do que a adição (+) e a subtração (-). Isso significa que as operações de multiplicação e divisão são avaliadas antes das operações de adição e subtração.
+Parênteses podem ser usados para alterar a ordem de precedência, forçando a avaliação de uma parte específica da expressão antes das outras.
+
+Por exemplo, na expressão `2 + 3 * 4`, a multiplicação tem precedência sobre a adição, então a expressão é avaliada como `2 + (3 * 4)`, resultando em 14.
+Ordem de Avaliação dos Operandos:
+
+A ordem de avaliação dos operandos se refere à sequência em que os valores ou expressões são avaliados dentro de um operador.
+Na maioria das linguagens de programação, os operandos são avaliados da esquerda para a direita. Isso significa que, em uma expressão como `a + b + c`, primeiro a e b são avaliados e somados, e depois o resultado é somado a c.
+No entanto, algumas linguagens podem ter regras diferentes para a ordem de avaliação dos operandos. É importante consultar a documentação da linguagem específica para entender as regras exatas.
+Em resumo, a ordem de avaliação de uma expressão é determinada pela ordem de precedência dos operadores e pela ordem de avaliação dos operandos, seguindo as regras estabelecidas pela linguagem de programação em uso. É importante entender essas regras para garantir que as expressões sejam avaliadas corretamente e produzam os resultados desejados.
+
 Exemplos de avaliação de expressões:
 
 Avaliação de expressões aritméticas
@@ -272,5 +292,39 @@ let d = a + b + c; // 60
 let e = (a + b) * c; // 900
 
 let f = a * b + c; // 230
+
+```
+
+## Erros comuns na avaliação de expressões
+
+A avaliação de expressões em programação pode ser suscetível a diversos erros comuns, que podem afetar o resultado ou o funcionamento do código. Aqui estão alguns erros comuns na avaliação de expressões:
+
+1. Ordem de Precedência dos Operadores Mal Entendida: Não entender a ordem de precedência dos operadores pode levar a resultados incorretos. Por exemplo, misturar operadores aritméticos sem considerar sua prioridade pode causar resultados inesperados.
+
+Exemplo de erro:
+
+```javascript
+
+let result = 2 + 3 * 4; // Se não entender a precedência, pode-se esperar um resultado de 20 em vez de 14.
+
+```
+
+2. Esquecimento de Parênteses: Não usar parênteses quando necessário pode levar a erros de precedência ou de avaliação. Os parênteses são usados para forçar a ordem de avaliação.
+
+Exemplo de erro:
+
+```javascript
+
+let result = 2 + (3 * 4); // Usar parênteses para garantir a precedência correta. O resultado é 14.
+
+```
+
+3. Divisão por Zero: Dividir por zero é um erro comum que pode causar falhas no programa. A maioria das linguagens de programação não permite a divisão por zero e lançará um erro se isso ocorrer.
+
+Exemplo de erro:
+
+```javascript
+
+let result = 2 / 0; // Dividir por zero é um erro comum que pode causar falhas no programa.
 
 ```
