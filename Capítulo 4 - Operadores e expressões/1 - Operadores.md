@@ -82,6 +82,7 @@ Via de regra, as expressões devem ser calculadas da esquerda para a direita, ob
 É importante salientar que maioria das linguagens de programação o tipo de dado resultante depende dos tipos de dados dos termos envolvidos na expressão. Por exemplo, se um dos termos for do tipo string, o resultado será uma concatenação de strings. Se um dos termos for do tipo float, o resultado será um float. Se um dos termos for do tipo inteiro, o resultado será um inteiro.
 
 ![Operadores aritméticos](./Imagens/Resultado_operadores1.png)
+
 ![Operadores aritméticos](./Imagens/Resultado_operadores2.png)
 
 Exemplo:
