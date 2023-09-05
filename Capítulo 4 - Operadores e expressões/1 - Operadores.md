@@ -1,3 +1,20 @@
+Índice
+
+- [Operadores ](#operadores-)
+  - [ Operadores Unários  ](#-operadores-unários--)
+  - [Operadores Binários](#operadores-binários)
+  - [Operadores Ternários](#operadores-ternários)
+  - [Operadores Aritméticos](#operadores-aritméticos)
+  - [Operadores Relacionais](#operadores-relacionais)
+  - [Operadores Lógicos](#operadores-lógicos)
+  - [Operador de concatenação](#operador-de-concatenação)
+  - [Operador de atribuição](#operador-de-atribuição)
+  - [Operadores de incremento e decremento](#operadores-de-incremento-e-decremento)
+  - [Operadores de atribuição combinados](#operadores-de-atribuição-combinados)
+  - [Operadores de igualdade e diferença](#operadores-de-igualdade-e-diferença)
+  - [Recomendação de leitura](#recomendação-de-leitura)
+  - [Referências](#referências)
+
 # <h2 style="color: dodgerblue">Operadores </a>
 
 Operadores são elementos funcionais que atuam sobre termos (também chamados de operandos) e produzem um determinado resultado.
