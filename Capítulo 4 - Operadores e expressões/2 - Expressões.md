@@ -2,7 +2,14 @@
 
 ## Índice
 
-
+- [Expressões](#expressões)
+  - [Índice](#índice)
+  - [Conceito de expressão](#conceito-de-expressão)
+  - [Expressões aritméticas](#expressões-aritméticas)
+  - [Expressões lógicas](#expressões-lógicas)
+  - [Expressões de atribuição](#expressões-de-atribuição)
+  - [Expressões de avaliação](#expressões-de-avaliação)
+  - [Erros comuns na avaliação de expressões](#erros-comuns-na-avaliação-de-expressões)
 
 ## Conceito de expressão
 
