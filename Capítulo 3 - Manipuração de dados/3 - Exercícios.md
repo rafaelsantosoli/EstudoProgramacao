@@ -58,3 +58,5 @@ OBS: Utilize a uma das ferramentas:
 ## Exercício 5
 
 Utilizando linguagem de programação de sua preferência, ou pseudocódigo, escreva um programa que leia o nome, a idade e o sexo de uma pessoa e imprima as informações na tela.
+
+Teste
