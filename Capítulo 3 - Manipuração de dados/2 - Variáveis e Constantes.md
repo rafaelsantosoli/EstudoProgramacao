@@ -1,5 +1,15 @@
 # Variáveis e constantes
 
+## Índice
+
+- [Variáveis e constantes](#variáveis-e-constantes)
+  - [Índice](#índice)
+  - [Armazenamento de dados na memória](#armazenamento-de-dados-na-memória)
+  - [Conceito e utilidade de variáveis](#conceito-e-utilidade-de-variáveis)
+  - [Definição de variáveis em algoritmos](#definição-de-variáveis-em-algoritmos)
+  - [Conceito e utilidade de constantes](#conceito-e-utilidade-de-constantes)
+  - [Referências](#referências)
+
 ## Armazenamento de dados na memória
 
 Para armazenar os dados na memória, imagine que a memória de um computador é um grande arquivo com várias gavetas, onde cada gaveta pode armazenar apenas um único valor (seja ele numérico, caractere ou lógico).

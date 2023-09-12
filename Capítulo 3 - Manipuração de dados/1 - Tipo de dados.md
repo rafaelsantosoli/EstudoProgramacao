@@ -1,4 +1,24 @@
-# Tipos de dados
+# Estrutura de dados
+
+## Índice
+
+- [Estrutura de dados](#estrutura-de-dados)
+  - [Índice](#índice)
+  - [Tipos de dados](#tipos-de-dados)
+  - [Tipos inteiros](#tipos-inteiros)
+  - [Tipos reais](#tipos-reais)
+  - [Tipos Caractere](#tipos-caractere)
+  - [Tipos lógicos](#tipos-lógicos)
+    - [Tipos de dados primitivos](#tipos-de-dados-primitivos)
+      - [Tipos de dados do ADVPL](#tipos-de-dados-do-advpl)
+      - [Tipos de dados do TlPP](#tipos-de-dados-do-tlpp)
+      - [Tipos de dados python](#tipos-de-dados-python)
+    - [Tipos de dados primitivos e não primitivos](#tipos-de-dados-primitivos-e-não-primitivos)
+    - [Tipos de variáveis "Primitivos" em Python](#tipos-de-variáveis-primitivos-em-python)
+    - [Tipos de variáveis Não "Primitivos" em Python](#tipos-de-variáveis-não-primitivos-em-python)
+  - [Referências](#referências)
+
+## Tipos de dados
 
 Podemos definir um tipo de dado como um conjunto de valores e operações que podem ser realizadas com esses valores. Os tipos de dados são utilizados para definir o tipo de dado que será armazenado em uma variável.
 

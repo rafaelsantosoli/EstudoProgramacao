@@ -1,3 +1,20 @@
+Índice
+
+- [Operadores ](#operadores-)
+  - [ Operadores Unários  ](#-operadores-unários--)
+  - [Operadores Binários](#operadores-binários)
+  - [Operadores Ternários](#operadores-ternários)
+  - [Operadores Aritméticos](#operadores-aritméticos)
+  - [Operadores Relacionais](#operadores-relacionais)
+  - [Operadores Lógicos](#operadores-lógicos)
+  - [Operador de concatenação](#operador-de-concatenação)
+  - [Operador de atribuição](#operador-de-atribuição)
+  - [Operadores de incremento e decremento](#operadores-de-incremento-e-decremento)
+  - [Operadores de atribuição combinados](#operadores-de-atribuição-combinados)
+  - [Operadores de igualdade e diferença](#operadores-de-igualdade-e-diferença)
+  - [Recomendação de leitura](#recomendação-de-leitura)
+  - [Referências](#referências)
+
 # <h2 style="color: dodgerblue">Operadores </a>
 
 Operadores são elementos funcionais que atuam sobre termos (também chamados de operandos) e produzem um determinado resultado.
@@ -65,6 +82,7 @@ Via de regra, as expressões devem ser calculadas da esquerda para a direita, ob
 É importante salientar que maioria das linguagens de programação o tipo de dado resultante depende dos tipos de dados dos termos envolvidos na expressão. Por exemplo, se um dos termos for do tipo string, o resultado será uma concatenação de strings. Se um dos termos for do tipo float, o resultado será um float. Se um dos termos for do tipo inteiro, o resultado será um inteiro.
 
 ![Operadores aritméticos](./Imagens/Resultado_operadores1.png)
+
 ![Operadores aritméticos](./Imagens/Resultado_operadores2.png)
 
 Exemplo:
@@ -144,6 +162,41 @@ b = 1;
 c = a == b; # O resultado será false
 
 ```
+
+Linguagens que arredondam para cima ou para baixo podem apresentar resultados diferentes para a expressão acima. Por exemplo, em Python, o resultado será true, pois a linguagem arredonda para baixo. Outras linguagens, como C ou Pascal, arredondam para cima, e o resultado será false.
+
+Exemplo:
+
+```C
+
+float a = 1.0/3.0 + 1.0/3.0 + 1.0/3.0;
+
+int b = 1;
+
+int c = a == b; // O resultado será false
+
+```
+
+Linguagens que arredondam para cima:
+
+- C
+- Pascal
+- Java
+- JavaScript
+- PHP
+- C#
+- C++
+
+Linguagens que arredondam para baixo:
+
+- Python
+- Ruby
+- Perl
+- Lua
+- BASIC
+- Fortran
+- COBOL
+
 
 ## <h2 style="color: dodgerblue">Operadores Lógicos</a>
 
