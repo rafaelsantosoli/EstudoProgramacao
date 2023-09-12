@@ -4,6 +4,14 @@
 //Ordem de Precedência dos Operadores
 user Function MathTest()   
 
+    Numero1 = 10
+    numero2 = 20
+
+    // Retorna a raiz quadrada
+    Sqrt(10) // retorna 3.1622776601683795
+
+    /*
+
     // Retorna o valor absoluto de uma expressão    
     CONOUT( Abs(-10) ) // retorna 10
 
@@ -28,5 +36,5 @@ user Function MathTest()
 
     // Retorna a raiz quadrada
     Sqrt(10) // retorna 3.1622776601683795
-
+    */
 return

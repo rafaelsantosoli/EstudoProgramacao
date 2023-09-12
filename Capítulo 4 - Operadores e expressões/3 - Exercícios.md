@@ -30,10 +30,10 @@ Resposta:
 
 Qual o valor final das variáveis A e B, após a execução das instruções abaixo ?
 
-A ← 3
-B ← A*5
-A ← B DIV 2
-B ← A – 10
+- A ← 3
+- B ← A*5
+- A ← B DIV 2
+- B ← A – 10
 
 Resposta:
 
