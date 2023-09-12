@@ -1,13 +1,13 @@
 # Introdução a instruções primitivas
 
-Como o próprio nome diz, instruções primitivas são os comandos básicos que efetuam tarefas essenciais para a operação dos computadores, como entrada e saída de dados (comunicação com o usuário e com dispositivos periféricos), e movimentação dos mesmos na memória.
+Como o próprio nome diz, instruções primitivas são os comandos básicos que efetuam tarefas essenciais para a operação dos computadores, como `entrada` e `saída` de dados (comunicação com o usuário e com dispositivos periféricos), e movimentação dos mesmos na memória.
 
 Para entendermos a definição das instruções primitivas, precisamos definir alguns termos:
 
-- Dispositivo de entrada é o meio pelo qual as informações (mais especificamente os dados) são transferidas pelo usuário ou pelos níveis secundários de memória ao computador. Os exemplos mais comuns são o teclado, o mouse, leitora ótica, leitora de código de barras, as fitas e discos magnéticos.
-- Dispositivo de saída é o meio pelo qual as informações (geralmente os resultados da execução de um programa) são transferidas pelo computador ao usuário ou aos níveis secundários de memória. Os exemplos mais comuns são o monitor de vídeo, impressora, fitas e discos magnéticos.
-- Sintaxe é a forma como os comandos devem ser escritos, a fim de que possam ser entendidos pelo tradutor de programas. A violação das regras sintáticas é considerada um erro sujeito à pena do não reconhecimento por parte do tradutor.
-- Semântica é o significado, ou seja, o conjunto de ações que serão exercidas pelo computador durante a execução do referido comando.
+- `Dispositivo de entrada` é o meio pelo qual as informações (mais especificamente os dados) são transferidas pelo usuário ou pelos níveis secundários de memória ao computador. Os exemplos mais comuns são o teclado, o mouse, leitora ótica, leitora de código de barras, as fitas e discos magnéticos.
+- `Dispositivo de saída` é o meio pelo qual as informações (geralmente os resultados da execução de um programa) são transferidas pelo computador ao usuário ou aos níveis secundários de memória. Os exemplos mais comuns são o monitor de vídeo, impressora, fitas e discos magnéticos.
+- `Sintaxe` é a forma como os comandos devem ser escritos, a fim de que possam ser entendidos pelo tradutor de programas. A violação das regras sintáticas é considerada um erro sujeito à pena do não reconhecimento por parte do tradutor.
+- `Semântica` é o significado, ou seja, o conjunto de ações que serão exercidas pelo computador durante a execução do referido comando.
 
 As instruções de uma linguagem de programação sempre serão executadas em sequência. Portanto, podemos considerar o processo de construção de um algoritmo como o encadeamento de instruções individuais que, em seu conjunto, formarão o algoritmo.
 
