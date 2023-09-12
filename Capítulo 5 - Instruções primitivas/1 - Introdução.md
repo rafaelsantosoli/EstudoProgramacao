@@ -150,8 +150,9 @@ console.log(Math.sqrt(10)) // retorna 3.1622776601683795
 
 Em Advpl e TLPP algumas funções matemáticas:
 
-[Matemáticas](https://tdn.totvs.com/pages/viewpage.action?pageId=6063872)
-[Trigonométricas](https://tdn.totvs.com/pages/viewpage.action?pageId=6063885)
+- [Matemáticas](https://tdn.totvs.com/pages/viewpage.action?pageId=6063872)
+
+- [Trigonométricas](https://tdn.totvs.com/pages/viewpage.action?pageId=6063885)
 
 
 ``` C
