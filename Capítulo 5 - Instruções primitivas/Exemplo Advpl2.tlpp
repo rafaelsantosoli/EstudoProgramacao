@@ -1,0 +1,32 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+
+//Ordem de Precedência dos Operadores
+user Function MathTest()   
+
+    // Retorna o valor absoluto de uma expressão    
+    CONOUT( Abs(-10) ) // retorna 10
+
+    // Retorna o arco de tangente do argumento utilizado    
+    CONOUT( Atan(10) ) // retorna 1.4711276743037347    
+
+    // Retorna o valor do co-seno
+    CONOUT( Cos(10) ) // retorna -0.8390715290764524    
+
+    // Retorna o valor exponencial
+    CONOUT( Exp(10) ) // retorna 22026.465794806718        
+
+    // Retorna o logaritmo natural
+    CONOUT( Log(10) ) // retorna 2.302585092994046    
+
+    // Retorna o valor do seno
+    CONOUT( Sin(10) ) // retorna -0.5440211108893698    
+
+    // Retorna o parâmetro elevado ao quadrado.
+    CONOUT( Sqrt(10) ) // retorna 100
+    Pow(10, 2) // retorna 100.0
+
+    // Retorna a raiz quadrada
+    Sqrt(10) // retorna 3.1622776601683795
+
+return

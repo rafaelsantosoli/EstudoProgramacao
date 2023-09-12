@@ -30,7 +30,13 @@
 		},
 		{
 			"label": "u_TSTEQ"
+		},
+		{
+			"label": "u_TestMath"
+		},
+		{
+			"label": "u_MathTest"
 		}
 	],
-	"lastProgramExecuted": "u_TSTEQ"
+	"lastProgramExecuted": "u_MathTest"
 }
