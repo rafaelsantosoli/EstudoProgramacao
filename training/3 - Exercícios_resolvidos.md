@@ -4,7 +4,7 @@
 
 Sobre o uso de variáveis e constantes em um algoritmo é incorreto afirmar que:
 
-- a) toda informação manipulada diretamente pelo computador é armazenada na memória principal (RAM) e as variáveis representam referências a posições dessa memória;
+- a) toda informação manipulada diretamente pelo computador é armazenada na memória principal (RAM) e as variáveis representam referências a posições dessa memória; `Correta (pegadinha)`
 - b) o valor de uma variável não pode ser alterado ao longo do programa, mantendo o mesmo valor até o encerramento do programa;
     
     `R: (b) Afirmativa incorreta pois se estiver utilizando uma linguagem de tipagem dinâmica, podemos alterar os tipos de dados atribuídos a variáveis.`
@@ -30,12 +30,12 @@ Assinale com um X os nomes de variáveis válidos
 - (x) abc
 - (x) 3abc
 - (x) a
-- (x) 123a
+- (x) 123a `Errouu`
 - ( ) –a
 - (x) acd1
 - ( ) -_ad
 - ( ) A&a
-- (x) guarda-chuva
+- (x) guarda-chuva `Errouu`
 - (x) A123
 - (x) Aa
 - (x) guarda_chuva

@@ -72,6 +72,13 @@ git reset —soft —mixed —hard  + **Ref**
 
 * git status
 * git push --set-upstream origin Edinei
+* Adição do arquivo Git .gitignore
+  
+   - Criar arquivo .gitignore;
+  -  Colocar o nome dos arquivos ou pastas que vamos ignorar;
+    - Cada um em uma linha;
+    - git rm --cached `nomedoarquivo` // Para remover arquivo do tracker
+
 
 ## Estudo na Pratica do Capitulo 4
 * Imersão geral em todo material
