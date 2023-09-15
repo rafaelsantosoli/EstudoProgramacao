@@ -34,3 +34,9 @@ Fluxograma de programa para cálculo de média
 - [Fluxogramas, diagrama de blocos e de Chapin no desenvolvimento de algoritmos](https://www.devmedia.com.br/fluxogramas-diagrama-de-blocos-e-de-chapin-no-desenvolvimento-de-algoritmos/28550)
 
 - [Wikipedia Fluxograma]([./imagens/fluxo.png](https://pt.wikipedia.org/wiki/Fluxograma))
+
+Ferramentas para criar fluxogramas:
+
+- [MindMeister](https://www.mindmeister.com/pt)
+- [Lucid](https://lucid.co/pt)
+- [draw.io](https://app.diagrams.net/) para criar os fluxogramas.
