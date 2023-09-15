@@ -36,7 +36,19 @@
 		},
 		{
 			"label": "u_MathTest"
+		},
+		{
+			"label": "ConcatSQL"
+		},
+		{
+			"label": "FwExecSQL"
+		},
+		{
+			"label": "u_FwExecSQL"
+		},
+		{
+			"label": "u_TcGenSQL"
 		}
 	],
-	"lastProgramExecuted": "u_MathTest"
+	"lastProgramExecuted": "u_TcGenSQL"
 }
