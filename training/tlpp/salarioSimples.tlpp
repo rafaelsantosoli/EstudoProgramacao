@@ -1,0 +1,32 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+
+#DEFINE CRLF Chr(13) + Chr(10) // Define um caractere de quebra de linha
+
+/*/{Protheus.doc} nomeFunction
+    (long_description)
+    @type  Function
+    @author user
+    @since 17/09/2023
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+User Function salarioSimples()
+
+Local nSalario := 1000, nDesconto := 0.10
+Local nAumento, nSalLiquido
+    CONOUT( nAumento := nSalario * 1.20 ) 
+    CONOUT( nSalLiquido := nAumento * (1-nDesconto) ) 
+    
+Return
+
+User Function TSTEQ()
+cVar1 := "ABC"
+cVar2 := "ABCD"
+    conout( cVar2 != cVar1 )    // Falso
+    conout( !(cVar2 == cVar1) ) // Verdadeiro
+Return
