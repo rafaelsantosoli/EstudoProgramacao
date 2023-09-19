@@ -7,9 +7,19 @@
 			"name": "TOTVS Language Debug",
 			"program": "${command:AskForProgramName}",
 			"cwb": "${workspaceFolder}",
-			"smartclientBin": "../totvs/bin/smartclient/smartclient.exe",
+			"smartclientUrl": "http://localhost:8082/webapp/",
 			"isMultiSession": true,
-			"enableTableSync": true
+			"enableTableSync": true,
+			"webNavigator": "C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe"
 		}
-	]
+	],
+	"lastPrograms": [
+		{
+			"label": "u_salarioSimples"
+		},
+		{
+			"label": "u_TSTEQ"
+		}
+	],
+	"lastProgramExecuted": "u_TSTEQ"
 }
