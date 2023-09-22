@@ -1,0 +1,26 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+
+#DEFINE CRLF Chr(13) + Chr(10) // Define um caractere de quebra de linha
+
+
+/*/{Protheus.doc} User Function nomeFunction
+    (long_description)
+    @type  Function
+    @author user
+    @since 20/09/2023
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+User Function resultadoOperadores()
+    Local nResultado as numeric
+    nResultado := 2+10/2+5*3+2^3
+    CONOUT( nResultado )
+    nResultado := (2+10)/(2+5)*3+2^3 //paretenses atuando com priorização
+    CONOUT( nResultado )
+
+Return
