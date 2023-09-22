@@ -198,10 +198,10 @@ PREPARE ENVIRONMENT EMPRESA "99" FILIAL "01" MODULO "FIS" TABLES "SF1","SD1","SA
     cWhere  += " AND A1_TIPO = '"+cTipo+"' "    + cPulalinha
     cWhere  += " AND A1_EST = '"+cEstado+"' "   + cPulalinha
 
-    cQuery := ChangeQuery(cSelect+cFrom+cWhere)    
+    cQuery := ChangeQuery(cSelect+cFrom+cWhere)
 
     // Imprime query com os parâmetros
-    CONOUT("QUERY PRONTA: ", cQuery, cPulalinha )
+    CONOUT("QUERY PRONTA: ", cQuery, cPulalinha )    
 
     // Executando a query
     cCursor := GetNextAlias()
