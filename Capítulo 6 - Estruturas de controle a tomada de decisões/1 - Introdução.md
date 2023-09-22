@@ -20,6 +20,7 @@ FIMSE
 ```
 
 ![Estrutura se](img/Estrutura_Se.png)
+
 Exemplo da utilização da estrutura se...então...fim_se através de diagrama de blocos.
 
 O comando SE é composto por duas partes: a condição e o bloco de comandos. A condição é uma expressão lógica que pode ser verdadeira ou falsa. Se a condição for verdadeira, o bloco de comandos é executado. Se a condição for falsa, o bloco de comandos é ignorado.
@@ -44,6 +45,7 @@ FIMSE
 ```
 
 ![Decisão composta](img/Decisao_composta.png)
+
 Representação em diagrama de blocos para a estrutura de decisão composta.
 
 O comando SE...SENÃO é composto por três partes: a condição, o bloco de comandos para a condição verdadeira e o bloco de comandos para a condição falsa. A condição é uma expressão lógica que pode ser verdadeira ou falsa. Se a condição for verdadeira, o bloco de comandos para a condição verdadeira é executado. Se a condição for falsa, o bloco de comandos para a condição falsa é executado.
@@ -71,6 +73,7 @@ FIMSE
 ```
 
 ![Decisão encadeada](img/Decisao_encadeada.png)
+
 Representação em diagrama de blocos para a estrutura de decisão encadeada
 
 A instrução de seleção encadeada é composta por três partes: a condição, o bloco de comandos para a condição verdadeira e o bloco de comandos para a condição falsa. A condição é uma expressão lógica que pode ser verdadeira ou falsa. Se a condição for verdadeira, o bloco de comandos para a condição verdadeira é executado. Se a condição for falsa, o bloco de comandos para a condição falsa é executado.
@@ -99,6 +102,7 @@ FIMESCOLHA
 ```
 
 ![Decisão de múltipla escolha](img/Decisao_de_multipa_escolha.png)
+
 Representação em diagrama de blocos para a estrutura de decisão de múltipla escolha.
 
 A instrução de seleção de múltipla escolha é composta por três partes: a variável, os valores e o bloco de comandos para o valor padrão. A variável é uma variável que pode assumir um dos valores especificados. Os valores são os valores que a variável pode assumir. O bloco de comandos para o valor padrão é executado caso a variável não assuma nenhum dos valores especificados.
