@@ -84,3 +84,4 @@ git reset —soft —mixed —hard  + **Ref**
 * Imersão geral em todo material
 * Resolução dos exercícios propostos 
 * Subida para a Branch especifica no GitHub
+  

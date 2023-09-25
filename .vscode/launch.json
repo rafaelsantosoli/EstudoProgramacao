@@ -19,7 +19,10 @@
 		},
 		{
 			"label": "u_TSTEQ"
+		},
+		{
+			"label": "U_resultadoOperadores"
 		}
 	],
-	"lastProgramExecuted": "u_TSTEQ"
+	"lastProgramExecuted": "U_resultadoOperadores"
 }
