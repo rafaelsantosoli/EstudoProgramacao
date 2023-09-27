@@ -1,0 +1,133 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+
+/*/{Protheus.doc} User Function nomeFunction
+    (long_description)
+    @type  Function
+    @author user
+    @since 26/09/2023
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+User Function main(nFun)
+
+    If nFun == "simples"
+        u_simples()
+    ElseIf nFun == "composta"
+        u_composta()
+    ElseIf nFun == "encadeada"
+        u_encadeada()
+    ElseIf nFun == "multiplaescolha"
+        u_multiplaescolha()    
+    EndIf
+    
+Return 
+
+/*/{Protheus.doc} User Function nomeFunction
+    (long_description)
+    @type  Function
+    @author user
+    @since 26/09/2023
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+User Function simples()
+
+    Local nAge := Fwinputbox("Digite sua idade:")
+    // Age must be greater than 18
+    If nAge >= 18
+        CONOUT("Você é maior de idade", nAge)
+    EndIf
+
+Return 
+
+/*/{Protheus.doc} User Function nomeFunction
+    (long_description)
+    @type  Function
+    @author user
+    @since 26/09/2023
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+User Function composta()
+
+    Local nAge := Fwinputbox("Digite sua idade:")
+    // Age must be greater than 18
+    If nAge >= 18
+        CONOUT("Você é maior de idade", nAge)
+    Else
+        CONOUT("Você é menor de idade", nAge)
+    EndIf
+
+    
+Return 
+
+/*/{Protheus.doc} User Function nomeFunction
+    (long_description)
+    @type  Function
+    @author user
+    @since 26/09/2023
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+User Function encadeada()
+
+    Local nAge := Fwinputbox("Digite sua idade:")
+    // Age must be greater than 18
+    If nAge >= 18
+        CONOUT("Você é maior de idade", nAge)
+    ElseIf nAge >= 16
+        CONOUT("Você é menor de idade", nAge, "Mas pode Votar")
+    Else
+        CONOUT("Você é menor de idade", nAge)
+    EndIf
+
+    
+Return 
+
+/*/{Protheus.doc} User Function nomeFunction
+    (long_description)
+    @type  Function
+    @author user
+    @since 26/09/2023
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+User Function multiplaescolha()
+
+    Local nAge := Fwinputbox("Digite sua idade:")
+
+    DO CASE 
+        CASE nAge >= 18
+            CONOUT("Você é maior de idade", nAge)
+        CASE nAge >= 16
+            CONOUT("Você é menor de idade", nAge, "Mas pode Votar")
+        CASE nAge < 16
+            CONOUT("Você é menor de idade", nAge)
+        OTHERWISE 
+            CONOUT("Você é Criança", nAge)   
+    ENDCASE
+
+    
+Return 
+
