@@ -15,13 +15,13 @@
     /*/
 User Function main(nFun)
 
-    If nFun == "simples"
+    If nFun == "SIMPLES"
         u_simples()
-    ElseIf nFun == "composta"
+    ElseIf nFun == "COMPOSTA"
         u_composta()
-    ElseIf nFun == "encadeada"
+    ElseIf nFun == "ENCADEADA"
         u_encadeada()
-    ElseIf nFun == "multiplaescolha"
+    ElseIf nFun == "MULTIPLAESCOLHA"
         u_multiplaescolha()    
     EndIf
     
@@ -41,11 +41,13 @@ Return
     /*/
 User Function simples()
 
-    Local nAge := Fwinputbox("Digite sua idade:")
+    Local nAge := VAL( Fwinputbox("Digite sua idade:") ) 
     // Age must be greater than 18
     If nAge >= 18
-        CONOUT("Você é maior de idade", nAge)
+        MsgAlert("Voce e maior de idade", nAge)
     EndIf
+
+    u_composta()
 
 Return 
 
@@ -63,14 +65,15 @@ Return
     /*/
 User Function composta()
 
-    Local nAge := Fwinputbox("Digite sua idade:")
+    Local nAge := VAL( Fwinputbox("Digite sua idade:") ) 
     // Age must be greater than 18
     If nAge >= 18
-        CONOUT("Você é maior de idade", nAge)
+        MsgAlert("Voce e maior de idade", nAge)
     Else
-        CONOUT("Você é menor de idade", nAge)
+        MsgAlert("Voce e menor", nAge)
     EndIf
 
+    u_encadeada()
     
 Return 
 
@@ -88,16 +91,17 @@ Return
     /*/
 User Function encadeada()
 
-    Local nAge := Fwinputbox("Digite sua idade:")
+    Local nAge := VAL( Fwinputbox("Digite sua idade:") ) 
     // Age must be greater than 18
     If nAge >= 18
-        CONOUT("Você é maior de idade", nAge)
+        MsgAlert("Voce e maior de idade", nAge)
     ElseIf nAge >= 16
-        CONOUT("Você é menor de idade", nAge, "Mas pode Votar")
+        MsgAlert("Voce e menor", nAge + "Mas pode Votar")
     Else
-        CONOUT("Você é menor de idade", nAge)
+        MsgAlert("Voce e menor", nAge)
     EndIf
 
+    u_multiplaescolha()
     
 Return 
 
@@ -115,17 +119,17 @@ Return
     /*/
 User Function multiplaescolha()
 
-    Local nAge := Fwinputbox("Digite sua idade:")
+    Local nAge := VAL( Fwinputbox("Digite sua idade:") ) 
 
     DO CASE 
         CASE nAge >= 18
-            CONOUT("Você é maior de idade", nAge)
+            MsgAlert("Voce e maior de idade", nAge)
         CASE nAge >= 16
-            CONOUT("Você é menor de idade", nAge, "Mas pode Votar")
+            MsgAlert("Voce e menor", nAge + "Mas pode Votar")
         CASE nAge < 16
-            CONOUT("Você é menor de idade", nAge)
+            MsgAlert("Voce e menor", nAge)
         OTHERWISE 
-            CONOUT("Você é Criança", nAge)   
+            MsgAlert("Voce e Crianca", nAge)   
     ENDCASE
 
     
