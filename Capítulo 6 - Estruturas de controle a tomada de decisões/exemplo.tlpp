@@ -1,0 +1,63 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+
+
+user Function teste2(x)     
+    simples()        
+    composto()        
+    composto()        
+    multipla1()
+Return
+
+
+Static Function simples()
+Local nAge := 20
+
+if nAge > 18
+     alert( 'Você é maior de idade' )
+endif
+   
+Return 
+
+
+Static Function composto()
+
+Local nAge := 16
+    if nAge > 18
+        alert('Você é maior de idade')
+    else
+        alert('Você é menor de idade')
+    endif
+Return 
+
+Static Function encad()
+    Local nAge := 22
+
+    if nAge > 18 .and. nAge <> 22
+        alert('Você é maior de idade')
+    elseif nAge == 22
+        alert('Você tem 22 anos')
+    else
+        alert('Você é menor de idade')    
+    endif
+        
+
+Return 
+
+Static Function multipla1()
+    Local nAge := 18
+    
+
+    Do Case
+        Case nAge = 0 && <=10
+            alert('Você tem entre 1 e 10 anos ')
+        Case nAge > 10 && <=20
+            alert('Você tem entre 11 e 20 anos')
+        Case nAge > 20 && <=30
+            alert('Você tem entre 21 e 30 anos')
+        OTHERWISE
+         alert('Você tem mais que 30 anos')
+    ENDCASE
+
+
+Return 

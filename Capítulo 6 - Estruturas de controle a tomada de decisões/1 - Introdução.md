@@ -1,5 +1,22 @@
 # Estruturas de controle: a tomada de decisões
 
+## Índice
+
+- [Estruturas de controle: a tomada de decisões](#estruturas-de-controle-a-tomada-de-decisões)
+  - [Índice](#índice)
+  - [Introdução](#introdução)
+  - [Estruturas de controle condicionais](#estruturas-de-controle-condicionais)
+    - [Estrutura de decisão simples: (comando: se...fim\_se)](#estrutura-de-decisão-simples-comando-sefim_se)
+    - [Estrutura de decisão composta: (comando: se...senão...fim\_se)](#estrutura-de-decisão-composta-comando-sesenãofim_se)
+    - [Estruturas de decisão encadeadas](#estruturas-de-decisão-encadeadas)
+    - [Estruturas de decisão de múltipla escolha](#estruturas-de-decisão-de-múltipla-escolha)
+  - [Exemplos em Python](#exemplos-em-python)
+    - [Exemplo 1: Estrutura de decisão simples](#exemplo-1-estrutura-de-decisão-simples)
+    - [Exemplo 2: Estrutura de decisão composta](#exemplo-2-estrutura-de-decisão-composta)
+    - [Exemplo 3: Estrutura de decisão encadeada](#exemplo-3-estrutura-de-decisão-encadeada)
+    - [Exemplo 4: Estrutura de decisão de múltipla escolha](#exemplo-4-estrutura-de-decisão-de-múltipla-escolha)
+  - [Referências](#referências)
+
 ## Introdução
 
 Agora que já sabemos como armazenar dados e realizar operações com eles, podemos começar a criar programas mais complexos. Para isso, precisamos de estruturas de controle, que são comandos que permitem que o programa tome decisões e execute ações diferentes dependendo de uma condição.
@@ -232,3 +249,15 @@ match idade:
 print("Fim do programa.")
 
 ```
+
+## Referências
+
+ADVPL:
+
+- [IF ... ENDIF](https://tdn.totvs.com/display/public/framework/IF+...+ENDIF)
+- [IF ... ELSEIF ... ELSE ... ENDIF](https://tdn.totvs.com/display/public/framework/IF+...+ELSEIF+...+ELSE+...+ENDIF)
+- [DO CASE](https://tdn.totvs.com/display/public/framework/DO+CASE)
+
+Pyhton:
+
+- [Ferramentas de controle de fluxo](https://docs.python.org/pt-br/3/tutorial/controlflow.html#)
