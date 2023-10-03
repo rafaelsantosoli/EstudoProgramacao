@@ -459,6 +459,8 @@ Inicio
     Escreva(“A soma dos números impares é:”soma);
 Fim. 
 
+```
+
 Em python:
 
 ```python
@@ -470,7 +472,7 @@ for num in range(1, 100, 2):
         soma += num
 
 print("A soma dos números impares é: ", soma)
-    
+
 ```
 
 Em ADVPL:
