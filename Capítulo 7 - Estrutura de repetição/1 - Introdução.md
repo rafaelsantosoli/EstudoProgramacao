@@ -482,6 +482,7 @@ Em ADVPL:
 User function Soma_Impares_versao3()
 
     Local nSoma := 0
+    Local nNum := 0
 
     for nNum := 1 to 100 step 2
         if nNum % 2 == 1
