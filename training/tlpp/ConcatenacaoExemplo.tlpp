@@ -17,21 +17,21 @@
 */
 USER FUNCTION FwExecSQL()
 
-local cEstado := 'SP'
-local cCodigo := '000001'
-local cLoja   := '01'
-local cTipo   := 'F'
+	local cEstado := 'SP'
+	local cCodigo := '000001'
+	local cLoja   := '01'
+	local cTipo   := 'F'
 
-Local cSelect := ""
-Local cFrom   := ""
-Local cWhere  := ""
-Local cQuery  := ""
-Local aParam  := {}
-Local nI      := 0
-Local cCursor := ""
-Local oQryTmp := Nil
+	Local cSelect := ""
+	Local cFrom   := ""
+	Local cWhere  := ""
+	Local cQuery  := ""
+	Local aParam  := {}
+	Local nI      := 0
+	Local cCursor := ""
+	Local oQryTmp := Nil
 
-Local cPulalinha := Chr(13) + Chr(10)
+	Local cPulalinha := Chr(13) + Chr(10)
 
 
 /*A função Chr() retorna o caractere correspondente ao código ASCII passado como parâmetro.
@@ -47,80 +47,72 @@ A soma de 13 + 10 é o código ASCII do caractere de quebra de linha, que é repres
 
 
 //Preparando ambiente
-PREPARE ENVIRONMENT EMPRESA "99" FILIAL "01" MODULO "FIS" TABLES "SF1","SD1","SA1","SA2","SB1","SB2","SF4"
+	PREPARE ENVIRONMENT EMPRESA "99" FILIAL "01" MODULO "FIS" TABLES "SF1","SD1","SA1","SA2","SB1","SB2","SF4"
 
 
 // Montando a query
 
-    cSelect := " SELECT "       + cPulalinha
-    cSelect += " A1_COD"       + cPulalinha
-    cSelect += " ,A1_LOJA"      + cPulalinha
-    cSelect += " ,A1_PESSOA"    + cPulalinha
-    cSelect += " ,A1_NOME"      + cPulalinha
-    cSelect += " ,A1_NREDUZ"    + cPulalinha
-    cSelect += " ,A1_END"       + cPulalinha
-    cSelect += " ,A1_TIPO"      + cPulalinha
-    cSelect += " ,A1_EST"       + cPulalinha
-    cSelect += " ,A1_MUN"       + cPulalinha
-    cSelect += " ,A1_BAIRRO"    + cPulalinha
-    cSelect += " ,A1_CGC "      + cPulalinha
+	cSelect := " SELECT A1_COD, A1_LOJA, A1_PESSOA, A1_NOME, A1_NREDUZ, A1_END, A1_TIPO, A1_EST, A1_MUN, A1_BAIRRO, A1_CGC "
+	
+	cFrom   := " FROM "+ RetSqlName("SA1") + " SA1 "
 
-    cFrom   := " FROM "+ RetSqlName("SA1") + " SA1 " + cPulalinha
+	cWhere  := " WHERE A1_COD = ? AND A1_LOJA = ? AND A1_TIPO = ? AND A1_EST = ? "
 
-    cWhere  := " WHERE A1_COD = ? " + cPulalinha
-    Aadd(aParam,{'C', cCodigo})
+	Aadd(aParam,{'C', cCodigo})
+	Aadd(aParam,{'C', cLoja})
+	Aadd(aParam,{'C', cTipo})
+	Aadd(aParam,{'C', cEstado})
 
-    cWhere  += " AND A1_LOJA = ? "    + cPulalinha
-    Aadd(aParam,{'C', cLoja})
+	//Impressão da query
+	CONOUT("QUERY SEM PARAMETROS: ", cSelect, cFrom, cWhere, cPulalinha)
 
-    cWhere  += " AND A1_TIPO = ? "    + cPulalinha
-    Aadd(aParam,{'C', cTipo})
+	cQuery := ChangeQuery(cSelect+cFrom+cWhere)
+	oQryTmp := FwExecStatement():New(cQuery)
 
-    cWhere  += " AND A1_EST = ? "   + cPulalinha
-    Aadd(aParam,{'C', cEstado})
+	For nI := 1 to Len(aParam)
+		If aParam[nI][1] == 'U'
+			oQryTmp:SetUnsafe(nI, aParam[nI][2])
+		Elseif aParam[nI][1] == 'C'
+			oQryTmp:setString(nI, aParam[nI][2])
+		Elseif aParam[nI][1] == 'D'
+			oQryTmp:setDate(nI, aParam[nI][2])
+		Endif
+	Next
 
-    //Impressão da query
-    CONOUT("QUERY SEM PARAMETROS: ", cSelect, cFrom, cWhere, cPulalinha)
+	// Limpando memória do array de parâmetros
+	ASize(aParam, 0)
 
-    cQuery := ChangeQuery(cSelect+cFrom+cWhere)
-    oQryTmp := FwExecStatement():New(cQuery)
+	// Imprime query com os parâmetros
+	CONOUT("QUERY PRONTA: ", oQryTmp:GetFixQuery(), cPulalinha )
 
-    For nI := 1 to Len(aParam)
-        If aParam[nI][1] == 'U'
-            oQryTmp:SetUnsafe(nI, aParam[nI][2])
-        Elseif aParam[nI][1] == 'C'
-            oQryTmp:setString(nI, aParam[nI][2])
-        Elseif aParam[nI][1] == 'D'
-            oQryTmp:setDate(nI, aParam[nI][2])
-        Endif
-    Next
+	// Executando a query
+	cCursor := oQryTmp:OpenAlias(GetNextAlias())
 
-    // Limpando memória do array de parâmetros
-    ASize(aParam, 0)
-
-    // Imprime query com os parâmetros
-    CONOUT("QUERY PRONTA: ", oQryTmp:GetFixQuery(), cPulalinha )
-
-    // Executando a query
-    cCursor := oQryTmp:OpenAlias(GetNextAlias())
-
-    // Imprimindo o registro
+	 // Imprimindo o registro
     while !(cCursor)->(Eof())
-        CONOUT( "A1_COD: " + (cCursor)->A1_COD, "A1_LOJA: " + (cCursor)->A1_LOJA, cPulalinha )        
+        CONOUT( "A1_COD: " + (cCursor)->A1_COD,;
+         "A1_LOJA: " + (cCursor)->A1_LOJA,;
+         "A1_PESSOA: " + (cCursor)->A1_PESSOA,;
+         "A1_NOME: " + (cCursor)->A1_NOME,;
+         "A1_NREDUZ: " + (cCursor)->A1_NREDUZ,;
+         "A1_END: " + (cCursor)->A1_END,;
+         "A1_TIPO: " + (cCursor)->A1_TIPO,;
+         "A1_EST: " + (cCursor)->A1_EST,;
+         "A1_MUN: " + (cCursor)->A1_MUN, cPulalinha )        
 
         // Avança para o próximo registro
         (cCursor)->(DbSkip())
     END
-    
 
-    // Fechando o cursor
-    (cCursor)->(DbCloseArea())
 
-    // Destroi o objeto
-    FreeObj(oQryTmp)
+	// Fechando o cursor
+	(cCursor)->(DbCloseArea())
+
+	// Destroi o objeto
+	FreeObj(oQryTmp)
 
 // Encerra o ambiente
-RESET ENVIRONMENT
+	RESET ENVIRONMENT
 
 RETURN
 
@@ -135,19 +127,19 @@ https://tdn.totvs.com/display/tec/DBUseArea
 
 USER FUNCTION TcGenSQL()
 
-local cEstado := 'SP'
-local cCodigo := '000001'
-local cLoja   := '01'
-local cTipo   := 'F'
+	local cEstado := 'SP'
+	local cCodigo := '000001'
+	local cLoja   := '01'
+	local cTipo   := 'F'
 
-Local cSelect := ""
-Local cFrom   := ""
-Local cWhere  := ""
-Local cQuery  := ""
+	Local cSelect := ""
+	Local cFrom   := ""
+	Local cWhere  := ""
+	Local cQuery  := ""
 
-Local cCursor := ""
+	Local cCursor := ""
 
-Local cPulalinha := Chr(13) + Chr(10)
+	Local cPulalinha := Chr(13) + Chr(10)
 
 
 /*A função Chr() retorna o caractere correspondente ao código ASCII passado como parâmetro.
@@ -163,7 +155,7 @@ A soma de 13 + 10 é o código ASCII do caractere de quebra de linha, que é repres
 
 
 //Preparando ambiente
-PREPARE ENVIRONMENT EMPRESA "99" FILIAL "01" MODULO "FIS" TABLES "SF1","SD1","SA1","SA2","SB1","SB2","SF4"
+	PREPARE ENVIRONMENT EMPRESA "99" FILIAL "01" MODULO "FIS" TABLES "SF1","SD1","SA1","SA2","SB1","SB2","SF4"
 
 /*Manual da função FWExecStatement
     https://tdn.totvs.com/display/public/framework/FWExecStatement
@@ -178,48 +170,48 @@ PREPARE ENVIRONMENT EMPRESA "99" FILIAL "01" MODULO "FIS" TABLES "SF1","SD1","SA
 
 // Montando a query
 
-    cSelect := " SELECT "       + cPulalinha
-    cSelect += " A1_COD"       + cPulalinha
-    cSelect += " ,A1_LOJA"      + cPulalinha
-    cSelect += " ,A1_PESSOA"    + cPulalinha
-    cSelect += " ,A1_NOME"      + cPulalinha
-    cSelect += " ,A1_NREDUZ"    + cPulalinha
-    cSelect += " ,A1_END"       + cPulalinha
-    cSelect += " ,A1_TIPO"      + cPulalinha
-    cSelect += " ,A1_EST"       + cPulalinha
-    cSelect += " ,A1_MUN"       + cPulalinha
-    cSelect += " ,A1_BAIRRO"    + cPulalinha
-    cSelect += " ,A1_CGC "      + cPulalinha
+	cSelect := " SELECT "       + cPulalinha
+	cSelect += " A1_COD"       + cPulalinha
+	cSelect += " ,A1_LOJA"      + cPulalinha
+	cSelect += " ,A1_PESSOA"    + cPulalinha
+	cSelect += " ,A1_NOME"      + cPulalinha
+	cSelect += " ,A1_NREDUZ"    + cPulalinha
+	cSelect += " ,A1_END"       + cPulalinha
+	cSelect += " ,A1_TIPO"      + cPulalinha
+	cSelect += " ,A1_EST"       + cPulalinha
+	cSelect += " ,A1_MUN"       + cPulalinha
+	cSelect += " ,A1_BAIRRO"    + cPulalinha
+	cSelect += " ,A1_CGC "      + cPulalinha
 
-    cFrom   := " FROM "+ RetSqlName("SA1") + " SA1 " + cPulalinha
+	cFrom   := " FROM "+ RetSqlName("SA1") + " SA1 " + cPulalinha
 
-    cWhere  := " WHERE A1_COD = '"+cCodigo+"' " + cPulalinha
-    cWhere  += " AND A1_LOJA = '"+cLoja+"' "    + cPulalinha
-    cWhere  += " AND A1_TIPO = '"+cTipo+"' "    + cPulalinha
-    cWhere  += " AND A1_EST = '"+cEstado+"' "   + cPulalinha
+	cWhere  := " WHERE A1_COD = '"+cCodigo+"' " + cPulalinha
+	cWhere  += " AND A1_LOJA = '"+cLoja+"' "    + cPulalinha
+	cWhere  += " AND A1_TIPO = '"+cTipo+"' "    + cPulalinha
+	cWhere  += " AND A1_EST = '"+cEstado+"' "   + cPulalinha
 
-    cQuery := ChangeQuery(cSelect+cFrom+cWhere)
+	cQuery := ChangeQuery(cSelect+cFrom+cWhere)
 
-    // Imprime query com os parâmetros
-    CONOUT("QUERY PRONTA: ", cQuery, cPulalinha )    
+	// Imprime query com os parâmetros
+	CONOUT("QUERY PRONTA: ", cQuery, cPulalinha )
 
-    // Executando a query
-    cCursor := GetNextAlias()
-    DbUseArea( .T., 'TOPCONN', TCGenQry2(,,cQuery,{}), cCursor, .T., .F. )
+	// Executando a query
+	cCursor := GetNextAlias()
+	DbUseArea( .T., 'TOPCONN', TCGenQry2(,,cQuery,{}), cCursor, .T., .F. )
 
-    // Imprimindo o registro
-    while !(cCursor)->(Eof())
-        CONOUT( "A1_COD: " + (cCursor)->A1_COD, "A1_LOJA: " + (cCursor)->A1_LOJA )        
+	// Imprimindo o registro
+	while !(cCursor)->(Eof())
+		CONOUT( "A1_COD: " + (cCursor)->A1_COD, "A1_LOJA: " + (cCursor)->A1_LOJA )
 
-        // Avança para o próximo registro
-        (cCursor)->(DbSkip())
-    END
+		// Avança para o próximo registro
+		(cCursor)->(DbSkip())
+	END
 
-    // Fechando o cursor
-    (cCursor)->(DbCloseArea())    
+	// Fechando o cursor
+	(cCursor)->(DbCloseArea())
 
 // Encerra o ambiente
-RESET ENVIRONMENT
+	RESET ENVIRONMENT
 
 RETURN
 
