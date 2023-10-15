@@ -1,0 +1,51 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+
+/*
+Execícios de estruturas de decisão
+------------------------------------
+Resolução dos exercícios em TL++
+*/
+
+
+// Exercício 1: Estrutura de decisão simples
+// Crie um programa que decida se um número é maior que 10.
+User Function decisaoSimples()
+    Local nNum := VAL( Fwinputbox("Digite um número:") )
+    If nNum > 10
+        MsgAlert("Numero maior que 10, o Número Digitado foi:"+Str(nNum), "Decisão Simples" )
+    EndIf
+
+return
+
+
+// Crie um programa que possui uma variável com a o texto "Python"
+//  e imprima o texto "É Python" caso a variável contenha o texto "Python".
+
+User Function Txempython()
+    Local cTexto := "Python"
+        If cTexto == "Python"
+            MsgAlert("Texto em " + cTexto , "Texto Python" )
+        EndIf
+Return    
+
+/*
+Exercício 2: Estrutura de decisão composta
+Crie um programa que decida se um número é par ou ímpar. 
+Teste com os seguintes valores: 2, 3, 4, 5, 6, 7, 8, 9, 10.
+
+Crie um programa que decida
+*/
+
+User Function TesteNumeros()
+
+    Local Numero := 2
+        For Numero := 2 to 10 step 1
+            If Numero % 2 == 0
+                MsgAlert("Numero par:" +Str(Numero) , "Teste Numeros Pares" )
+            Else
+                MsgAlert("Numero impar" +Str(Numero) , "Teste Numeros Impares" )
+            EndIf
+        Next   
+
+Return
