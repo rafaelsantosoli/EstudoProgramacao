@@ -32,12 +32,16 @@
       - [COUNT](#count)
       - [AVG](#avg)
       - [SUM](#sum)
+      - [LIMIT](#limit)
+      - [DISTINCT](#distinct)
+      - [TOP](#top)
       - [Join](#join)
         - [INNER JOIN](#inner-join)
         - [LEFT JOIN](#left-join)
         - [RIGHT JOIN](#right-join)
         - [FULL JOIN](#full-join)
         - [CROSS JOIN](#cross-join)
+    - [Ordem de execução das cláusulas](#ordem-de-execução-das-cláusulas)
   - [Referências](#referências)
 
 ## O que é SQL?
@@ -502,6 +506,43 @@ A função `SUM` é usada para calcular a soma de uma expressão numérica.
 
 ```
 
+#### LIMIT
+
+A cláusula `LIMIT` é usada para especificar o número de registros a serem retornados.
+
+```sql
+
+    SELECT column_name(s)
+    FROM table_name
+    LIMIT number;
+
+```
+
+#### DISTINCT
+
+A cláusula `DISTINCT` é usada para retornar apenas valores distintos (diferentes).
+
+```sql
+
+    SELECT DISTINCT column_name(s)
+    FROM table_name;
+
+```
+
+#### TOP
+
+A cláusula `TOP` é usada para especificar o número de registros a serem retornados.
+
+```sql
+
+    SELECT TOP number|percent column_name(s)
+    FROM table_name
+    WHERE condition;
+
+```
+
+Este comando não é ANSI SQL. É usado apenas no SQL Server e no MS Access.
+
 #### Join
 
 Um `JOIN` é usado para combinar linhas de duas ou mais tabelas, com base em uma coluna relacionada entre elas.
@@ -609,6 +650,18 @@ Para entender melhor, pense que temos um banco de dado, onde temos uma tabela `F
 ![Alt text](img/Cross-Join-Two-Tables-to-Get-Combinations.webp)
 
 O `CROSS JOIN` é usado quando você deseja combinar cada linha de uma tabela com cada linha de outra tabela, independentemente da existência de uma correspondência.
+
+### Ordem de execução das cláusulas
+
+A ordem de execução das cláusulas é a seguinte:
+
+1. FROM
+2. WHERE
+3. GROUP BY
+4. HAVING
+5. SELECT
+6. ORDER BY
+7. LIMIT
 
 ## Referências
 
