@@ -2,6 +2,45 @@
 
 ## Sumário
 
+- [Linguagens de Base de Dados relacional](#linguagens-de-base-de-dados-relacional)
+  - [Sumário](#sumário)
+  - [O que é SQL?](#o-que-é-sql)
+    - [Linguagens de Base de Dados](#linguagens-de-base-de-dados)
+      - [Data Definition Language ou Linguagem de Definição de Dados (DDL)](#data-definition-language-ou-linguagem-de-definição-de-dados-ddl)
+      - [Data Manipulation Language ou Linguagem de Manipulação de Dados (DML)](#data-manipulation-language-ou-linguagem-de-manipulação-de-dados-dml)
+      - [Data Query Language ou Linguagem de Consulta de Dados (DQL)](#data-query-language-ou-linguagem-de-consulta-de-dados-dql)
+      - [Data Control Language ou Linguagem de Controle de Dados (DCL)](#data-control-language-ou-linguagem-de-controle-de-dados-dcl)
+      - [Data Transaction Language ou Linguagem de Transação de Dados (DTL)](#data-transaction-language-ou-linguagem-de-transação-de-dados-dtl)
+      - [Data Schema Definition Language ou Linguagem de Definição de Esquema (SDL)](#data-schema-definition-language-ou-linguagem-de-definição-de-esquema-sdl)
+      - [Data View Definition Language ou Linguagem de Definição de Visão (VDL)](#data-view-definition-language-ou-linguagem-de-definição-de-visão-vdl)
+    - [Clausulas SQL](#clausulas-sql)
+      - [WHERE](#where)
+      - [AND, OR e NOT](#and-or-e-not)
+      - [ORDER BY](#order-by)
+      - [GROUP BY](#group-by)
+      - [HAVING](#having)
+      - [AS](#as)
+      - [IN](#in)
+      - [BETWEEN](#between)
+      - [LIKE](#like)
+      - [JOIN](#join)
+      - [UNION](#union)
+      - [IS NULL](#is-null)
+      - [IS NOT NULL](#is-not-null)
+      - [EXISTS](#exists)
+      - [CASE](#case)
+      - [MIN e MAX](#min-e-max)
+      - [COUNT](#count)
+      - [AVG](#avg)
+      - [SUM](#sum)
+      - [INNER JOIN](#inner-join)
+      - [LEFT JOIN](#left-join)
+      - [RIGHT JOIN](#right-join)
+      - [FULL JOIN](#full-join)
+  - [Referências](#referências)
+
+
+
 
 
 ## O que é SQL?
@@ -67,7 +106,7 @@ Exemplos de uso:
 
 ```
 
-#### – Data Manipulation Language ou Linguagem de Manipulação de Dados (DML)
+#### Data Manipulation Language ou Linguagem de Manipulação de Dados (DML)
 
 Após a carga dos dados nas tabelas criadas pelos comandos DDL, os comandos de manipulação de dados tornam possível sua manipulação, incluindo inserções, atualizações, exclusões e consultas (com a utilização do comando SELECT da SQL).
 
