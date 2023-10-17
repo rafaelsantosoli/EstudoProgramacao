@@ -23,7 +23,6 @@
       - [IN](#in)
       - [BETWEEN](#between)
       - [LIKE](#like)
-      - [JOIN](#join)
       - [UNION](#union)
       - [IS NULL](#is-null)
       - [IS NOT NULL](#is-not-null)
@@ -33,15 +32,13 @@
       - [COUNT](#count)
       - [AVG](#avg)
       - [SUM](#sum)
-      - [INNER JOIN](#inner-join)
-      - [LEFT JOIN](#left-join)
-      - [RIGHT JOIN](#right-join)
-      - [FULL JOIN](#full-join)
+      - [Join](#join)
+        - [INNER JOIN](#inner-join)
+        - [LEFT JOIN](#left-join)
+        - [RIGHT JOIN](#right-join)
+        - [FULL JOIN](#full-join)
+        - [CROSS JOIN](#cross-join)
   - [Referências](#referências)
-
-
-
-
 
 ## O que é SQL?
 
@@ -70,15 +67,15 @@ Com o SQL é possível criar, manipular e recuperar dados de um banco de dados r
 Quando um banco de dados é criado, ele inicialmente está “vazio”. Assim, antes de começar a consultar e alterar dados e preciso definir onde e como as informações serão gravadas dentro do novo banco; então criam-se diversas tabelas explicitando o tipo de dados de cada campo, as chaves estrangeiras, os índices, as regras, etc.
 Para a realização dessa definição dos dados é utilizada uma DDL (Data Definition Language – Linguagem de Definição de dados)
 
-A linguagem de definição de dados (DDL) é usada para definir a estrutura do banco de dados, ou seja, é usada para criar, alterar e excluir objetos de banco de dados, como tabelas, índices, etc.
+A linguagem de definição de dados (`DDL`) é usada para definir a estrutura do banco de dados, ou seja, é usada para `criar, alterar e excluir objetos de banco de dados`, como tabelas, índices, etc.
 
 Comandos DDL:
 
-- CREATE: cria um novo objeto de banco de dados, como uma tabela, índice, etc.
-- ALTER: altera a estrutura de um objeto de banco de dados existente, como uma tabela.
-- DROP: exclui um objeto de banco de dados existente, como uma tabela.
-- TRUNCATE: exclui todos os registros de uma tabela, mas mantém sua estrutura.
-- RENAME: renomeia um objeto de banco de dados existente.
+- `CREATE`: cria um novo objeto de banco de dados, como uma tabela, índice, etc.
+- `ALTER`: altera a estrutura de um objeto de banco de dados existente, como uma tabela.
+- `DROP`: exclui um objeto de banco de dados existente, como uma tabela.
+- `TRUNCATE`: exclui todos os registros de uma tabela, mas mantém sua estrutura.
+- `RENAME`: renomeia um objeto de banco de dados existente.
 
 Exemplos de uso:
 
@@ -108,17 +105,17 @@ Exemplos de uso:
 
 #### Data Manipulation Language ou Linguagem de Manipulação de Dados (DML)
 
-Após a carga dos dados nas tabelas criadas pelos comandos DDL, os comandos de manipulação de dados tornam possível sua manipulação, incluindo inserções, atualizações, exclusões e consultas (com a utilização do comando SELECT da SQL).
+Após a carga dos dados nas tabelas criadas pelos comandos DDL, os comandos de manipulação de dados tornam possível sua `manipulação, incluindo inserções, atualizações, exclusões e consultas` (com a utilização do comando SELECT da SQL).
 
 A DML visa à manipulação de dados (incluir, alterar, excluir e consultar) por meio do usuário.
 
 Comandos DML:
 
-- SELECT INTO: Realiza uma consulta em uma tabela e inclui o resultado como um novo registro em outra tabela
-- INSERT: Cria um novo registro (linha) em uma tabela
-- UPDATE: Permite modificar registros em uma tabela
-- DELETE: Exclui um ou mais registros selecionados de uma tabela
-- MERGE: Combina dados de múltiplas tabelas, mesclando elementos das declarações INSERT e UPDATE.
+- `SELECT` INTO: Realiza uma consulta em uma tabela e inclui o resultado como um novo registro em outra tabela
+- `INSERT`: Cria um novo registro (linha) em uma tabela
+- `UPDATE`: Permite modificar registros em uma tabela
+- `DELETE`: Exclui um ou mais registros selecionados de uma tabela
+- `MERGE`: Combina dados de múltiplas tabelas, mesclando elementos das declarações INSERT e UPDATE.
 
 Exemplos de uso:
 
@@ -140,11 +137,11 @@ Exemplos de uso:
 
 #### Data Query Language ou Linguagem de Consulta de Dados (DQL)
 
-A linguagem de consulta de dados é um subconjunto da `DML` que possui apenas a instrução de SELECT.
+A linguagem de consulta de dados é um subconjunto da `DML` que possui apenas a instrução de `SELECT`.
 
 Comandos DQL:
 
-- SELECT: Recupera dados de uma ou mais tabelas.
+- `SELECT`: Recupera dados de uma ou mais tabelas.
 
 Exemplos de uso:
 
@@ -157,12 +154,12 @@ Exemplos de uso:
 
 #### Data Control Language ou Linguagem de Controle de Dados (DCL)
 
-Permite controlar o acesso dos usuários aos dados em um banco de dados.
+Permite `controlar o acesso` dos usuários aos dados em um banco de dados.
 
 Comandos DCL:
 
-- GRANT: concessão de privilégios a tabelas e visões.
-- REVOKE: revogação de privilégios a tabelas e visões.
+- `GRANT`: concessão de privilégios a tabelas e visões.
+- `REVOKE`: revogação de privilégios a tabelas e visões.
 
 Exemplos do uso:
 
@@ -180,13 +177,13 @@ Mais informações sobre privilégios e permissões podem ser encontradas [aqui]
 
 #### Data Transaction Language ou Linguagem de Transação de Dados (DTL)
 
-A linguagem de transação de dados é usada para gerenciar transações em um banco de dados.
+A linguagem de `transação de dados` é usada para gerenciar transações em um banco de dados.
 
 Comandos DTL:
 
-- COMMIT: confirma uma transação.
-- ROLLBACK: reverte uma transação.
-- SAVEPOINT: identifica um ponto em uma transação para que a transação possa ser revertida até esse ponto.
+- `COMMIT`: confirma uma transação.
+- `ROLLBACK`: reverte uma transação.
+- `SAVEPOINT`: identifica um ponto em uma transação para que a transação possa ser revertida até esse ponto.
 
 Exemplos de uso:
 
@@ -208,29 +205,29 @@ Exemplos de uso:
 
 #### Data Schema Definition Language ou Linguagem de Definição de Esquema (SDL)
 
-Utilizada para especificar o esquema interno de armazenamento. Pertencia às versões antigas do SQL, mas foi absorvida pela DDL. Alguns autores nem citam mais esta modalidade.
+Utilizada para `especificar o esquema interno de armazenamento`. Pertencia às versões antigas do SQL, mas foi absorvida pela DDL. Alguns autores nem citam mais esta modalidade.
 
 Comandos SDL:
 
-- CREATE SCHEMA: cria um novo esquema no banco de dados.
-- ALTER SCHEMA: altera o esquema do banco de dados.
-- DROP SCHEMA: exclui um esquema do banco de dados.
+- `CREATE SCHEMA`: cria um novo esquema no banco de dados.
+- `ALTER SCHEMA`: altera o esquema do banco de dados.
+- `DROP SCHEMA`: exclui um esquema do banco de dados.
 
 #### Data View Definition Language ou Linguagem de Definição de Visão (VDL)
 
-Voltada para especificar as visões dos usuários e seus mapeamentos para o esquema conceitual.
+Voltada para `especificar as visões dos usuários e seus mapeamentos` para o esquema conceitual.
 
 Comandos VDL:
 
-- CREATE VIEW: cria uma nova visão.
-- ALTER VIEW: altera uma visão existente.
-- DROP VIEW: exclui uma visão existente.
+- `CREATE VIEW`: cria uma nova visão.
+- `ALTER VIEW`: altera uma visão existente.
+- `DROP VIEW`: exclui uma visão existente.
 
 ### Clausulas SQL
 
 #### WHERE
 
-A cláusula WHERE é usada para extrair apenas os registros que atendem a uma condição especificada.
+A cláusula `WHERE` é usada para extrair apenas os registros que atendem a uma `condição especificada`.
 
 ```sql
 
@@ -242,7 +239,7 @@ A cláusula WHERE é usada para extrair apenas os registros que atendem a uma co
 
 #### AND, OR e NOT
 
-As cláusulas AND, OR e NOT são usadas para filtrar registros com base em mais de uma condição.
+As cláusulas `AND, OR e NOT` são usadas para filtrar registros com base em mais de uma condição.
 
 ```sql
 
@@ -272,7 +269,7 @@ Pode ser utilizado parenteses para agrupar condições.
 
 #### ORDER BY
 
-A cláusula ORDER BY é usada para classificar os registros em ordem ascendente ou descendente.
+A cláusula `ORDER BY` é usada para classificar os registros em ordem ascendente ou descendente.
 
 ```sql
 
@@ -282,11 +279,13 @@ A cláusula ORDER BY é usada para classificar os registros em ordem ascendente 
 
 ```
 
-Para Ordernar crescente, utilize ASC, para ordenar decrescente, utilize DESC.
+Para Ordenar crescente, utilize `ASC`, para ordenar decrescente, utilize `DESC`.
+
+Caso não seja especificado, o padrão é `ASC`.
 
 #### GROUP BY
 
-A cláusula GROUP BY é usada para agrupar registros com base nos valores de uma ou mais colunas.
+A cláusula `GROUP BY` é usada para agrupar registros com base nos valores de uma ou mais colunas.
 
 ```sql
 
@@ -298,11 +297,11 @@ A cláusula GROUP BY é usada para agrupar registros com base nos valores de uma
 
 ```
 
-Este comando é frequentemente usado com funções agregadas (COUNT, MAX, MIN, SUM, AVG) para agrupar o conjunto de resultados em grupos com base nos valores de uma ou mais colunas.
+Este comando é frequentemente usado com funções agregadas (`COUNT, MAX, MIN, SUM, AVG`) para agrupar o conjunto de resultados em grupos com base nos valores de uma ou mais colunas.
 
 #### HAVING
 
-A cláusula HAVING é usada para filtrar registros com base em uma condição definida após a cláusula GROUP BY.
+A cláusula `HAVING` é usada para filtrar registros com base em uma condição definida após a cláusula `GROUP BY`.
 
 ```sql
 
@@ -315,7 +314,7 @@ A cláusula HAVING é usada para filtrar registros com base em uma condição de
 
 ```
 
-Este comando é frequentemente usado com funções agregadas (COUNT, MAX, MIN, SUM, AVG) para filtrar o conjunto de resultados em grupos com base nos valores de uma ou mais colunas.
+Este comando é frequentemente usado com funções agregadas (`COUNT, MAX, MIN, SUM, AVG`) para filtrar o conjunto de resultados em grupos com base nos valores de uma ou mais colunas.
 
 É preciso ter em mente que a cláusula WHERE não pode ser usada com funções agregadas, mas a cláusula HAVING pode.
 
@@ -323,7 +322,7 @@ O Uso de having sem group by é permitido, mas não é recomendado.
 
 #### AS
 
-A cláusula AS é usada para renomear uma coluna ou tabela com um nome temporário.
+A cláusula `AS` é usada para renomear uma coluna ou tabela com um nome temporário.
 
 ```sql
 
@@ -336,7 +335,7 @@ Este comando é frequentemente usado para tornar o nome de uma coluna ou tabela 
 
 #### IN
 
-A cláusula IN permite especificar vários valores em uma cláusula WHERE.
+A cláusula `IN` permite especificar vários valores em uma cláusula `WHERE`.
 
 ```sql
 
@@ -348,7 +347,7 @@ A cláusula IN permite especificar vários valores em uma cláusula WHERE.
 
 #### BETWEEN
 
-A cláusula BETWEEN é usada para selecionar valores dentro de um intervalo. Os valores podem ser números, texto ou datas.
+A cláusula `BETWEEN` é usada para selecionar valores dentro de um intervalo. Os valores podem ser números, texto ou datas.
 
 ```sql
 
@@ -360,7 +359,7 @@ A cláusula BETWEEN é usada para selecionar valores dentro de um intervalo. Os 
 
 #### LIKE
 
-A cláusula LIKE é usada para comparar um valor a padrões semelhantes usando curingas.
+A cláusula `LIKE` é usada para comparar um valor a padrões semelhantes usando curingas.
 
 ```sql
 
@@ -370,22 +369,9 @@ A cláusula LIKE é usada para comparar um valor a padrões semelhantes usando c
 
 ```
 
-#### JOIN
-
-A cláusula JOIN é usada para combinar linhas de duas ou mais tabelas, com base em uma coluna relacionada entre elas.
-
-```sql
-
-    SELECT column_name(s)
-    FROM table1
-    JOIN table2
-    ON table1.column_name = table2.column_name;
-
-```
-
 #### UNION
 
-A cláusula UNION é usada para combinar o conjunto de resultados de duas ou mais instruções SELECT.
+A cláusula `UNION` é usada para combinar o conjunto de resultados de duas ou mais instruções SELECT.
 
 ```sql
 
@@ -397,7 +383,7 @@ A cláusula UNION é usada para combinar o conjunto de resultados de duas ou mai
 
 #### IS NULL
 
-A cláusula IS NULL é usada para testar se uma expressão é nula.
+A cláusula `IS NULL` é usada para testar se uma expressão é nula.
 
 ```sql
 
@@ -409,7 +395,7 @@ A cláusula IS NULL é usada para testar se uma expressão é nula.
 
 #### IS NOT NULL
 
-A cláusula IS NOT NULL é usada para testar se uma expressão não é nula.
+A cláusula `IS NOT NULL` é usada para testar se uma expressão não é nula.
 
 ```sql
 
@@ -421,7 +407,7 @@ A cláusula IS NOT NULL é usada para testar se uma expressão não é nula.
 
 #### EXISTS
 
-A cláusula EXISTS é usada para testar a existência de qualquer registro em uma subconsulta.
+A cláusula `EXISTS` é usada para testar a existência de qualquer registro em uma subconsulta.
 
 ```sql
 
@@ -434,7 +420,7 @@ A cláusula EXISTS é usada para testar a existência de qualquer registro em um
 
 #### CASE
 
-A cláusula CASE é usada para criar diferentes resultados com base em condições.
+A cláusula `CASE` é usada para criar diferentes resultados com base em condições.
 
 ```sql
 
@@ -449,7 +435,7 @@ A cláusula CASE é usada para criar diferentes resultados com base em condiçõ
 
 ```
 
-CASE tambem pode ser utilizada no select, como uma coluna.
+CASE também pode ser utilizada no select, como uma coluna.
 
 ```sql
 
@@ -466,7 +452,7 @@ CASE tambem pode ser utilizada no select, como uma coluna.
 
 #### MIN e MAX
 
-As funções MIN e MAX são usadas para retornar o menor ou o maior valor em uma expressão.
+As funções `MIN e MAX` são usadas para retornar o menor ou o maior valor em uma expressão.
 
 ```sql
 
@@ -482,7 +468,7 @@ As funções MIN e MAX são usadas para retornar o menor ou o maior valor em uma
 
 #### COUNT
 
-A função COUNT é usada para contar o número de linhas retornadas em uma expressão.
+A função `COUNT` é usada para contar o número de linhas retornadas em uma expressão.
 
 ```sql
 
@@ -494,7 +480,7 @@ A função COUNT é usada para contar o número de linhas retornadas em uma expr
 
 #### AVG
 
-A função AVG é usada para calcular a média de uma expressão numérica.
+A função `AVG` é usada para calcular a média de uma expressão numérica.
 
 ```sql
 
@@ -506,7 +492,7 @@ A função AVG é usada para calcular a média de uma expressão numérica.
 
 #### SUM
 
-A função SUM é usada para calcular a soma de uma expressão numérica.
+A função `SUM` é usada para calcular a soma de uma expressão numérica.
 
 ```sql
 
@@ -516,48 +502,80 @@ A função SUM é usada para calcular a soma de uma expressão numérica.
 
 ```
 
-#### INNER JOIN
+#### Join
 
-A cláusula INNER JOIN retorna registros quando há pelo menos uma correspondência nas tabelas.
+Um `JOIN` é usado para combinar linhas de duas ou mais tabelas, com base em uma coluna relacionada entre elas.
 
-```sql
+![Alt text](img/sqljoins2.png)
 
-    SELECT column_name(s)
-    FROM table1
-    INNER JOIN table2
-    ON table1.column_name = table2.column_name;
+##### INNER JOIN
 
-```
+A cláusula `INNER JOIN` retorna registros quando há pelo menos uma correspondência nas tabelas.
 
-#### LEFT JOIN
+A cláusula INNER JOIN compara cada linha da tabela A com as linhas da tabela B para encontrar todos os pares de linhas que satisfazem a condição de junção. Se a condição de junção for avaliado como `TRUE`, os valores da coluna das linhas correspondentes das tabelas A e B serão combinados em uma nova linha e incluídos no conjunto de resultados.
 
-A cláusula LEFT JOIN retorna todos os registros da tabela da esquerda (tabela1), mesmo que não haja correspondência na tabela da direita (tabela2).
+Exemplo:
 
 ```sql
 
     SELECT column_name(s)
-    FROM table1
-    LEFT JOIN table2
-    ON table1.column_name = table2.column_name;
+    FROM tabelaA
+    INNER JOIN tabelaB
+    ON tabelaA.column_name = tabelaB.column_name;
 
 ```
 
-#### RIGHT JOIN
+![Inner Join](img/Inner_Join.png)
 
-A cláusula RIGHT JOIN retorna todos os registros da tabela da direita (tabela2), mesmo que não haja correspondência na tabela da esquerda (tabela1).
+Apenas os registros que possuem correspondência nas duas tabelas são incluídos no conjunto de resultados.
+
+##### LEFT JOIN
+
+A cláusula `LEFT JOIN` retorna todos os registros da tabela da esquerda (`tabelaA`), mesmo que não haja correspondência na tabela da direita (`tabelaB`).
+
+Para cada linha da `tabelaA`, a consulta a compara com todas as linhas da `tabelaB`. Se um par de linhas fizer com que a condição de junção seja avaliado como `TRUE`, os valores da coluna dessas linhas serão combinados para formar uma nova linha que será incluída no conjunto de resultados.
+
+Se uma linha da tabela `“esquerda” A` não tiver nenhuma linha correspondente da tabela `“direita” B`, a consulta irá combinar os valores da coluna da linha da tabela `“esquerda” A` com `NULL` para cada valor da coluna da tabela da `“direita”` B que não satisfaça a condição de junto (`FALSE`).
+
+Em resumo, a `cláusula LEFT JOIN` retorna todas as linhas da tabela `“esquerda” A` e as linhas correspondentes ou valores NULL da `tabela “esquerda” A`.
 
 ```sql
 
     SELECT column_name(s)
-    FROM table1
-    RIGHT JOIN table2
-    ON table1.column_name = table2.column_name;
+    FROM tableA
+    LEFT JOIN tableB
+    ON tableA.column_name = tableB.column_name;
 
 ```
 
-#### FULL JOIN
+![Alt text](img/left-outer-join-operation.png)
 
-A cláusula FULL JOIN retorna todos os registros quando há uma correspondência em qualquer uma das tabelas.
+Observe que apenas os registros que possuem correspondência na tabela da esquerda são incluídos no conjunto de resultados, enquanto os registros que não possuem correspondência são excluídos ou retornados como `NULL`.
+
+##### RIGHT JOIN
+
+A RIGHT JOIN combina dados de duas ou mais tabelas. A `RIGHT JOIN` começa a selecionar dados da tabela `“direita” B` e a `corresponder` às linhas da tabela `“esquerda” A`.
+
+A RIGHT JOIN retorna um conjunto de resultados que inclui todas as linhas da tabela `“direita” B`, com ou sem linhas correspondentes na tabela `“esquerda” A`. Se uma linha na tabela `direita B` não tiver nenhuma linha correspondente da tabela `“esquerda” A`, a coluna da tabela `“esquerda” A` no conjunto de resultados `será nula` igualmente ao que acontece no `LEFT JOIN`.
+
+```sql
+
+    SELECT column_name(s)
+    FROM tableA
+    RIGHT JOIN tableB
+    ON tableA.column_name = tableB.column_name;
+
+```
+
+![Alt text](img/right-outer-join-operation.png)
+
+Observe que apenas os registros que possuem correspondência na tabela da direita são incluídos no conjunto de resultados, enquanto os registros que não possuem correspondência são excluídos ou retornados como `NULL`.
+
+##### FULL JOIN
+
+A cláusula `FULL JOIN` retorna todas as linhas das tabelas unidas, `correspondidas ou não`, ou seja, você pode dizer que a `FULL JOIN` combina as funções da `LEFT JOIN e da RIGHT JOIN`. FULL JOIN é um tipo de junção externa, por isso também é chamada junção externa completa.
+
+Quando não existem linhas correspondentes para a linha da tabela esquerda, as colunas da tabela direita serão nulas. Da mesma forma, quando não existem linhas correspondentes para a linha da tabela direita, a coluna da tabela esquerda será nula.
 
 ```sql
 
@@ -569,6 +587,30 @@ A cláusula FULL JOIN retorna todos os registros quando há uma correspondência
 
 ```
 
+![Alt text](img/full-outer-join-operation.png)
+
+Observe que a cláusula FULL JOIN retorna todos os registros das tabelas unidas, correspondidos ou não. Se não houver correspondência, os valores NULL serão incluídos nas colunas da tabela que não possuem correspondência.
+
+##### CROSS JOIN
+
+A cláusula `CROSS JOIN` retorna todas as linhas das tabelas por cruzamento, ou seja, para cada linha da tabela esquerda queremos todos os linhas da tabelas direita ou vice-versa. Ele também é chamado de produto `cartesiano` entre duas tabelas. Porém, para isso é preciso que ambas tenham o `campo em comum`, para que a ligação exista entre as duas tabelas.
+
+Para entender melhor, pense que temos um banco de dado, onde temos uma tabela `FUNCIONÁRIO` e uma tabela `CARGO`, assim poderíamos ter vários cargos para um único FUNCIONÁRIO, e usando o `CROSS JOIN` podemos trazer todos os CARGOS de todos os FUNCIONÁRIOS.
+
+```sql
+
+    SELECT column_name(s)
+    FROM table1
+    CROSS JOIN table2
+    WHERE condition;
+
+```
+
+![Alt text](img/Cross-Join-Two-Tables-to-Get-Combinations.webp)
+
+O `CROSS JOIN` é usado quando você deseja combinar cada linha de uma tabela com cada linha de outra tabela, independentemente da existência de uma correspondência.
+
 ## Referências
 
 - [Banco de Dados Relacionais – Parte V](https://drm-ava-gonline.infra.grancursosonline.com.br/gco/pdf/exemplo-aula-pdf/2021-07-26-08-35-03-50796000-banco-de-dados-relacionais-parte-v.pdf?response-content-disposition=attachment%3Bfilename%3D2021-07-26-08-35-03-50796000-banco-de-dados-relacionais-parte-v.pdf&Expires=1697651629&Signature=ieqcI7GFJoAsbWepNiM0oDSq1W0yVR1V128RJcYC8V4UxXQJTAOUSGZ9IU53vSkvWqbL1rdLATmb~~ujdNFSaojKNrdlcumxbx~vOKjHEdkhc7bGJmfeXvFSn8CKex1scY47XtstFLbEG~Go~mu6Lw~913hpwKexY08GIJTu5kDOUMOX3PSt8~bQzSW6iNZa2Bnr45I4KiBgL2JVCHhpmSoJuBxIe4djd1id96K73asWuFgnjC7yAo4KdAzY~Vo0q5IdI~cfAS59l20XDHVhfSIQxOObRcrlmwt7MXSLmnPXMXpIMK5MahdbbcY~vlk9OkPrA5xPyd5Dd01rvc4FRA__&Key-Pair-Id=APKAJWDRH5QWMLF2KNSA)
+- [Merging queries](https://learn.microsoft.com/en-us/power-query/merge-queries-overview)
