@@ -529,6 +529,31 @@ Será executado o conjunto de instruções entre a instrução para e a instruç
 
 ### Estruturas de controle encadeadas
 
+Em alguns casos, é necessário que sejam executados comandos de repetição dentro de outros comandos de repetição. Essa situação é conhecida como estruturas de controle encadeadas. A estrutura de controle encadeada mais comum é a estrutura de repetição dentro de outra estrutura de repetição. Essa estrutura é conhecida como estrutura de repetição aninhada.
+
+Exemplo:
+
+Faça um algoritmo que imprima a tabuada de multiplicação de 1 a 10.
+
+```pseudo
+
+Algoritmo Tabuada;
+
+Var
+    i, j: inteiro;
+
+Inicio
+
+    Para (i de 1 até 10) faça
+        Para (j de 1 até 10) faça
+            Escreva(i, “x”, j, “=”, i*j);
+        Fim_para
+    Fim_para
+
+Fim.
+
+```
+
 ## Referências
 
 Advpl/TLPP
