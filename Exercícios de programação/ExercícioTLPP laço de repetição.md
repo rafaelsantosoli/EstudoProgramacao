@@ -25,8 +25,9 @@ Resultado esperado:
 
 ```ADVPL
 
-Array 1: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
-Array 2: A, D, E, G, I, J, W, X, Y, Z
+Array 1: A, D, E, G, I, J, W, X, Y, Z
+Array 2: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
+
 
 ```
 
