@@ -1,0 +1,363 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+
+//Estrutura de repetição para um número indefinido de repetições e teste no início: estrutura enquanto
+
+/*/{Protheus.doc} Exercicio1
+    1) Crie um programa que receba um número e imprima todos os números pares de 0 até o número recebido.
+
+    @type  Function
+    @author user
+    @since 17/11/2023
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+user Function Exercicio1()
+    Local nNumero as numeric
+    Local nContador as numeric
+    Local nResto as numeric
+    Local nDivisor as numeric    
+
+    nNumero := VAL(FWInputBox("Digite um número", "0")) 
+    
+    CONOUT( "De 0 ate " + ALLTRIM(Str(nNumero)) + " temos:" )
+    While nContador <= nNumero
+
+        nDivisor := 2
+        nResto := MOD( nContador, nDivisor )
+
+        If nResto == 0
+            CONOUT("O numero " + ALLTRIM(Str(nContador)) + " e par")            
+        EndIf
+
+        nContador := nContador + 1
+
+    EndDo
+
+Return
+
+    
+Return
+
+/*/{Protheus.doc} Exercicio2
+    2) Crie um programa que receba um número e imprima todos os números ímpares de 0 até o número recebido.
+
+    @type  Function
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+
+user Function Exercicio2()
+
+    Local nNumero as numeric
+    Local nContador as numeric
+    Local nResto as numeric
+    Local nDivisor as numeric    
+
+    nNumero := VAL(FWInputBox("Digite um número", "0")) 
+    
+    CONOUT( "De 0 ate " + ALLTRIM(Str(nNumero)) + " temos:" )
+    While nContador <= nNumero
+
+        nDivisor := 2
+        nResto := MOD( nContador, nDivisor )
+
+        If nResto <> 0
+            CONOUT("O numero " + ALLTRIM(Str(nContador)) + " e impar")            
+        EndIf
+
+        nContador := nContador + 1
+
+    EndDo
+
+Return
+
+//Estrutura de repetição para um número definido de repetições: estrutura para
+
+/*/{Protheus.doc} Exercicio3
+    1) Crie um programa que receba um número inicial e um número final e imprima todos os números pares entre o número inicial e o número final.
+
+    @type  Function
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+
+user Function Exercicio3()
+
+    Local nNumeroInicial as numeric
+    Local nNumeroFinal as numeric
+    Local nContador as numeric
+    Local nResto as numeric
+    Local nDivisor as numeric    
+
+    //Validação de entrada de dados
+    //Enquanto o número inicial for menor que 0 ou o número final for menor que 0 ou o número inicial for maior que o número final, solicitar novamente os números
+    WHILE .T.
+
+        nNumeroInicial := VAL(FWInputBox("Digite um número inicial", "0")) 
+        nNumeroFinal := VAL(FWInputBox("Digite um número final", "0"))
+
+        IF nNumeroInicial >= 0 .AND. nNumeroFinal > 0 .AND. nNumeroInicial < nNumeroFinal
+            EXIT
+        ELSE
+            Alert("Os números digitados são inválidos, digite novamente")
+        ENDIF
+
+    ENDDO
+    
+    nContador := nNumeroInicial
+
+    While nContador <= nNumeroFinal
+
+        nDivisor := 2
+        nResto := MOD( nContador, nDivisor )
+
+        If nResto == 0
+            CONOUT("O numero " + Str(nContador) + " e par")            
+        EndIf
+
+        nContador := nContador + 1
+
+    EndDo
+
+Return
+
+/*/{Protheus.doc} Exercicio4
+    2) Crie um programa que receba um número inicial e um número final e imprima todos os números ímpares entre o número inicial e o número final.
+
+    @type  Function
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+
+user Function Exercicio4()
+
+    Local nNumeroInicial as numeric
+    Local nNumeroFinal as numeric
+    Local nContador as numeric
+    Local nResto as numeric
+    Local nDivisor as numeric    
+
+    //Validação de entrada de dados
+    //Enquanto o número inicial for menor que 0 ou o número final for menor que 0 ou o número inicial for maior que o número final, solicitar novamente os números
+    WHILE .T.
+
+        nNumeroInicial := VAL(FWInputBox("Digite um número inicial", "0")) 
+        nNumeroFinal := VAL(FWInputBox("Digite um número final", "0"))
+
+         IF nNumeroInicial >= 0 .AND. nNumeroFinal > 0 .AND. nNumeroInicial < nNumeroFinal
+            EXIT
+        ELSE
+            Alert("Os números digitados são inválidos, digite novamente")
+        ENDIF
+
+    ENDDO
+    
+    nContador := nNumeroInicial
+
+    While nContador <= nNumeroFinal
+
+        nDivisor := 2
+        nResto := MOD( nContador, nDivisor )
+
+        If nResto <> 0
+            CONOUT("O numero " + Str(nContador) + " e impar")            
+        EndIf
+
+        nContador := nContador + 1
+
+    EndDo
+
+Return
+
+// Estruturas de controle encadeadas
+
+/*/{Protheus.doc} Exercicio5
+    1) Crie um programa que possui um array de números inteiros de 10 posições. 
+    O array possui os valores 10, 9, 8, 7, 6, 5, 4, 3, 2, 1. 
+    O programa deve ordenar o array em ordem crescente e imprimir os valores do array ordenado.
+
+    @type  Function
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+
+user Function Exercicio5()
+
+    Local aNumeros as array
+    Local nContador as numeric
+    Local nContador2 as numeric
+    Local nAuxiliar as numeric
+
+    aNumeros := {10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
+
+    CONOUT( "Array de números desordenado:" )
+    //Impressão do aNumeros
+    For nContador := 1 to Len(aNumeros)
+        CONOUT("Posicao " + ALLTRIM(Str(nContador)) + " do array: " + ALLTRIM(Str(aNumeros[nContador])))
+    Next nContador
+
+    //Ordenação do array
+    For nContador := 1 to Len(aNumeros) - 1
+        For nContador2 := 1 to Len(aNumeros) - 1
+            If aNumeros[nContador2] > aNumeros[nContador2 + 1]
+                nAuxiliar := aNumeros[nContador2]
+                aNumeros[nContador2] := aNumeros[nContador2 + 1]
+                aNumeros[nContador2 + 1] := nAuxiliar
+            EndIf
+        Next nContador2
+    Next nContador
+
+    //Impressão do aNumeros
+    CONOUT( Chr(13) + Chr(10)+"Array de numeros Ordenados:" +Chr(13) + Chr(10) )
+    For nContador := 1 to Len(aNumeros)
+        CONOUT("Posicao " + ALLTRIM(Str(nContador)) + " do array: " + ALLTRIM(Str(aNumeros[nContador])))
+    Next nContador
+
+Return
+
+/*/{Protheus.doc} Exercicio6
+    2) Crie um programa que possui um array de 10 posições. 
+    O array possui os valores Z, D, X, A, Y, E, W, G, J, I. 
+    O programa deve ordenar o array em ordem decrescente e imprimir os valores do array ordenado.
+
+    @type  Function
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+
+user Function Exercicio6()
+
+    Local aLetras as array
+    Local nContador as numeric
+    Local nContador2 as numeric
+    Local cAuxiliar as character
+
+    aLetras := {"Z", "D", "X", "A", "Y", "E", "W", "G", "J", "I"}
+
+    CONOUT( "Array de letras desordenado:" )
+    //Impressão do aLetras
+    For nContador := 1 to Len(aLetras)
+        CONOUT("Posicao " + ALLTRIM(nContador) + " do array: " + ALLTRIM(aLetras[nContador]))
+    Next nContador
+
+    //Ordenação do array
+    For nContador := 1 to Len(aLetras) - 1
+        For nContador2 := 1 to Len(aLetras) - 1
+            If aLetras[nContador2] < aLetras[nContador2 + 1]
+                cAuxiliar := aLetras[nContador2]
+                aLetras[nContador2] := aLetras[nContador2 + 1]
+                aLetras[nContador2 + 1] := cAuxiliar
+            EndIf
+        Next nContador2
+    Next nContador
+
+    //Impressão do aLetras
+    CONOUT( Chr(13) + Chr(10) + "Array de letras Ordenadas:" + Chr(13) + Chr(10) )
+    For nContador := 1 to Len(aLetras)
+        CONOUT("Posicao " + ALLTRIM(nContador) + " do array: " + ALLTRIM(aLetras[nContador]))
+    Next nContador
+
+Return
+
+
+/*/{Protheus.doc} Exercicio7
+    3) Crie um programa que possui dois arrays de 10 posições.
+    O primeiro array possui os valores 10, 9, 8, 7, 6, 5, 4, 3, 2, 1. O segundo array possui os valores Z, D, X, A, Y, E, W, G, J, I. 
+    O programa deve ordenar ambos os arrays em ordem crescente e inverter os valores dos arrays. 
+    Ao final o programa deve imprimir os valores dos dois arrays.
+
+    @type  Function
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+
+user Function Exercicio7()
+
+    Local aNumeros as array
+    Local aLetras as array
+    Local nContador as numeric
+    Local nContador2 as numeric
+    Local nAuxiliar as numeric
+    Local cAuxiliar as character
+
+    aNumeros := {10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
+    aLetras := {"Z", "D", "X", "A", "Y", "E", "W", "G", "J", "I"}
+    
+    
+    //Impressão do aNumeros
+    CONOUT( Chr(13) + Chr(10) + "Array de números desordenado:" + Chr(13) + Chr(10))
+    For nContador := 1 to Len(aNumeros)
+        CONOUT("Posicao " + ALLTRIM(Str(nContador)) + " do array: " + ALLTRIM(Str(aNumeros[nContador])))
+    Next nContador
+    
+    //Impressão do aLetras
+    CONOUT( Chr(13) + Chr(10) + "Array de letras desordenado:" + Chr(13) + Chr(10) )
+    For nContador := 1 to Len(aLetras)
+        CONOUT("Posicao " + ALLTRIM(nContador) + " do array: " + ALLTRIM(aLetras[nContador]))
+    Next nContador
+
+    //Ordenação do array de números
+    For nContador := 1 to Len(aNumeros) - 1
+        For nContador2 := 1 to Len(aNumeros) - 1
+            If aNumeros[nContador2] > aNumeros[nContador2 + 1]
+                nAuxiliar := aNumeros[nContador2]
+                aNumeros[nContador2] := aNumeros[nContador2 + 1]
+                aNumeros[nContador2 + 1] := nAuxiliar
+            EndIf
+        Next nContador2
+    Next nContador
+
+    //Ordenação do array de letras
+    For nContador := 1 to Len(aLetras) - 1
+        For nContador2 := 1 to Len(aLetras) - 1
+            If aLetras[nContador2] > aLetras[nContador2 + 1]
+                cAuxiliar := aLetras[nContador2]
+                aLetras[nContador2] := aLetras[nContador2 + 1]
+                aLetras[nContador2 + 1] := cAuxiliar
+            EndIf
+        Next nContador2
+    Next nContador
+
+    //Inversão dos dados entre os arrays
+    For nContador := 1 to Len(aNumeros)
+        nAuxiliar := aNumeros[nContador]
+        aNumeros[nContador] := aLetras[nContador]
+        aLetras[nContador] := nAuxiliar
+    Next nContador
+
+    CONOUT( Chr(13) + Chr(10)+"Array de numeros Ordenados:" +Chr(13) + Chr(10) )
+    //Impressão do aNumeros
+    For nContador := 1 to Len(aNumeros)
+        CONOUT("Posicao " + ALLTRIM(Str(nContador)) + " do array de numeros: " + ALLTRIM(aNumeros[nContador]))
+    Next nContador
+
+    CONOUT( Chr(13) + Chr(10) + "Array de letras Ordenadas:" + Chr(13) + Chr(10) )
+    //Impressão do aLetras
+    For nContador := 1 to Len(aLetras)
+        CONOUT("Posicao " + ALLTRIM(Str(nContador)) + " do array de letras: " + ALLTRIM(Str(aLetras[nContador])))
+    Next nContador
+
+Return
