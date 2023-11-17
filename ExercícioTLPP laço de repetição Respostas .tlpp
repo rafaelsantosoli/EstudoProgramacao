@@ -1,0 +1,148 @@
+#include 'tlpp-core.th'
+
+//Crie um programa que receba um número e imprima todos os números pares de 0 até o número recebido.
+
+
+User Function LoopParTeste(userNumber) // Função com parametro (userNumber), VER pq nao funciona
+
+Local nNumber := 0
+
+While nNumber <= userNumber
+   if nNumber % 2 == 0
+        conout( nNumber )
+   endIf
+   nNumber ++
+end 
+
+RETURN
+
+    
+User Function LoopPar()
+
+Local nNumber := 0
+Local nUserNumber := 50
+
+While nNumber <= nUserNumber
+   if nNumber % 2 == 0
+        conout( nNumber )
+   endIf
+   nNumber ++
+end 
+
+RETURN
+
+//Crie um programa que receba um número e imprima todos os números ímpares de 0 até o número recebido.
+
+User Function LoopImpar()
+
+Local nNumber := 0
+Local nUserNumber := 50
+
+While nNumber <= nUserNumber
+    if nNumber % 2 <> 0
+        conout( nNumber )
+    endIf
+    nNumber ++
+end 
+
+RETURN
+
+/* Crie um programa que receba um número inicial e um número final e 
+imprima todos os números pares entre o número inicial e o número final. */
+
+
+User Function forPar()
+
+Local nIni 
+Local nEnd := 10
+
+for nIni := 1 to nEnd
+    if nIni % 2 == 0
+        conout( nIni )
+    endIf
+next
+
+RETURN
+ 
+/* Crie um programa que receba um número inicial e um número final e imprima todos 
+os números ímpares entre o número inicial e o número final. */
+
+User Function forImpar()
+
+Local nIni 
+Local nEnd := 10
+
+for nIni := 1 to nEnd
+    if nIni % 2 <> 0
+        conout( nIni )
+    endIf
+next
+
+RETURN
+
+/* Crie um programa que possui um array de números inteiros de 10 posições. 
+O array possui os valores 10, 9, 8, 7, 6, 5, 4, 3, 2, 1.
+O programa deve ordenar o array em ordem crescente e imprimir os valores do array ordenado. */
+
+User Function forArraybkp()
+
+Local aArray := {10, 9, 8, 7, 6, 5, 4, 3, 2, 1} 
+Local aOrderArray := {} 
+Local i 
+
+for i := len(aArray) to 1 step -1
+    if i+1 > len(aArray)
+        Aadd(aOrderArray,aArray[i])
+        conout(aOrderArray[aArray[len(aArray)]])    
+    else     
+        if aArray[i] > aArray[i+1]        
+            Aadd(aOrderArray,aArray[i])
+            conout(aOrderArray[aArray[i]])
+        endif            
+    endif   
+    
+next 
+   
+RETURN
+
+/* Crie um programa que possui um array de 10 posições. O array possui os valores Z, D, X, A, Y, E, W, G, J, I. 
+O programa deve ordenar o array em ordem decrescente e imprimir os valores do array ordenado. */
+
+User Function forArrLetters()
+Local aArray := { 'Z', 'D', 'X', 'A', 'Y', 'E', 'W', 'G', 'J', 'I'} 
+Local aOrderArray := ASort(  aArray , , , {|x,y|x > y} )
+Local i
+
+for i := 1 to len(aOrderArray)
+    conout(aOrderArray[i])
+next
+
+RETURN
+
+/* Crie um programa que possui dois arrays de 10 posições. O primeiro array possui os valores 10, 9, 8, 7, 6, 5, 4, 3, 2, 1.
+O segundo array possui os valores Z, D, X, A, Y, E, W, G, J, I. O programa deve ordenar ambos os arrays em ordem crescente e 
+interver os valores dos arrays. Ao final o programa deve imprimir os valores dos dois arrays. */
+
+User Function forArrDouble()
+Local aArray1 := {10, 9, 8, 7, 6, 5, 4, 3, 2, 1} 
+Local aArray2 := { 'Z', 'D', 'X', 'A', 'Y', 'E', 'W', 'G', 'J', 'I'} 
+Local aOrderArray1 := {}
+Local aOrderArray2 := {}
+Local i
+
+  ACopy( ASort(aArray1),aSize(aOrderArray2,len(aArray2)) )
+  ACopy( ASort(aArray2),aSize(aOrderArray1,len(aArray1)) )
+ 
+for i := 1 to len(aOrderArray1)
+      conout(aOrderArray1[i])
+next
+
+for i := 1 to len(aOrderArray2)
+      conout(aOrderArray2[i])
+next
+
+RETURN
+
+
+
+
