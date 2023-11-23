@@ -1,0 +1,187 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+#include 'protheus.ch'
+
+// 01 -  Crie um programa que decida se um número é maior que 10. 
+// Teste com os seguintes valores: 2, 10, 15, 5, 12, 16, 55
+
+
+// Testes com os valores fornecidos
+User Function TesteMaiorQue10()
+	Local aValores := {2, 10, 15, 5, 12, 16, 55}
+	Local nValor := 0
+
+	// Itera sobre os valores e verifica se são maiores que 10
+	For nValor := 1 to Len(aValores)
+		If VerificaMaiorQue10(aValores,nValor)
+			MSGINFO("O número " + CvalToChar(aValores[nValor]) + " é maior que 10")
+		Else
+			MSGINFO("O número " + CvalToChar(aValores[nValor]) + " não é maior que 10")
+		EndIf
+	Next
+
+Return
+
+// Função que verifica se um número é maior que 10
+Static Function VerificaMaiorQue10(aValores,nValor)
+	Local lMaiorQue10 := .F.
+	// Verifica se o número é maior que 10
+	If aValores [nValor] > 10
+		lMaiorQue10 := .T.
+	EndIf
+
+Return lMaiorQue10
+
+
+
+// 02 - Crie um programa que recebe um texto e adiciona este texto em uma frase. Exemplo: "Eu gosto de " + texto digitado.
+
+User Function recebetexto()
+
+	Local cTexto as Character
+	Local cFrase as Character
+	cFrase := " Sua fruta Predileta é "
+	cTexto := FwInputBox(" Digite sua Fruta Preferida: ", "Fruta Predileta " )
+
+	If !Empty(cTexto)
+		MSGINFO( cFrase + cTexto )
+	EndIf
+
+Return
+
+
+
+// 03 - Crie um programa que decida se um número é par e imprima uma mensagem na tela informando o resultado da decisão. Teste com os seguintes valores: 2, 3, 4, 5, 6, 7, 8, 9, 10
+
+User Function NumerosPares()
+	Local nValor as Integer
+	Local aNums as Array
+	aNums := {2, 3, 4, 5, 6, 7, 8, 9, 10}
+
+	For nValor := 1 to Len(aNums)
+		If VerificarPar(aNums,nValor)
+			MSGINFO("O número " + CvalToChar(aNums[nValor]) + " é Par ;-) ")
+		Else
+			MSGINFO("O número " + CvalToChar(aNums[nValor]) + " não é PAR!!")
+		EndIf
+	Next
+
+Return
+
+// Função que verifica se um número é Par
+Static Function VerificarPar(aNums,nValor)
+	Local lNumPar := .F.
+	// Verifica se o número é Par
+	If aNums [nValor] % 2 == 0
+		lNumPar := .T.
+	EndIf
+
+Return lNumPar
+
+/*
+
+Exercício 2: Estrutura de decisão composta
+Crie um programa que recebe um numero, avalie o numero recebido e imprima uma mensagem na tela informando se o número é par ou ímpar.
+*/
+User Function NumParOuImpar()
+
+	Local nNum as Numeric
+    
+	nNum := val(FwInputBox("Digite um Número qualquer:", "Teste, Par Ou Impar"))
+
+	If TestaParImpar(nNum)
+		MSGINFO("O número " + CvalToChar(nNum) + " é Par ;-) ")
+	Else
+		MSGINFO("O número " + CvalToChar(nNum) + " não é PAR!!")
+	EndIf
+
+    // Pergunta se o Usario quer testar um outro número
+    If MSGNOYES( "Quer Testar um Outro Número? DIGITE ", "Continuar?" )
+        U_NumParOuImpar()
+    else
+        Alert("Clicou em Não")
+    EndIf
+
+Return
+
+Static Function TestaParImpar(nNum)
+	Local lNumPar := .F.
+	// Verifica se o número é Par
+	If nNum % 2 == 0
+		lNumPar := .T.
+	EndIf
+
+Return lNumPar
+
+/*
+Exercício 3: Estrutura de decisão encadeada
+Crie um programa que recebe um numero, avalie o numero recebido e imprima uma mensagem na tela informando se o número é positivo ou negativo.
+ Caso numero seja positivo, 
+imprima uma mensagem informando se o número é par ou ímpar. Caso numero seja impar imprima uma mensagem informando se o número é primo ou não.
+*/
+
+
+User Function NumPNPIP()
+
+	Local nNum as Numeric
+    
+	nNum := val(FwInputBox("Digite um Número qualquer:", "Testes, Positivo, Negativo, Par, Impar e ou Primo"))
+    // Testa Positivo / Negativo
+    If TestaNumPosNeg(nNum)
+		MSGINFO("O número " + CvalToChar(nNum) + " é Positivo ++ ")
+	Else
+		MSGINFO("O número " + CvalToChar(nNum) + " é Negativo --")
+	EndIf
+
+    // Testa Par / Impar
+    If TestaNumPar(nNum)
+		MSGINFO("O número " + CvalToChar(nNum) + " é Par ;-) ")
+	Else
+		MSGINFO("O número " + CvalToChar(nNum) + " não é PAR!!")
+	EndIf
+
+    // Testa Primo
+	If TestaPrimo(nNum)
+		MSGINFO("O número " + CvalToChar(nNum) + " é PRIMO ;-) | (-: ")
+	Else
+		MSGINFO("O número " + CvalToChar(nNum) + " não é PRIMO ;-) x (-:")
+	EndIf
+
+    // Pergunta se o Usario quer testar um outro número
+    If MSGNOYES( "Quer Testar um Outro Número? DIGITE ", "Continuar?" )
+        U_NumPNPIP()
+    else
+        Alert("Clicou em Não")
+    EndIf
+
+Return
+
+
+Static Function TestaNumPosNeg(nNum)
+	Local lNumPar := .F.
+	// Verifica se o número é Positivo / Negativo
+	If nNum > 1 
+		lNumPar := .T.
+	EndIf
+
+Return lNumPar
+
+
+Static Function TestaNumPar(nNum)
+	Local lNumPar := .F.
+	// Verifica se o número é Par
+	If nNum % 2 == 0
+		lNumPar := .T.
+	EndIf
+
+Return lNumPar
+
+
+Static Function TestaPrimo(nNum)
+	Local lNumPar := .F.
+	// Verifica se o número é Primo
+	If nNum > 1 .and. nNum % nNum == 0
+		lNumPar := .T.
+	EndIf
+
+Return lNumPar
