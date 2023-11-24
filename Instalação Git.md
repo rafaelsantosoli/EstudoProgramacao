@@ -87,6 +87,17 @@ Git Bash é um emulador de terminal para Git. O Git Bash permite que os usuário
 2. Execute o comando `git commit -m "Mensagem"` para criar um commit com as alterações adicionadas. 
 3. Execute o comando `git push` para enviar o commit para o repositório remoto.
 
+### Baixar todos os arquivos do repositório
+
+Forçar o download de todos os arquivos do repositório.
+
+1. Execute o comando `git fetch --all` para buscar os commits do repositório remoto.
+2. Execute o comando `git reset --hard origin/<nome da branch>` para baixar todos os arquivos do repositório remoto.
+3. Execute o comando `git branch` para verificar as branches do repositório.
+4. Execute o comando `git checkout <nome da branch>` para acessar a branch desejada.
+
+
+
 ### Comandos básicos
 
 - `git init`: Inicializa um repositório Git.
