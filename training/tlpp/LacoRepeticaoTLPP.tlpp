@@ -1,0 +1,356 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+
+// - 1) Crie um programa que receba um número e imprima todos os números pares de 0 até o número recebido.
+
+User Function Excerice01()
+    Local nNumRecebido as numeric
+    Local nCont as integer
+    Local aPares := {} as array
+    LOcal nDivisor := 2 as numeric
+
+    nNumRecebido := val(fwInputBox("Digite um Número", "Número"))
+
+    CONOUT( "De 0 ate " + ALLTRIM(Str(nNumRecebido)) + " temos:" )
+
+    ImprimirNumerosPares(nNumRecebido,nCont,nDivisor,aPares)
+
+    For nCont := 1 to len(aPares)
+        CONOUT( "Numero Par : " + AllTrim(Str(aPares[nCont])) )
+    Next
+Return
+
+Static Function ImprimirNumerosPares(nNumRecebido,nCont,nDivisor,aPares)
+  
+   
+   DO WHILE nCont <= nNumRecebido
+      IF mod(nCont,nDivisor) = 0
+         aadd(aPares,nCont)
+      ENDIF
+      
+      nCont := nCont + 1
+   ENDDO
+RETURN
+
+// 2) Crie um programa que receba um número e imprima todos os números ímpares de 0 até o número recebido.
+
+User Function Excerice02()
+    Local nNumRecebido as numeric
+    Local nCont as integer
+    Local aImpares := {} as array
+    LOcal nDivisor := 2 as numeric
+
+    nNumRecebido := val(fwInputBox("Digite um Número", "Número"))
+
+    CONOUT( "De 0 ate " + ALLTRIM(Str(nNumRecebido)) + " temos:" )
+
+    ImprimirNumerosImpares(nNumRecebido,nCont,nDivisor,aImpares)
+
+    For nCont := 1 to len(aImpares)
+        CONOUT( "Numero Imap : " + AllTrim(Str(aImpares[nCont])) )
+    Next
+Return
+
+Static Function ImprimirNumerosImpares(nNumRecebido,nCont,nDivisor,aImpares)
+  
+   
+   DO WHILE nCont <= nNumRecebido
+      IF mod(nCont,nDivisor) <> 0
+         aadd(aImpares,nCont)
+      ENDIF
+      
+      nCont := nCont + 1
+   ENDDO
+RETURN
+
+// 3) Crie um programa que receba um número inicial e um número final e imprima todos os números pares entre o número inicial e o número final.
+
+User Function Excerice03()
+    Local nNumInicial as numeric
+    Local nNumFinal as numeric
+    Local nCont as integer
+    Local aPares := {} as array
+    LOcal nDivisor := 2 as numeric
+
+    while .T.
+        nNumInicial := val(fwInputBox("Digite um Número Inicial", "Primeiro"))
+        nNumFinal   := val(fwInputBox("Digite um Número Final", "Segundo"))
+
+        IF nNumInicial >= 0 .AND. nNumFinal > 0 .AND. nNumInicial < nNumFinal
+            EXIT
+        ELSE
+            Alert("Os números digitados são inválidos, digite novamente")
+        ENDIF
+    end
+    
+
+    CONOUT( "Do Numero :" + ALLTRIM(Str(nNumInicial)) + " a : " + ALLTRIM(Str(nNumFinal)) + " Temos : " + ALLTRIM(Str(nNumFinal - nNumInicial)) + " Numeros" )
+   
+    nCont := nNumInicial
+
+    ImprimirPares(nNumFinal,nCont,nDivisor,aPares)
+
+    For nCont := 1 to len(aPares)
+        CONOUT( "Numero Par : " + AllTrim(Str(aPares[nCont])) )
+    Next
+Return
+
+Static Function ImprimirPares(nNumFinal,nCont,nDivisor,aPares)
+  
+   
+   DO WHILE nCont <= nNumFinal
+      IF mod(nCont,nDivisor) = 0
+         aadd(aPares,nCont)
+      ENDIF
+      
+      nCont := nCont + 1
+   ENDDO
+RETURN
+
+
+// 4) Crie um programa que receba um número inicial e um número final e imprima todos os números ímpares entre o número inicial e o número final.
+
+User Function Excerice04()
+    Local nNumInicial as numeric
+    Local nNumFinal as numeric
+    Local nCont as integer
+    Local aPares := {} as array
+    LOcal nDivisor := 2 as numeric
+
+    while .T.
+        nNumInicial := val(fwInputBox("Digite um Número Inicial", "Primeiro"))
+        nNumFinal   := val(fwInputBox("Digite um Número Final", "Segundo"))
+
+        IF nNumInicial >= 0 .AND. nNumFinal > 0 .AND. nNumInicial < nNumFinal
+            EXIT
+        ELSE
+            Alert("Os números digitados são inválidos, digite novamente")
+        ENDIF
+    end
+    
+
+    CONOUT( "Do Numero :" + ALLTRIM(Str(nNumInicial)) + " a : " + ALLTRIM(Str(nNumFinal)) + " Temos : " + ALLTRIM(Str(nNumFinal - nNumInicial)) + " Numeros" )
+   
+    nCont := nNumInicial
+
+    ImprimirImpares(nNumFinal,nCont,nDivisor,aPares)
+
+    For nCont := 1 to len(aPares)
+        CONOUT( "Numero Impar : " + AllTrim(Str(aPares[nCont])) )
+    Next
+Return
+
+Static Function ImprimirImpares(nNumFinal,nCont,nDivisor,aPares)
+  
+   
+   DO WHILE nCont <= nNumFinal
+      IF mod(nCont,nDivisor) <> 0
+         aadd(aPares,nCont)
+      ENDIF
+      
+      nCont := nCont + 1
+   ENDDO
+RETURN
+
+// 5) Crie um programa que possui um array de números inteiros de 10 posições. O array possui os valores 10, 9, 8, 7, 6, 5, 4, 3, 2, 1. O 
+// programa deve ordenar o array em ordem crescente e imprimir os valores do array ordenado.
+
+
+User Function Excerice05()
+    Local nCont as integer
+    Local aPares := {10, 9, 8, 7, 6, 5, 4, 3, 2, 1} as array
+    
+     For nCont := 1 to len(aPares)
+        CONOUT( "Array Desordenado : " + AllTrim(Str(aPares[nCont])) )
+    Next
+
+   
+    OrdenaArray(nCont,aPares)
+
+    For nCont := 1 to len(aPares)
+        CONOUT( "Posicao " + AllTrim(Str(nCont)) + " do Array " + AllTrim(Str(aPares[nCont])) )
+    Next nCont
+Return
+
+Static Function OrdenaArray(nCont,aPares)
+    Local nIncide as integer
+    Local nApoio as numeric
+
+    for nCont := 1 to len(aPares) -1
+        for nIncide := 1 to len(aPares) -1
+              if aPares[nIncide] > aPares[nIncide + 1]
+                nApoio := aPares[nIncide]
+                aPares[nIncide] := aPares[nIncide + 1]
+                aPares[nIncide + 1] := nApoio
+            endif   
+        next nIncide
+    next nCont
+RETURN
+
+// 6) Crie um programa que possui um array de 10 posições. O array possui os valores Z, D, X, A, Y, E, W, G, J, I.
+// O programa deve ordenar o array em ordem decrescente e imprimir os valores do array ordenado.
+
+User Function Excerice06()
+    Local nCont as integer
+    Local aPares := {"Z", "D", "X", "A", "Y", "E", "W", "G", "J", "I"} as array
+    
+     For nCont := 1 to len(aPares)
+        CONOUT( "Array Desordenado : " + AllTrim(aPares[nCont]) )
+    Next
+
+   
+    OrdenaArrayLetras(nCont,aPares)
+
+    For nCont := 1 to len(aPares)
+        CONOUT( "Posicao " + AllTrim(str(nCont)) + " do Array " + AllTrim(aPares[nCont]) )
+    Next nCont
+Return
+
+Static Function OrdenaArrayLetras(nCont,aPares)
+    Local nIncide as integer
+    Local nApoio as numeric
+
+    for nCont := 1 to len(aPares) -1
+        for nIncide := 1 to len(aPares) -1
+              if aPares[nIncide] > aPares[nIncide + 1]
+                nApoio := aPares[nIncide]
+                aPares[nIncide] := aPares[nIncide + 1]
+                aPares[nIncide + 1] := nApoio
+            endif   
+        next nIncide
+    next nCont
+RETURN
+
+// Exercicio7
+    /* Crie um programa que possui dois arrays de 10 posições.
+    O primeiro array possui os valores 10, 9, 8, 7, 6, 5, 4, 3, 2, 1. 
+    O segundo array possui os valores Z, D, X, A, Y, E, W, G, J, I. 
+    O programa deve ordenar ambos os arrays em ordem crescente e inverter os valores dos arrays. 
+    Ao final o programa deve imprimir os valores dos dois arrays.
+ */
+User Function OrdenaArrays()
+
+    Local aNumeros as array
+    Local aLetras as array
+    Local nContador as numeric
+    Local nContador2 as numeric
+    Local nAuxiliar as numeric
+    Local cAuxiliar as character
+
+    aNumeros := {10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
+    aLetras := {"Z", "D", "X", "A", "Y", "E", "W", "G", "J", "I"}
+    
+    
+    //Impressão do aNumeros
+    CONOUT( Chr(13) + Chr(10) + "Array de números desordenado:" + Chr(13) + Chr(10))
+    For nContador := 1 to Len(aNumeros)
+        CONOUT("Posicao " + ALLTRIM(Str(nContador)) + " do array: " + ALLTRIM(Str(aNumeros[nContador])))
+    Next nContador
+    
+    //Impressão do aLetras
+    CONOUT( Chr(13) + Chr(10) + "Array de letras desordenado:" + Chr(13) + Chr(10) )
+    For nContador := 1 to Len(aLetras)
+        CONOUT("Posicao " + ALLTRIM(nContador) + " do array: " + ALLTRIM(aLetras[nContador]))
+    Next nContador
+
+    //Ordenação do array de números
+    For nContador := 1 to Len(aNumeros) - 1
+        For nContador2 := 1 to Len(aNumeros) - 1
+            If aNumeros[nContador2] > aNumeros[nContador2 + 1]
+                nAuxiliar := aNumeros[nContador2]
+                aNumeros[nContador2] := aNumeros[nContador2 + 1]
+                aNumeros[nContador2 + 1] := nAuxiliar
+            EndIf
+        Next nContador2
+    Next nContador
+
+    //Ordenação do array de letras
+    For nContador := 1 to Len(aLetras) - 1
+        For nContador2 := 1 to Len(aLetras) - 1
+            If aLetras[nContador2] > aLetras[nContador2 + 1]
+                cAuxiliar := aLetras[nContador2]
+                aLetras[nContador2] := aLetras[nContador2 + 1]
+                aLetras[nContador2 + 1] := cAuxiliar
+            EndIf
+        Next nContador2
+    Next nContador
+
+    //Inversão dos dados entre os arrays
+    For nContador := 1 to Len(aNumeros)
+        nAuxiliar := aNumeros[nContador]
+        aNumeros[nContador] := aLetras[nContador]
+        aLetras[nContador] := nAuxiliar
+    Next nContador
+
+    CONOUT( Chr(13) + Chr(10)+"Array de numeros Ordenados:" +Chr(13) + Chr(10) )
+    //Impressão do aNumeros
+    For nContador := 1 to Len(aNumeros)
+        CONOUT("Posicao " + ALLTRIM(Str(nContador)) + " do array de numeros: " + ALLTRIM(aNumeros[nContador]))
+    Next nContador
+
+    CONOUT( Chr(13) + Chr(10) + "Array de letras Ordenadas:" + Chr(13) + Chr(10) )
+    //Impressão do aLetras
+    For nContador := 1 to Len(aLetras)
+        CONOUT("Posicao " + ALLTRIM(Str(nContador)) + " do array de letras: " + ALLTRIM(Str(aLetras[nContador])))
+    Next nContador
+    
+Return 
+
+
+// Exemplo a desevolver/testar 
+
+User Function SortAndReverse()
+    Local aNumbers := {10, 9, 8, 7, 6, 5, 4, 3, 2, 1}
+    Local aLetters := {"Z", "D", "X", "A", "Y", "E", "W", "G", "J", "I"}
+    Local nCont as integer
+    Local nAuxiliar as integer
+
+    // Imprime os valores dos dois arrays
+    PrintArrays(nCont,aNumbers,aLetters)
+    // Ordena os arrays em ordem crescente
+    ASort(aNumbers)
+    ASort(aLetters)
+    // Imprime os valores dos dois arrays
+    PrintArrays(nCont,aNumbers,aLetters)
+
+     // Inverte Valores entre os Arrays
+      For nCont := 1 to Len(aNumbers)
+        nAuxiliar := aNumbers[nCont]
+        aNumbers[nCont] := aLetters[nCont]
+        aLetters[nCont] := nAuxiliar
+    Next nCont
+
+    // Imprime os valores dos dois arrays
+    PrintArrays(nCont,aNumbers,aLetters)
+
+    // Reverte organização dos arrays
+    aNumbers := AReverse(aNumbers)
+    aLetters := AReverse(aLetters)
+    // Imprime os valores dos dois arrays Invertidos
+    PrintArrays(nCont,aNumbers,aLetters)
+    
+Return Nil
+
+/*/{Protheus.doc} nomeStaticFunction
+    (long_description)
+    @type  Static Function
+    @author user
+    @since 26/11/2023
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+/*/
+Static Function PrintArrays(nCont,aNumbers,aLetters)
+    for nCont := 1 to len(aNumbers)
+        ConOut("Posicao : " + ALLTRIM(Str(nCont)) + " do Array Numbers " + ALLTRIM(aNumbers[nCont]))
+    next
+
+     for nCont := 1 to len(aLetters)
+        ConOut("Posicao : " +  ALLTRIM(Str(nCont)) + " do Array Letters " + ALLTRIM(aLetters[nCont]))
+    next 
+    
+Return 
+
