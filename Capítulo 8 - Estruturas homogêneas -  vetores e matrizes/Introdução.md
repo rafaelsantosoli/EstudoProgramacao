@@ -81,7 +81,7 @@ aExemplo := {} // declara um vetor sem elementos ou vazio
 
 ```
 
-![Array3](img/array3.png)
+![Array3](img/array3.png) 
 
 ### Declaração e atribuição de valores a vetores
 
