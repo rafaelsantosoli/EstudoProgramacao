@@ -222,6 +222,7 @@ Return MsgInfo( cMensagem, "Exemplo do AIns" )
 ```
 
 resultado:
+
 ![Alt text](img/array6.png)
 
 ### Edição de elementos em vetores
@@ -304,6 +305,7 @@ Return MsgInfo(cMensagem, "Exemplo do ADel")
 ```
 
 resultado:
+
 ![Alt text](img/array7.png)
 
 ### Tamanho de vetores
