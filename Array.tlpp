@@ -1,0 +1,40 @@
+#INCLUDE 'protheus.ch'
+#include 'tlpp-core.th'
+
+//EXEC 1 E EXEC 2
+/* VER COM STEVE: Limite de caracteres na chamada, mesmo estando em TLPP...a function de baixo (RetEstado), por ter
+como parametro apenas a sigla, funciona, já a Sigla pede um parametro com mais caracteres, e por isso não o lê*/
+
+User Function Sigla(state) 
+    Local aState := {"Rio de Janeiro","RJ","São Paulo","SP","Minas Gerais","MG","Rio Grande do Sul","RS","TY","Teste"}
+
+    Local nArrayPosition:= AScan(aState,state)  
+    conout("A sigla do estado escolhido é: " +aState[nArrayPosition+1])
+      
+RETURN
+
+
+//EXEC 3 
+User Function RetEstado(state) 
+    Local aState := {"Rio de Janeiro","RJ","São Paulo","SP","Minas Gerais","MG","Rio Grande do Sul","RS"}
+
+    Local nArrayPosition:= AScan(aState,state)  
+    conout("O estado da sigla escolhida é: " +aState[nArrayPosition-1])
+   
+RETURN
+
+//EXEC 4
+
+User Function Exec4(state) 
+    Local aState := {"Rio de Janeiro","RJ","São Paulo","SP","Minas Gerais","MG","Rio Grande do Sul","RS"}
+    Local nState := Len(state)
+    Local nArrayPosition:= AScan(aState,state)  
+
+
+    if(nState = 2)
+        conout("O estado da sigla escolhida é: " +aState[nArrayPosition-1])
+    else
+        conout("A sigla do estado escolhido é: " +aState[nArrayPosition+1])
+    endIf
+RETURN
+
