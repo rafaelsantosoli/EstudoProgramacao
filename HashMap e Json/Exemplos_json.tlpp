@@ -1,0 +1,66 @@
+#include 'tlpp-core.th'
+
+
+user Function declaracao1()
+
+// Cria um objeto JSON
+Local oJson := JsonObject():new()
+
+    // Adiciona propriedades ao objeto JSON
+    //oJson[chave] := valor
+
+    oJson["nome"] := "João da Silva"
+    oJson["idade"] := 25
+    oJson["casado"] := .F.
+    oJson["filhos"] := {"Joãozinho", "Mariazinha"}
+    oJson["endereco"] := {;
+        "rua": "Rua das Flores",;
+        "numero": 123,;
+        "bairro": "Centro",;
+        "cidade": "São Paulo",;
+        "estado": "SP";
+    }
+
+    // Exibe o objeto JSON em formato de string
+    CONOUT(oJson:toJson())
+
+    // Exibe o valor de uma propriedade do objeto JSON
+    CONOUT(oJson["nome"])
+
+    // Exibe o valor de uma propriedade do objeto JSON
+    CONOUT(oJson["endereco"]["rua"])
+
+    // Exibe o valor de uma propriedade do objeto JSON
+
+    Local oFilhos := oJson["filhos"]
+    CONOUT(oFilhos[1])
+
+Return 
+
+
+user Function declaracao2()
+
+
+    // Cria uma variável do tipo Json
+    Local jJson as Json    
+
+    // Popula o objeto JSON
+    jJson              := {"chave1": "valor1"}
+    jJson["estado"]    := "SP"
+    jJson[ 'estados' ] := {"SP", "RJ", "MG"}
+
+
+    // Teremos um objeto JSON com as seguintes propriedades:
+    // jJson["chave1"] = "valor1"
+    // jJson["chave2"] = "valor2"
+    // jJson2["estado"] = "SP"
+    // jJson3["estados"] = {"SP", "RJ", "MG"}
+
+    //Imprime tipos de conteúdos dos objetos json
+    CONOUT( " Tipo da variavel jJson[chave1]  : "  , VALTYPE( jJson["chave1"] ))
+    CONOUT( " Tipo da variavel jJson[chave2]  : "  , VALTYPE( jJson["chave2"] ))
+    CONOUT( " Tipo da variavel jJson[estado]  : "  , VALTYPE( jJson["estado"] ))
+    CONOUT( " Tipo da variavel jJson[estados] : "  , VALTYPE( jJson["estados"]))
+    
+
+Return

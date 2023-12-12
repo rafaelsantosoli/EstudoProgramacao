@@ -180,12 +180,19 @@ A classe JsonObject possui o construtor `JsonObject:new` e os métodos:
 
 As propriedades da classe são criadas dinamicamente, ou seja, não é necessário declarar as propriedades antes de utilizá-las.
 
+<a style="color: violet"> 
+
+<mark>Importante:<mark>
+
+ No advpl e no TLpp, a atribuição de arrays nas propriedades do objeto JSON é feita utilizando chaves `{}` e não colchetes `[]` como é feito em outras linguagens. </a>
+
+
 Exemplo:
 
 ```tlpp
 
 // Cria um objeto JSON
-Local oJson := JsonObject:new()
+Local oJson := JsonObject():new()
 
 // Adiciona propriedades ao objeto JSON
 //oJson[chave] := valor
@@ -193,7 +200,7 @@ Local oJson := JsonObject:new()
 oJson["nome"] := "João da Silva"
 oJson["idade"] := 25
 oJson["casado"] := .F.
-oJson["filhos"] := ["Joãozinho", "Mariazinha"]
+oJson["filhos"] := {"Joãozinho", "Mariazinha"}
 oJson["endereco"] := {
     "rua": "Rua das Flores",
     "numero": 123,
@@ -225,7 +232,7 @@ O código acima irá exibir o seguinte resultado:
     "nome": "João da Silva",
     "idade": 25,
     "casado": false,
-    "filhos": ["Joãozinho", "Mariazinha"],
+    "filhos": {"Joãozinho", "Mariazinha"},
     "endereco": {
         "rua": "Rua das Flores",
         "numero": 123,
@@ -261,7 +268,7 @@ Local jJson as Json
 jJson["nome"] := "João da Silva"
 jJson["idade"] := 25
 jJson["casado"] := .F.
-jJson["filhos"] := ["Joãozinho", "Mariazinha"]
+jJson["filhos"] := {"Joãozinho", "Mariazinha"}
 
 ```	
 
@@ -278,7 +285,7 @@ Local cJson := '{
     "nome": "João da Silva",
     "idade": 25,
     "casado": false,
-    "filhos": ["Joãozinho", "Mariazinha"],
+    "filhos": {"Joãozinho", "Mariazinha"},
     "endereco": {
         "rua": "Rua das Flores",
         "numero": 123,
@@ -309,18 +316,29 @@ Exemplo:
 
 ```tlpp
 
-// Cria uma variável do tipo Json
-Local jJson as Json
-Locla jjson2 as Json
 
-// Popula o objeto JSON
-jJson := {"chave1": "valor1", "chave2": "valor2"}
-jjson2["estado"] := "SP"
 
-// Teremos um objeto JSON com as seguintes propriedades:
-// jJson["chave1"] = "valor1"
-// jJson["chave2"] = "valor2"
-// jJson2["estado"] = "SP"
+    // Cria uma variável do tipo Json
+    Local jJson as Json    
+
+    // Popula o objeto JSON
+    jJson              := {"chave1": "valor1"}
+    jJson["estado"]    := "SP"
+    jJson[ 'estados' ] := {"SP", "RJ", "MG"}
+
+
+    // Teremos um objeto JSON com as seguintes propriedades:
+    // jJson["chave1"] = "valor1"
+    // jJson["chave2"] = "valor2"
+    // jJson2["estado"] = "SP"
+    // jJson3["estados"] = {"SP", "RJ", "MG"}
+
+    //Imprime tipos de conteúdos dos objetos json
+    CONOUT( " Tipo da variável jJson[chave1]  : "  , VALTYPE( jJson["chave1"] ))
+    CONOUT( " Tipo da variável jJson[chave2]  : "  , VALTYPE( jJson["chave2"] ))
+    CONOUT( " Tipo da variável jJson[estado]  : "  , VALTYPE( jJson["estado"] ))
+    CONOUT( " Tipo da variável jJson[estados] : "  , VALTYPE( jJson["estados"]))
+    
 
 ```
 
