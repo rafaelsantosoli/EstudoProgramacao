@@ -18,8 +18,8 @@ def calcular_porcentagem(valor, total):
     return porcentagem
 
 # Solicitar entrada do usuário
-valor = float(input("Digite o valor: "))
-total = float(input("Digite o total: "))
+valor = float(input("Digite o valor obtido do total: "))
+total = float(input("Digite o total da percentage: "))
 
 # Calcular e exibir a porcentagem
 porcentagem = calcular_porcentagem(valor, total)
