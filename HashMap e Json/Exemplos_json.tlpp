@@ -4,8 +4,8 @@
 user Function declaracao1()
 
 // Cria um objeto JSON
-Local oJson := JsonObject():new()
-
+    Local oJson := JsonObject():new()
+    Local jDinamico := {'dados': {"nome": "João da Silva", "idade": 25, "casado": .F.}}
     // Adiciona propriedades ao objeto JSON
     //oJson[chave] := valor
 
