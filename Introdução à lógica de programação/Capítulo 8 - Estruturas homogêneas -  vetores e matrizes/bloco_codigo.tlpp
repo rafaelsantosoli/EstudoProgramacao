@@ -1,0 +1,45 @@
+#include 'tlpp-core.th'
+
+
+USER FUNCTION BL001()
+
+    Local nContador := 0
+    Local bIncr := {  | i | nContador := nContador + i }
+
+    conout("Antes : " + str( nContador , 5 ))
+    BLCONTA( bIncr )
+    conout("Depois : " + str( nContador , 5 ))
+
+Return
+
+
+STATIC FUNCTION BLCONTA( bBloco )
+
+    Eval( bBloco ,  5 )
+
+Return
+
+
+USER FUNCTION BL002()
+    Local bTeste := { |x| x := x + 1 , u_mostra(x), u_mostra(x+10), u_mostra(x), u_mostra(x), u_mostra(x+40)   }
+    Local nRetorno := 0
+    Local nContador := 0
+    
+    // retorna NIL , mostra valor 1, chamada passando apenas nContador
+
+    nRetorno := Eval( bTeste , nContador )
+    // nContador continua com 0 ( zero ) 
+
+    conout( " Contador = " + str( nContador,10 ))
+    // retorna NIL , mostra valor 1, chama passando nContador por referência
+
+    Eval( bTeste , @nContador )
+    // Mas agora o nContador está com 1 ( um )
+
+    conout( " Contador = " + str( nContador,10 ))
+
+Return
+
+User Function Mostra(nValor)
+    conout( "Valor = " + str( nValor , 10) )
+Return nValor
