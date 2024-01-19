@@ -1,0 +1,341 @@
+
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+#include 'protheus.ch'
+
+/*/{Protheus.doc} User Function arrays
+    (long_description)
+    @type  Function
+    @author user
+    @since 04/01/2024
+    @version version
+    @param , param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+User Function estudaArrays()
+
+    Local aArraySimples := {'SAO PAULO','SP'} as array
+    Local nContador as integer
+    Local cContinuar as character
+    Local dado as character 
+
+        For nContador := 1 to Len(aArraySimples)
+            CONOUT("Posicao " + ALLTRIM(Str(nContador)) + " do array: " + ALLTRIM(aArraySimples[nContador]))
+        Next nContador
+
+        cContinuar := FWInputBox("Deseja Bucar Dados no Array?, Sim ou Não", cContinuar)
+
+        if UPPER( cContinuar ) == "SIM"
+           buscaDados(aArraySimples) 
+        endif
+        
+
+    
+    /*/{Protheus.doc} buscaDados
+        (long_description)
+        @type  Static Function
+        @author user
+        @since 04/01/2024
+        @version version
+        @param , param_type, param_descr
+        @return return_var, return_type, return_description
+        @example
+        (examples)
+        @see (links_or_references)
+    /*/
+    Static Function buscaDados(aArraySimples)
+
+        Local nPos as numeric
+
+        nPos := ASCAN( aArraySimples, {|x| ALLTRIM(UPPER( x )) == 'SAO PAULO'})
+
+        if nPos > 0 
+            CONOUT("Nome do Estado localizada na posicao " + ALLTRIM(Str(nPos)) + " do array, Sigla na Posicao: "+ ALLTRIM(str(nPos + 1 ))+  " - "  + ALLTRIM(aArraySimples[nPos + 1 ]))
+        else
+            CONOUT("Posicao não Localizada no Array ")
+        EndIf
+
+        dado := UPPER(FWInputBox("Deseja Bucar Qual ESTADO no Array?, Digite Sigla ou Nome", dado))
+
+        if ! EMPTY( dado ) 
+           buscaComParametro(dado) 
+        endif
+        
+    Return
+
+    
+
+    /*/{Protheus.doc} buscaComParametro
+        (long_description)
+        @type  Static Function
+        @author user
+        @since 04/01/2024
+        @version version
+        @param param_name, param_type, param_descr
+        @return return_var, return_type, return_description
+        @example
+        (examples)
+        @see (links_or_references)
+    /*/
+    Static Function buscaComParametro(dado)
+     Local nPos as numeric
+     Local aArraySimples := {'SAO PAULO','SP','RIO DE JANEIRO','RJ'} as array
+
+        if dado $ "RJ"
+            nPos := ASCAN( aArraySimples, {|x| ALLTRIM( x ) == "RIO DE JANEIRO"})
+        ElseIf dado $ "SP"
+            nPos := ASCAN( aArraySimples, {|x| ALLTRIM( x ) == "SÃO PAULO"})
+        EndIf
+
+       
+        if nPos > 0 
+            CONOUT("Nome do Estado localizada na posicao " + ALLTRIM(Str(nPos)) + " do array, Nome: "+ ALLTRIM(str(nPos ))+  " - "  + ALLTRIM(aArraySimples[nPos]))
+        else
+            CONOUT("Posicao não Localizada no Array ")
+        EndIf
+
+
+        
+    Return
+
+    
+Return 
+
+/*/{Protheus.doc} User Function nomeFunction
+    (long_description)
+    @type  Function
+    @author user
+    @since 09/01/2024
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+User Function Ex5Array()
+
+Local aEstados :={} as array
+Local aVerEstados as array
+Local nCont as integer
+Local bOrdena as codeblock
+Local bOrdena2 as codeblock
+
+AADD( aEstados, {"Roraima","RR" , 11})
+AADD( aEstados, {"Acre","AC" , 12,})
+AADD( aEstados, {"Amazonas" ,"AM" , 13})
+AADD( aEstados, {"Rondônia" ,"RO" , 14})
+AADD( aEstados, {"Pará" ,"PA" ,15})
+AADD( aEstados, {"Amapá" ,"AP" , 16})
+AADD( aEstados, {"Tocantins" ,"TO" , 17})
+AADD( aEstados, {"Maranhão" ,"MA" , 21})
+AADD( aEstados, {"Piauí" ,"PI" , 22})
+AADD( aEstados, {"Ceará" ,"CE" , 23   })
+AADD( aEstados, {"Rio Grande do Norte", "RN" ,24})
+AADD( aEstados, {"Paraíba" ,"PB" , 25   })
+AADD( aEstados, {"Pernambuco" ,"PR" , 26   })
+AADD( aEstados, {"Alagoas" ,"AL" , 27   })
+AADD( aEstados, {"Sergipe" ,"SG" , 28   })
+AADD( aEstados, {"Bahia" ,"BA" , 29    })
+AADD( aEstados, {"Minas Gerais" ,"MG" , 31   })
+AADD( aEstados, {"Espírito Santo" ,"ES" ,32    })
+AADD( aEstados, {"Rio de Janeiro" ,"RJ" , 33   })
+AADD( aEstados, {"São Paulo" ,"SP" , 35    })
+AADD( aEstados, {"Paraná" ,"PR" , 41   })
+AADD( aEstados, {"Santa Catarina" ,"SC" , 42 })
+AADD( aEstados, {"Rio Grande do Sul" , "RS", 43 })
+AADD( aEstados, {"Mato Grosso do Sul", "MS", 50 })
+AADD( aEstados, {"Mato Grosso", "MT", 51 })
+AADD( aEstados, {"Goiás", "GO", 52 })
+AADD( aEstados, {"Distrito Federal", "DF" , 53 })
+
+ExibeConout(aEstados,aVerEstados,nCont)
+
+bOrdena := {|Atu,Nex| Atu[1] < Nex[1] .or. (Atu[1] == Nex[1] .and. Atu[2] < Nex[2];
+            .or. (Atu[1] == Nex[1] .and. Atu[3] < Nex[3])) }
+
+ASORT( aEstados, , , bOrdena )
+
+ExibeConout(aEstados,aVerEstados,nCont)
+
+// Ordena de forma decresente
+bOrdena2 := {|Atu,Nex| Atu[1] > Nex[1] .or. (Atu[1] == Nex[1] .and. Atu[2] > Nex[2];
+            .or. (Atu[1] == Nex[1] .and. Atu[3] > Nex[3])) }
+
+ASORT( aEstados, , , bOrdena2 )
+
+ExibeConout(aEstados,aVerEstados,nCont)
+    
+Return
+
+/*/{Protheus.doc} nomeFunction
+    (long_description)
+    @type  Function
+    @author user
+    @since 10/01/2024
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+Static Function ExibeConout(aEstados,aVerEstados,nCont)
+
+for nCont := 1 to len(aEstados)
+   aVerEstados := aEstados[nCont]
+    conout("Estado... " + cValToChar(aVerEstados[1]) + Chr(13) + Chr(10)+ ;
+      " Sigla ... " + cValToChar(aVerEstados[2]) + Chr(13) + Chr(10) + ;
+      " Codigo ... " + cValToChar(aVerEstados[3]) + Chr(13) + Chr(10))
+next nCont
+    
+Return
+
+User Function Ex6Array()
+
+Local aEstados :={} as array
+Local aVerEstados as array
+Local nCont as integer
+Local bOrdena as codeblock
+Local bOrdena2 as codeblock
+Local aCodDisc :={} as array
+Local nPos as integer
+Local nPos2 as integer
+
+AADD( aEstados, {"Roraima","RR" , 11})
+AADD( aEstados, {"Acre","AC" , 12,})
+AADD( aEstados, {"Amazonas" ,"AM" , 13})
+AADD( aEstados, {"Rondônia" ,"RO" , 14})
+AADD( aEstados, {"Pará" ,"PA" ,15})
+AADD( aEstados, {"Amapá" ,"AP" , 16})
+AADD( aEstados, {"Tocantins" ,"TO" , 17})
+AADD( aEstados, {"Maranhão" ,"MA" , 21})
+AADD( aEstados, {"Piauí" ,"PI" , 22})
+AADD( aEstados, {"Ceará" ,"CE" , 23   })
+AADD( aEstados, {"Rio Grande do Norte", "RN" ,24})
+AADD( aEstados, {"Paraíba" ,"PB" , 25   })
+AADD( aEstados, {"Pernambuco" ,"PR" , 26   })
+AADD( aEstados, {"Alagoas" ,"AL" , 27   })
+AADD( aEstados, {"Sergipe" ,"SG" , 28   })
+AADD( aEstados, {"Bahia" ,"BA" , 29    })
+AADD( aEstados, {"Minas Gerais" ,"MG" , 31   })
+AADD( aEstados, {"Espírito Santo" ,"ES" ,32    })
+AADD( aEstados, {"Rio de Janeiro" ,"RJ" , 33   })
+AADD( aEstados, {"São Paulo" ,"SP" , 35    })
+AADD( aEstados, {"Paraná" ,"PR" , 41   })
+AADD( aEstados, {"Santa Catarina" ,"SC" , 42 })
+AADD( aEstados, {"Rio Grande do Sul" , "RS", 43 })
+AADD( aEstados, {"Mato Grosso do Sul", "MS", 50 })
+AADD( aEstados, {"Mato Grosso", "MT", 51 })
+AADD( aEstados, {"Goiás", "GO", 52 })
+AADD( aEstados, {"Distrito Federal", "DF" , 53 })
+
+
+AADD( aCodDisc, {11,	"SAOPAULO"})
+AADD( aCodDisc, {12,	"SAOPAULO"})	
+AADD( aCodDisc, {13,	"SAOPAULO"})	
+AADD( aCodDisc, {14,	"SAOPAULO"})
+AADD( aCodDisc, {15,	"SAOPAULO"})
+AADD( aCodDisc, {16,	"SAOPAULO"})
+AADD( aCodDisc, {17,	"SAOPAULO"})	
+AADD( aCodDisc, {18,	"SAOPAULO"})	
+AADD( aCodDisc, {19,	"SAOPAULO"})	
+AADD( aCodDisc, {21,	"RIO"})
+AADD( aCodDisc, {22,	"RIO"})
+AADD( aCodDisc, {24,	"RIO"})
+AADD( aCodDisc, {27,	"ESPI"})
+AADD( aCodDisc, {28,	"ESPI"})
+AADD( aCodDisc, {31,	"MINAS"})
+AADD( aCodDisc, {32,	"MINAS"})
+AADD( aCodDisc, {33,	"MINAS"})
+AADD( aCodDisc, {34,	"MINAS"})
+AADD( aCodDisc, {35,	"MINAS"})
+AADD( aCodDisc, {37,	"MINAS"})
+AADD( aCodDisc, {38,	"MINAS"})
+AADD( aCodDisc, {41,	"PARANA"})
+AADD( aCodDisc, {42,	"PARANA"})
+AADD( aCodDisc, {43,	"PARANA"})
+AADD( aCodDisc, {44,	"PARANA"})
+AADD( aCodDisc, {45,	"PARANA"})
+AADD( aCodDisc, {46,	"PARANA"})
+AADD( aCodDisc, {47,	"SANTA"})
+AADD( aCodDisc, {48,	"SANTA"})
+AADD( aCodDisc, {49,	"SANTA"})
+AADD( aCodDisc, {51,	"RIOGS"}) 
+AADD( aCodDisc, {53,	"RIOGS"})
+AADD( aCodDisc, {54,	"RIOGS"})
+AADD( aCodDisc, {55,	"RIOGS"})
+AADD( aCodDisc, {61,	"DISTRITO"})
+AADD( aCodDisc, {62,	"GOIAS"})	
+AADD( aCodDisc, {63,	"TOCA"})
+AADD( aCodDisc, {64,	"GOIAS"})
+AADD( aCodDisc, {65,	"MTS"})
+AADD( aCodDisc, {66,	"MTS"})
+AADD( aCodDisc, {67,	"MTS"})
+AADD( aCodDisc, {68,	"ACRE"})
+AADD( aCodDisc, {69,	"RONDONIA"})
+AADD( aCodDisc, {71,	"BAHIA"})
+AADD( aCodDisc, {73,	"BAHIA"})
+AADD( aCodDisc, {74,	"BAHIA"})
+AADD( aCodDisc, {75,	"BAHIA"})
+AADD( aCodDisc, {77,	"BAHIA"})
+AADD( aCodDisc, {79,	"SERGIPE"})
+AADD( aCodDisc, {81,	"PERNAM"})
+AADD( aCodDisc, {82,	"ALAG"})
+AADD( aCodDisc, {83,	"PARAIB"})
+AADD( aCodDisc, {84,	"RIOGN"})
+AADD( aCodDisc, {85,	"CEARA"})
+AADD( aCodDisc, {86,	"PIAUI"})
+AADD( aCodDisc, {87,	"PRNAMB"})
+AADD( aCodDisc, {88,	"CEARA"})
+AADD( aCodDisc, {89,	"PIAUI"})
+AADD( aCodDisc, {91,	"PARA"})
+AADD( aCodDisc, {92,	"AMZ"})
+AADD( aCodDisc, {93,	"PARA"})
+AADD( aCodDisc, {94,	"PARA"})
+AADD( aCodDisc, {95,	"RORAIMA"})
+AADD( aCodDisc, {96,	"AMAPA"})
+AADD( aCodDisc, {97,	"AMZ"})
+AADD( aCodDisc, {98,	"MARAN"})
+AADD( aCodDisc, {99,	"MARAN"})
+
+
+for nCont := 1 to len(aEstados)
+nPos := ASCAN( aEstados, {|x| x[2] == "SP"})
+    nPos2 := ASCAN( aCodDisc, {|x| x[2] == "SAOPAULO"})
+    if nPos > 0
+        AADD( aEstados[nPos][4]aCodDisc[nPos2][1])
+        AADD( aEstados[nPos][5]aCodDisc[nPos2][2])
+        AADD( aEstados[nPos][6]aCodDisc[nPos2][3])
+        AADD( aEstados[nPos][7]aCodDisc[nPos2][4])
+        AADD( aEstados[nPos][8]aCodDisc[nPos2][5])
+        AADD( aEstados[nPos][9]aCodDisc[nPos2][6])
+        AADD( aEstados[nPos][10]aCodDisc[nPos2][7])
+        AADD( aEstados[nPos][11]aCodDisc[nPos2][8])
+        AADD( aEstados[nPos][12]aCodDisc[nPos2][9])
+
+    endif
+    
+next
+
+ExibeConout(aEstados,aVerEstados,nCont)
+
+bOrdena := {|Atu,Nex| Atu[1] < Nex[1] .or. (Atu[1] == Nex[1] .and. Atu[2] < Nex[2];
+            .or. (Atu[1] == Nex[1] .and. Atu[3] < Nex[3])) }
+
+ASORT( aEstados, , , bOrdena )
+
+ExibeConout(aEstados,aVerEstados,nCont)
+
+// Ordena de forma decresente
+bOrdena2 := {|Atu,Nex| Atu[1] > Nex[1] .or. (Atu[1] == Nex[1] .and. Atu[2] > Nex[2];
+            .or. (Atu[1] == Nex[1] .and. Atu[3] > Nex[3])) }
+
+ASORT( aEstados, , , bOrdena2 )
+
+ExibeConout(aEstados,aVerEstados,nCont)
+    
+Return

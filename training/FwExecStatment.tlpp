@@ -1,0 +1,107 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+#INCLUDE "TBICONN.CH"
+
+
+User Function CodRec1(cTributo, cEstado, cModelo)
+
+    Local aRet      := ""
+    Local cSelect	:= ""
+    Local cFrom	    := ""
+    Local cWhere	:= ""
+    Local cAliasQry	:= ""
+
+    Default cModelo := ""
+
+    cSelect := "SELECT DISTINCT CJ6.CJ6_CODREC, CJ6.CJ6_DETALH, CJ6.CJ6_REF, CJ6.CJ6_COBREC, (CASE WHEN CJ6.CJ6_ESTADO = ? THEN 'S' ELSE 'N' END ) ESTADO "
+
+    cFrom   := "FROM ? CJ5 "
+
+    cFrom   += "INNER JOIN ? F2B ON (F2B.F2B_FILIAL = ? AND CJ5.CJ5_CODIGO = F2B.F2B_TRIB AND F2B_REGRA = ? AND F2B.F2B_ALTERA = '2' AND F2B.D_E_L_E_T_ = ' '  ) "
+    cFrom   += "INNER JOIN ? CJ6 ON (CJ6.CJ6_FILIAL = ? AND CJ5.CJ5_CODIGO = CJ6.CJ6_CODIGO AND (CJ6.CJ6_ESTADO = ? OR  CJ6.CJ6_ESTADO = '**') AND CJ6.D_E_L_E_T_ = ' ' ) "  
+    cFrom   += "INNER JOIN ? CJ7 ON (CJ7.CJ7_FILIAL = ? AND CJ5.CJ5_CODIGO = CJ7.CJ7_CODIGO AND (CJ7.CJ7_ESPECI = ? OR  CJ7.CJ7_ESPECI = 'TODOS') AND CJ7.D_E_L_E_T_ = ' ' ) "
+       
+    cWhere  := "WHERE CJ5.CJ5_FILIAL = ? "
+    cWhere  += "AND CJ5.D_E_L_E_T_ = ' ' "
+    cWhere  += "ORDER BY ESTADO DESC " 
+
+    cAliasQry := ChangeQuery(cSelect+cFrom+cWhere)
+    oQryTmp := FwExecStatement():New(cAliasQry)
+
+    oQryTmp:SetString(1,cEstado)
+    oQryTmp:SetUnsafe(2,RetSQLName("CJ5"))
+    oQryTmp:SetUnsafe(3,RetSQLName("F2B"))
+    oQryTmp:SetString(4,xFilial("F2B"))
+    oQryTmp:SetString(5,cTributo)
+    oQryTmp:SetUnsafe(6,RetSQLName("CJ6"))
+    oQryTmp:SetString(7,xFilial("CJ6"))
+    oQryTmp:SetString(8,cEstado)
+    oQryTmp:SetUnsafe(9,RetSQLName("CJ7"))
+    oQryTmp:SetString(10,xFilial("CJ7"))
+    oQryTmp:SetString(11,cModelo)
+    oQryTmp:SetString(12,xFilial("CJ5"))
+
+    cAliasQry := oQryTmp:OpenAlias(GetNextAlias())
+
+    If !(cAliasQry)->(Eof())        
+        aRet := {(cAliasQry)->CJ6_CODREC ,(cAliasQry)->CJ6_DETALH, (cAliasQry)->CJ6_REF, (cAliasQry)->CJ6_COBREC}
+    Else
+        aRet := {" "," "," "," "}
+    Endif 
+
+    //Fecha o Alias antes de sair da função
+    dbSelectArea(cAliasQry)
+    dbCloseArea()
+
+Return aRet
+
+// Version 2.0
+
+User Function CodRec2(cTributo, cEstado, cModelo)
+
+    Local aRet      := ""
+    Local cSelect	:= ""
+    Local cFrom	    := ""
+    Local cjoin	    := ""
+    Local cWhere	:= ""
+    Local cAliasQry	:= ""
+
+    Default cModelo := ""
+
+    cSelect := "SELECT DISTINCT CJ6.CJ6_CODREC, CJ6.CJ6_DETALH, CJ6.CJ6_REF, CJ6.CJ6_COBREC, (CASE WHEN CJ6.CJ6_ESTADO = ? THEN 'S' ELSE 'N' END ) ESTADO "
+
+    cFrom   := "FROM" + RetSQLName("CJ5") + " CJ5 "
+
+    cFrom   += "INNER JOIN " + RetSQLName("F2B") + " F2B ON (F2B.F2B_FILIAL = ? AND CJ5.CJ5_CODIGO = F2B.F2B_TRIB AND F2B_REGRA = ? AND F2B.F2B_ALTERA = '2' AND F2B.D_E_L_E_T_ = ' '  ) "
+    cFrom   += "INNER JOIN " + RetSQLName("CJ6") + " CJ6 ON (CJ6.CJ6_FILIAL = ? AND CJ5.CJ5_CODIGO = CJ6.CJ6_CODIGO AND (CJ6.CJ6_ESTADO = ? OR  CJ6.CJ6_ESTADO = '**') AND CJ6.D_E_L_E_T_ = ' ' ) "  
+    cFrom   += "INNER JOIN " + RetSQLName("CJ7") + " CJ7 ON (CJ7.CJ7_FILIAL = ? AND CJ5.CJ5_CODIGO = CJ7.CJ7_CODIGO AND (CJ7.CJ7_ESPECI = ? OR  CJ7.CJ7_ESPECI = 'TODOS') AND CJ7.D_E_L_E_T_ = ' ' ) "
+       
+    cWhere  := "WHERE CJ5.CJ5_FILIAL = ? "
+    cWhere  += "AND CJ5.D_E_L_E_T_ = ' ' "
+    cWhere  += "ORDER BY ESTADO DESC " 
+
+    cAliasQry := ChangeQuery(cSelect+cFrom+cWhere)
+    oQryTmp := FwExecStatement():New(cAliasQry)
+
+    oQryTmp:SetString(1,cEstado)
+    oQryTmp:SetString(2,xFilial('F2B'))
+    oQryTmp:SetString(3,cTributo)
+    oQryTmp:SetString(4,xFilial('CJ6'))
+    oQryTmp:SetString(5,cEstado)
+    oQryTmp:SetString(6,xFilial('CJ7'))
+    oQryTmp:SetString(7,cModelo)
+    oQryTmp:SetString(8,xFilial('CJ5'))
+
+    cAliasQry := oQryTmp:OpenAlias(GetNextAlias())
+
+    If !(cAliasQry)->(Eof())        
+        aRet := {(cAliasQry)->CJ6_CODREC ,(cAliasQry)->CJ6_DETALH, (cAliasQry)->CJ6_REF, (cAliasQry)->CJ6_COBREC}
+    Else
+        aRet := {" "," "," "," "}
+    Endif 
+
+    //Fecha o Alias antes de sair da função
+    dbSelectArea(cAliasQry)
+    dbCloseArea()
+
+Return aRet
