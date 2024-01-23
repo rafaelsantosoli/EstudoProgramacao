@@ -51,6 +51,9 @@ User function exercicio3()
     Local nPosicao := 0
 
     Aadd(aEstado, { "São Paulo", "SP" })
+    Aadd(aEstado, { "Rio de Janeiro", "RJ"})
+    Aadd(aEstado, { "Minas Gerais", "MG" })
+
 
     nPosicao := ascan(aEstado, {|x| x[2] == "SP"})
 
@@ -77,6 +80,10 @@ User function exercicio4(cEstado, cUf)
     Local nPosicao := 0
     Local cParametro := ""
     Local cRetorno := ""
+    Local nX := 0
+
+    default cEstado := ""
+    default cUf := ""
 
     Aadd(aEstado, { "São Paulo", "SP" })
     Aadd(aEstado, { "Rio de Janeiro", "RJ"})
@@ -84,16 +91,31 @@ User function exercicio4(cEstado, cUf)
 
 
     If !Empty(cEstado)
-        cParametro := cEstado
-        nPosicao := ascan(aEstado, {|x| x[1] == cParametro})
-        cRetorno := aEstado[nPosicao][2]
+        cParametro := upper(cEstado)
+        nPosicao := ascan(aEstado, {|x| upper(x[1]) == cParametro})
+        If .not. EMPTY( nPosicao )
+            cRetorno := aEstado[nPosicao][2]
+        Endif
     Else
-        cParametro := cUf
-        nPosicao := ascan(aEstado, {|x| x[2] == cParametro})
-        cRetorno := aEstado[nPosicao][1]
+        cParametro := upper(cUf)
+        nPosicao := ascan(aEstado, {|x| upper(x[2]) == cParametro})
+        If .not. EMPTY( nPosicao )
+            cRetorno := aEstado[nPosicao][1]
+        Endif
     Endif
-
-    Conout(cRetorno)
+    
+    If nPosicao > 0
+        Conout(cRetorno)
+    Else        
+        Conout("Estado não encontrado")
+    Endif
+    
+    If Empty(cUf)
+        Conout("Parâmetro não informado")
+    Else
+        u_exercicio4(cRetorno )
+    Endif
+    
 
 Return
 
