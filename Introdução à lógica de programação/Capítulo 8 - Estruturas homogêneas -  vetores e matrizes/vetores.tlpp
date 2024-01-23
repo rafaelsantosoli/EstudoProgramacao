@@ -119,3 +119,83 @@ User function exercicio4(cEstado, cUf)
 
 Return
 
+// Exercício 5
+//
+/*Considero os seguintes códigos para cada estado brasileiro:
+
+Roraima = 11
+Acre = 12
+Amazonas = 13
+Rondônia = 14
+Pará = 15
+Amapá = 16
+Tocantins = 17
+Maranhão = 21
+Piauí = 22
+Ceará = 23
+Rio Grande do Norte = 24
+Paraíba = 25
+Pernambuco = 26
+Alagoas = 27
+Sergipe = 28
+Bahia = 29
+Minas Gerais = 31
+Espírito Santo = 32
+Rio de Janeiro = 33
+São Paulo = 35
+Paraná = 41
+Santa Catarina = 42
+Rio Grande do Sul = 43
+Mato Grosso do Sul = 50
+Mato Grosso = 51
+Goiás = 52
+Distrito Federal = 53
+
+Crie um array contendo os nomes, siglas e códigos de cada estado brasileiro.
+*/
+
+User function exercicio5()
+
+    Local aEstado := {}
+    Local nPosicao := 0
+
+    Aadd(aEstado, { "Roraima", "RR", 11 })
+    Aadd(aEstado, { "Acre", "AC", 12 })
+    Aadd(aEstado, { "Amazonas", "AM", 13 })
+    Aadd(aEstado, { "Rondônia", "RO", 14 })
+    Aadd(aEstado, { "Pará", "PA", 15 })
+    Aadd(aEstado, { "Amapá", "AP", 16 })
+    Aadd(aEstado, { "Tocantins", "TO", 17 })
+    Aadd(aEstado, { "Maranhão", "MA", 21 })
+    Aadd(aEstado, { "Piauí", "PI", 22 })
+    Aadd(aEstado, { "Ceará", "CE", 23 })
+    Aadd(aEstado, { "Rio Grande do Norte", "RN", 24 })
+    Aadd(aEstado, { "Paraíba", "PB", 25 })
+    Aadd(aEstado, { "Pernambuco", "PE", 26 })
+    Aadd(aEstado, { "Alagoas", "AL", 27 })
+    Aadd(aEstado, { "Sergipe", "SE", 28 })
+    Aadd(aEstado, { "Bahia", "BA", 29 })
+    Aadd(aEstado, { "Minas Gerais", "MG", 31 })
+    Aadd(aEstado, { "Espírito Santo", "ES", 32 })
+    Aadd(aEstado, { "Rio de Janeiro", "RJ", 33 })
+    Aadd(aEstado, { "São Paulo", "SP", 35 })
+    Aadd(aEstado, { "Paraná", "PR", 41 })
+    Aadd(aEstado, { "Santa Catarina", "SC", 42 })
+    Aadd(aEstado, { "Rio Grande do Sul", "RS", 43 })
+    Aadd(aEstado, { "Mato Grosso do Sul", "MS", 50 })
+    Aadd(aEstado, { "Mato Grosso", "MT", 51 })
+    Aadd(aEstado, { "Goiás", "GO", 52 })
+
+    aSort(aEstado,,, {|x,y| x[1] < y[1]})
+
+    Conout(aEstado)
+
+    aSort(aEstado,,, {|x,y| x[2] < y[2]})
+
+    Conout(aEstado)
+
+    aSort(aEstado,,, {|x,y| x[3] < y[3]})
+
+    Conout(aEstado)
+
+Return
