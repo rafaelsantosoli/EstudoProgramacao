@@ -37,7 +37,7 @@ retorno: 'São Paulo'
 
 ## Exercício 4
 
-Crie um programa que realiza busca em um array de estados brasileiros, e este programa pode receber como parametro um estado ou uma sigla.
+Crie um programa que realiza busca em um array de estados brasileiros, e este programa pode receber como parâmetro um estado ou uma sigla.
 
 O programa deve utilizar o parâmetro que recebeu para realizar a busca e retornar o nome do estado ou a sigla do estado.
 

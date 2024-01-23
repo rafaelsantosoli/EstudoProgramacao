@@ -5,21 +5,21 @@
 
 User function exercicio1()
 
-Local aEstado := array(3)
+    Local aEstado := array(3)
 
-aEstado[1] := { "São Paulo", "SP" }
-aEstado[2] := { "Rio de Janeiro", "RJ"}
-aEstado[3] := { "Minas Gerais", "MG" }
+    aEstado[1] := { "São Paulo", "SP" }
+    aEstado[2] := { "Rio de Janeiro", "RJ"}
+    aEstado[3] := { "Minas Gerais", "MG" }
 
-aSize(aEstado, 0)
+    aSize(aEstado, 0)
 
-aEstado := {}
+    aEstado := {}
 
-Aadd(aEstado, { "São Paulo", "SP" })
-Aadd(aEstado, { "Rio de Janeiro", "RJ"})
-Aadd(aEstado, { "Minas Gerais", "MG" })
+    Aadd(aEstado, { "São Paulo", "SP" })
+    Aadd(aEstado, { "Rio de Janeiro", "RJ"})
+    Aadd(aEstado, { "Minas Gerais", "MG" })
 
-aSize(aEstado, 0)
+    aSize(aEstado, 0)
 
 return
 
@@ -28,17 +28,72 @@ return
 
 User function exercicio2()
 
-Local aEstado := {}
-Local nPosicao := 0
+    Local aEstado := {}
+    Local nPosicao := 0
 
-Aadd(aEstado, { "São Paulo", "SP" })
-Aadd(aEstado, { "Rio de Janeiro", "RJ"})
-Aadd(aEstado, { "Minas Gerais", "MG" })
+    Aadd(aEstado, { "São Paulo", "SP" })
+    Aadd(aEstado, { "Rio de Janeiro", "RJ"})
+    Aadd(aEstado, { "Minas Gerais", "MG" })
 
-nPosicao := ascan(aEstado, {|x| x[2] == "MG"})
+    nPosicao := ascan(aEstado, {|x| x[2] == "MG"})
 
-Conout(aEstado[nPosicao][2])
+    Conout(aEstado[nPosicao][2])
 
+
+Return
+
+// Exercício 3
+//Crie um programa que realiza busca em um array de estados brasileiros, o programa deve pesquisar pela sigla do estado e retornar o nome do estado.
+
+User function exercicio3()
+
+    Local aEstado := {}
+    Local nPosicao := 0
+
+    Aadd(aEstado, { "São Paulo", "SP" })
+
+    nPosicao := ascan(aEstado, {|x| x[2] == "SP"})
+
+    Conout(aEstado[nPosicao][1])
+
+Return
+
+// Exercício 4
+/*
+Crie um programa que realiza busca em um array de estados brasileiros, e este programa pode receber como parâmetro um estado ou uma sigla.
+
+O programa deve utilizar o parâmetro que recebeu para realizar a busca e retornar o nome do estado ou a sigla do estado.
+
+Exemplo:
+
+Programa recebeu como parâmetro o estado 'São Paulo', então deve retornar a sigla 'SP'.
+ou
+Programa recebeu como parâmetro a sigla 'SP', então deve retornar o nome do estado 'São Paulo'.
+*/
+
+User function exercicio4(cEstado, cUf)
+
+    Local aEstado := {}
+    Local nPosicao := 0
+    Local cParametro := ""
+    Local cRetorno := ""
+
+    Aadd(aEstado, { "São Paulo", "SP" })
+    Aadd(aEstado, { "Rio de Janeiro", "RJ"})
+    Aadd(aEstado, { "Minas Gerais", "MG" })
+
+
+    If !Empty(cEstado)
+        cParametro := cEstado
+        nPosicao := ascan(aEstado, {|x| x[1] == cParametro})
+        cRetorno := aEstado[nPosicao][2]
+    Else
+        cParametro := cUf
+        nPosicao := ascan(aEstado, {|x| x[2] == cParametro})
+        cRetorno := aEstado[nPosicao][1]
+    Endif
+
+    Conout(cRetorno)
 
 Return
 
