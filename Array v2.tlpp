@@ -1,0 +1,99 @@
+#include 'tlpp-core.th'
+
+// Exercício 1
+//Crie um array contendo na primeira posição o nome de um estado brasileiro, na segunda posição a sigla do estado.
+
+User function exercicio1()
+
+Local aEstado := array(3)
+
+aEstado[1] := { "São Paulo", "SP" }
+aEstado[2] := { "Rio de Janeiro", "RJ"}
+aEstado[3] := { "Minas Gerais", "MG" }
+
+aSize(aEstado, 0)
+
+aEstado := {}
+
+Aadd(aEstado, { "São Paulo", "SP" })
+Aadd(aEstado, { "Rio de Janeiro", "RJ"})
+Aadd(aEstado, { "Minas Gerais", "MG" })
+
+aSize(aEstado, 0)
+
+return
+
+// Exercício 2
+//Crie um programa que realiza busca em um array de estados brasileiros, o programa deve pesquisar pelo nome do estado e retornar a sigla do estado.
+
+User function exercicio2()
+
+Local aEstado := {}
+Local nPosicao := 0
+
+Aadd(aEstado, { "São Paulo", "SP" })
+Aadd(aEstado, { "Rio de Janeiro", "RJ"})
+Aadd(aEstado, { "Minas Gerais", "MG" })
+
+nPosicao := ascan(aEstado, {|x| x[2] == "RJ"})
+
+Conout(aEstado[nPosicao][2])
+
+
+Return
+
+//Exercício 3
+
+User function exercicio3(sigla)
+
+Local aEstado := {}
+Local nPosicao := 0
+
+Aadd(aEstado, { "São Paulo", "SP" })
+Aadd(aEstado, { "Rio de Janeiro", "RJ"})
+Aadd(aEstado, { "Minas Gerais", "MG" })
+Aadd(aEstado, { "Santa Catarina", "SC" })
+nPosicao := ascan(aEstado, {|x| x[2] == sigla})
+
+Conout(aEstado[nPosicao][1])
+
+
+Return
+
+
+//Exercício 4
+User function exercicio4(parametro)
+
+Local aEstado := {}
+Local nPosicao := 0
+
+ /*Dúvidas Steve: ao chamar function com parametro, o mesmo vai sempre maiusculo e não encontra, 
+ tive q mudar na mão já q o for abaixo não funcionou :
+ 1) Pq vai como maisculo e pq o sistema não reconhece
+ 2)pq o for nao fez efeito? ele não altera o array original, sendo assim, deveria criar um novo pelo proprio for?
+
+Aadd(aEstado, { "São Paulo", "SP" })                                           
+Aadd(aEstado, { "Rio de Janeiro", "RJ"})
+Aadd(aEstado, { "Minas Gerais", "MG" })
+Aadd(aEstado, { "Santa Catarina", "SC" })
+
+for i := 1 to len(aEstado) //Dúvida com Steve: pq esse for não está alterando o array para maiusculo?
+    UPPER(aEstado[i][1]) 
+next
+
+*/
+
+    Aadd(aEstado, { "SAO PAULO", "SP" })
+    Aadd(aEstado, { "RIO DE JANEIRO", "RJ"})
+    Aadd(aEstado, { "MINAS GERAIS", "MG" })
+    Aadd(aEstado, { "SANTA CATARINA", "SC" })
+
+
+    if nPosicao := ascan(aEstado, {|x| x[1] == (parametro)   })
+        Conout(aEstado[nPosicao][2])
+    elseif nPosicao := ascan(aEstado, {|x| x[2] ==  parametro  })
+        Conout(aEstado[nPosicao][1])
+    endIf
+
+
+Return
