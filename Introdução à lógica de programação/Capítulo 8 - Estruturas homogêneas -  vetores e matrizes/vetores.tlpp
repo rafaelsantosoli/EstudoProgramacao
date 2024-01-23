@@ -157,7 +157,6 @@ Crie um array contendo os nomes, siglas e códigos de cada estado brasileiro.
 User function exercicio5()
 
     Local aEstado := {}
-    Local nPosicao := 0
 
     Aadd(aEstado, { "Roraima", "RR", 11 })
     Aadd(aEstado, { "Acre", "AC", 12 })
@@ -197,5 +196,7 @@ User function exercicio5()
     aSort(aEstado,,, {|x,y| x[3] < y[3]})
 
     Conout(aEstado)
+
+    aSize(aEstado, 0)
 
 Return
