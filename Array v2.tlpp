@@ -5,21 +5,21 @@
 
 User function exercicio1()
 
-Local aEstado := array(3)
+	Local aEstado := array(3)
 
-aEstado[1] := { "São Paulo", "SP" }
-aEstado[2] := { "Rio de Janeiro", "RJ"}
-aEstado[3] := { "Minas Gerais", "MG" }
+	aEstado[1] := { "São Paulo", "SP" }
+	aEstado[2] := { "Rio de Janeiro", "RJ"}
+	aEstado[3] := { "Minas Gerais", "MG" }
 
-aSize(aEstado, 0)
+	aSize(aEstado, 0)
 
-aEstado := {}
+	aEstado := {}
 
-Aadd(aEstado, { "São Paulo", "SP" })
-Aadd(aEstado, { "Rio de Janeiro", "RJ"})
-Aadd(aEstado, { "Minas Gerais", "MG" })
+	Aadd(aEstado, { "São Paulo", "SP" })
+	Aadd(aEstado, { "Rio de Janeiro", "RJ"})
+	Aadd(aEstado, { "Minas Gerais", "MG" })
 
-aSize(aEstado, 0)
+	aSize(aEstado, 0)
 
 return
 
@@ -28,16 +28,16 @@ return
 
 User function exercicio2()
 
-Local aEstado := {}
-Local nPosicao := 0
+	Local aEstado := {}
+	Local nPosicao := 0
 
-Aadd(aEstado, { "São Paulo", "SP" })
-Aadd(aEstado, { "Rio de Janeiro", "RJ"})
-Aadd(aEstado, { "Minas Gerais", "MG" })
+	Aadd(aEstado, { "São Paulo", "SP" })
+	Aadd(aEstado, { "Rio de Janeiro", "RJ"})
+	Aadd(aEstado, { "Minas Gerais", "MG" })
 
-nPosicao := ascan(aEstado, {|x| x[2] == "RJ"})
+	nPosicao := ascan(aEstado, {|x| x[2] == "RJ"})
 
-Conout(aEstado[nPosicao][2])
+	Conout(aEstado[nPosicao][2])
 
 
 Return
@@ -46,16 +46,16 @@ Return
 
 User function exercicio3(sigla)
 
-Local aEstado := {}
-Local nPosicao := 0
+	Local aEstado := {}
+	Local nPosicao := 0
 
-Aadd(aEstado, { "São Paulo", "SP" })
-Aadd(aEstado, { "Rio de Janeiro", "RJ"})
-Aadd(aEstado, { "Minas Gerais", "MG" })
-Aadd(aEstado, { "Santa Catarina", "SC" })
-nPosicao := ascan(aEstado, {|x| x[2] == sigla})
+	Aadd(aEstado, { "São Paulo", "SP" })
+	Aadd(aEstado, { "Rio de Janeiro", "RJ"})
+	Aadd(aEstado, { "Minas Gerais", "MG" })
+	Aadd(aEstado, { "Santa Catarina", "SC" })
+	nPosicao := ascan(aEstado, {|x| x[2] == sigla})
 
-Conout(aEstado[nPosicao][1])
+	Conout(aEstado[nPosicao][1])
 
 
 Return
@@ -64,8 +64,8 @@ Return
 //Exercício 4
 User function exercicio4(parametro)
 
-Local aEstado := {}
-Local nPosicao := 0
+	Local aEstado := {}
+	Local nPosicao := 0
 
  /*Dúvidas Steve: ao chamar function com parametro, o mesmo vai sempre maiusculo e não encontra, 
  tive q mudar na mão já q o for abaixo não funcionou :
@@ -83,17 +83,181 @@ next
 
 */
 
-    Aadd(aEstado, { "SAO PAULO", "SP" })
-    Aadd(aEstado, { "RIO DE JANEIRO", "RJ"})
-    Aadd(aEstado, { "MINAS GERAIS", "MG" })
-    Aadd(aEstado, { "SANTA CATARINA", "SC" })
+	Aadd(aEstado, { "SAO PAULO", "SP" })
+	Aadd(aEstado, { "RIO DE JANEIRO", "RJ"})
+	Aadd(aEstado, { "MINAS GERAIS", "MG" })
+	Aadd(aEstado, { "SANTA CATARINA", "SC" })
 
 
-    if nPosicao := ascan(aEstado, {|x| x[1] == (parametro)   })
-        Conout(aEstado[nPosicao][2])
-    elseif nPosicao := ascan(aEstado, {|x| x[2] ==  parametro  })
-        Conout(aEstado[nPosicao][1])
-    endIf
+	if nPosicao := ascan(aEstado, {|x| x[1] == (parametro)   })
+		Conout(aEstado[nPosicao][2])
+	elseif nPosicao := ascan(aEstado, {|x| x[2] ==  parametro  })
+		Conout(aEstado[nPosicao][1])
+	endIf
 
 
 Return
+
+//	Exercício 6
+/*
+Considerando o array do exercício anterior, crie um programa que adiciona para cada estado brasileiro os código de área utilizados por cada estado.
+
+Considere os códigos disponibilizado em [Discagem direta à distância](https://pt.wikipedia.org/wiki/Discagem_direta_%C3%A0_dist%C3%A2ncia)
+
+Exemplo:
+
+array: {'Roraima', 'RR', '11', '95'}
+
+
+Imprima todos os estados e seus códigos de área.
+
+*/
+
+User function exercicio6()
+
+	Local aEstado := {}
+	Local aCodigoArea := {}
+	Local nX := 0
+	Local nY := 0
+
+	Aadd(aEstado, { "Roraima", "RR", 11 })
+	Aadd(aEstado, { "Acre", "AC", 12 })
+	Aadd(aEstado, { "Amazonas", "AM", 13 })
+	Aadd(aEstado, { "Rondônia", "RO", 14 })
+	Aadd(aEstado, { "Pará", "PA", 15 })
+	Aadd(aEstado, { "Amapá", "AP", 16 })
+	Aadd(aEstado, { "Tocantins", "TO", 17 })
+	Aadd(aEstado, { "Maranhão", "MA", 21 })
+	Aadd(aEstado, { "Piauí", "PI", 22 })
+	Aadd(aEstado, { "Ceará", "CE", 23 })
+	Aadd(aEstado, { "Rio Grande do Norte", "RN", 24 })
+	Aadd(aEstado, { "Paraíba", "PB", 25 })
+	Aadd(aEstado, { "Pernambuco", "PE", 26 })
+	Aadd(aEstado, { "Alagoas", "AL", 27 })
+	Aadd(aEstado, { "Sergipe", "SE", 28 })
+	Aadd(aEstado, { "Bahia", "BA", 29 })
+	Aadd(aEstado, { "Minas Gerais", "MG", 31 })
+	Aadd(aEstado, { "Espírito Santo", "ES", 32 })
+	Aadd(aEstado, { "Rio de Janeiro", "RJ", 33 })
+	Aadd(aEstado, { "São Paulo", "SP", 35 })
+	Aadd(aEstado, { "Paraná", "PR", 41 })
+	Aadd(aEstado, { "Santa Catarina", "SC", 42 })
+	Aadd(aEstado, { "Rio Grande do Sul", "RS", 43 })
+	Aadd(aEstado, { "Mato Grosso do Sul", "MS", 50 })
+	Aadd(aEstado, { "Mato Grosso", "MT", 51 })
+	Aadd(aEstado, { "Goiás", "GO", 52 })
+
+	Aadd(aCodigoArea, { "São Paulo",{11,12,13,14,15,16,17,18,19} })
+	Aadd(aCodigoArea, { "Rio de Janeiro",{21,22,24} })
+	Aadd(aCodigoArea, { "Espírito Santo",{27,28} })
+	Aadd(aCodigoArea, { "Minas Gerais",{31,32,33,34,35,37,38} })
+	Aadd(aCodigoArea, { "Paraná",{41,42,43,44,45,46} })
+	Aadd(aCodigoArea, { "Santa Catarina",{47,48,49} })
+	Aadd(aCodigoArea, { "Rio Grande do Sul",{51,53,54,55} })
+	Aadd(aCodigoArea, { "Goiás",{62,64, 61} })
+	Aadd(aCodigoArea, { "Tocantins",{63} })
+	Aadd(aCodigoArea, { "Mato Grosso",{65,66} })
+	Aadd(aCodigoArea, { "Mato Grosso do Sul",{67} })
+	Aadd(aCodigoArea, { "Acre",{68} })
+	Aadd(aCodigoArea, { "Rondônia",{69} })
+	Aadd(aCodigoArea, { "Bahia",{71,73,74,75,77} })
+	Aadd(aCodigoArea, { "Sergipe",{79} })
+	Aadd(aCodigoArea, { "Pernambuco",{81,87} })
+	Aadd(aCodigoArea, { "Alagoas",{82} })
+	Aadd(aCodigoArea, { "Paraíba",{83} })
+	Aadd(aCodigoArea, { "Rio Grande do Norte",{84} })
+	Aadd(aCodigoArea, { "Ceará",{85,88} })
+	Aadd(aCodigoArea, { "Piauí",{86,89} })
+	Aadd(aCodigoArea, { "Pará",{91,93,94} })
+	Aadd(aCodigoArea, { "Amazonas",{92,97} })
+	Aadd(aCodigoArea, { "Roraima",{95} })
+	Aadd(aCodigoArea, { "Amapá",{96} })
+	Aadd(aCodigoArea, { "Maranhão",{98,99} })
+
+	Conout(aEstado)
+	Conout(aCodigoArea)
+
+	//ordena os dois arrays para que as chaves sejam iguais
+
+	aSort(aEstado,,, {|x,y| x[1] < y[1]})
+	aSort(aCodigoArea,,, {|x,y| x[1] < y[1]})
+
+    /*
+    For nx := 1 To Len(aEstado)
+        For ny := 1 To Len(aCodigoArea)
+            If upper(aEstado[nx][1]) == upper(aCodigoArea[ny][1])                
+                Aadd(aEstado[nx],aCodigoArea[ny][2])
+                Exit
+            Endif
+        Next ny
+    Next nx
+    */
+	For nx := 1 To Len(aEstado)
+		ny := aScan(aCodigoArea, { |x| upper(x[1]) == upper(aEstado[nx][1])})
+		IF ny > 0
+			Aadd(aEstado[nx],aCodigoArea[ny][2])
+		Endif
+	Next nx
+
+	//imprime o array com os códigos de área
+
+	For nx := 1 To Len(aEstado)
+		Conout(aEstado[nx][1])
+		If Len(aEstado[nx]) > 3
+			For ny := 1 To Len(aEstado[nx][4])
+				Conout(aEstado[nx][4][ny])
+			Next ny
+		Endif
+	Next nx
+
+Return aEstado
+
+/*Exercício 7
+Utilizando o array do exercício Exercício 6, crie um programa que exclui todos estados que possuem
+apenas um código de área.
+
+Imprime o array resultante. */
+
+User function exercicio7()
+
+    Local aEstado := U_exercicio6()     
+    Local i
+	Local aPos :={}
+
+	/* n funciona...a partir do primeiro aDel,ja altera a posição dos demais
+	//encontrar os itens com somente um código
+    For i := 1 To Len(aEstado)		
+		If Len(aEstado[i][4]) == 1
+			Aadd(aPos, i)           	
+		Endif
+	Next  
+
+	 For i := 1 To Len(aPos)	
+	   aDel(aEstado, aPos[i]) //
+	 Next   
+	    aSize(aEstado, Len(aEstado) - Len(aPos)	)
+	
+           
+    Conout(aEstado) */
+
+
+
+
+
+	/*n funciona...a partir do primeiro aDel,ja altera a posição dos demais
+	For i := 1 To Len(aEstado)		
+		If Len(aEstado[i][4]) == 1
+			aDel(aEstado, i)  
+			aSize(aEstado, Len(aEstado) -1)					     	
+		Endif
+	Next  
+
+	Conout(aEstado)*/
+	
+
+
+
+
+
+
+return
