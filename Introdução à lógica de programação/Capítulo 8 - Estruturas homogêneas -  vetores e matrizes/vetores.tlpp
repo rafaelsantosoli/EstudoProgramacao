@@ -79,8 +79,7 @@ User function exercicio4(cEstado, cUf)
     Local aEstado := {}
     Local nPosicao := 0
     Local cParametro := ""
-    Local cRetorno := ""
-    Local nX := 0
+    Local cRetorno := ""    
 
     default cEstado := ""
     default cUf := ""
@@ -313,7 +312,167 @@ User function exercicio6()
         Endif
     Next nx
 
+Return aEstado
+
+/* Exercício 7
+
+Utilizando o array do exercício Exercício 6, crie um programa que exclui todos estados que possuem apenas um código de área.
+
+Imprime o array resultante.
+*/
+
+User function exercicio7()
+
+Local aEstado := u_exercicio6()
+Local nx := 0
+Local ny := 0
+
+    For nX := Len(aEstado) to 1 Step -1
+        If len(aEstado[nX][4]) == 1
+            aDel(aEstado, nX)
+            aSize(aEstado, len(aEstado)-1)
+        Endif
+    Next nX
+
+    Conout("exercicio 7")    
+
+    //imprime o array com os códigos de área
+
+    For nx := 1 To Len(aEstado)
+        Conout(aEstado[nx][1])
+        If Len(aEstado[nx]) > 3
+            For ny := 1 To Len(aEstado[nx][4])
+                Conout(aEstado[nx][4][ny])
+            Next ny
+        Endif
+    Next nx
+
+//    aSize(aEstado, 0)
+
+return aEstado
+
+
+/*
+## Exercício 8
+
+Utilizando o array do exercício Exercício 6, crie um programa que exclui todos estados que possuem mais de um código de área.
+
+Imprime o array resultante.
+*/
+
+User function exercicio8(aArrayExemplo)
+
+Local aEstado := aArrayExemplo
+Local nx := 0
+Local ny := 0
+
+    For nX := Len(aEstado) to 1 Step -1
+        If len(aEstado[nX][4]) > 1
+            aDel(aEstado, nX)
+            aSize(aEstado, len(aEstado)-1)
+        Endif
+    Next nX
+
+    Conout("exercicio 8")    
+
+    //imprime o array com os códigos de área
+
+    For nx := 1 To Len(aEstado)
+        Conout(aEstado[nx][1])
+        If Len(aEstado[nx]) > 3
+            For ny := 1 To Len(aEstado[nx][4])
+                Conout(aEstado[nx][4][ny])
+            Next ny
+        Endif
+    Next nx
+
+    //aSize(aEstado, 0)
+
+return aEstado
+
+//criando casos de teste unitario para exercicio 7
+
+User function test_exercicio7()
+
+    Local aEstado := {}
+    Local aRetorno := {}
+    Local aArrayExemplo := {}
+
+    Aadd(aArrayExemplo, { "São Paulo", "SP", 35, {11,12,13,14,15,16,17,18,19} })
+    Aadd(aArrayExemplo, { "Rio de Janeiro", "RJ", 33, {21,22,24} })
+    Aadd(aArrayExemplo, { "Espírito Santo", "ES", 32, {27,28} })
+    Aadd(aArrayExemplo, { "Minas Gerais", "MG", 31, {31,32,33,34,35,37,38} })
+    Aadd(aArrayExemplo, { "Paraná", "PR", 41, {41,42,43,44,45,46} })
+    Aadd(aArrayExemplo, { "Santa Catarina", "SC", 42, {47,48,49} })
+    Aadd(aArrayExemplo, { "Rio Grande do Sul", "RS", 43, {51,53,54,55} })
+    Aadd(aArrayExemplo, { "Goiás", "GO", 52, {62,64, 61} })
+    Aadd(aArrayExemplo, { "Tocantins", "TO", 17, {63} })
+    Aadd(aArrayExemplo, { "Mato Grosso", "MT", 51, {65,66} })
+    Aadd(aArrayExemplo, { "Mato Grosso do Sul", "MS", 50, {67} })
+    Aadd(aArrayExemplo, { "Acre", "AC", 12, {68} })
+    Aadd(aArrayExemplo, { "Rondônia", "RO", 14, {69} })
+    Aadd(aArrayExemplo, { "Bahia", "BA", 29, {71,73,74,75,77} })
+    Aadd(aArrayExemplo, { "Sergipe", "SE", 28, {79} })
+    Aadd(aArrayExemplo, { "Pernambuco", "PE", 26, {81,87} })
+    Aadd(aArrayExemplo, { "Alagoas", "AL", 27, {82} })
+    Aadd(aArrayExemplo, { "Paraíba", "PB", 25, {83} })
+    Aadd(aArrayExemplo, { "Rio Grande do Norte", "RN", 24, {84} })
+    Aadd(aArrayExemplo, { "Ceará", "CE", 23, {85,88} })
+    Aadd(aArrayExemplo, { "Piauí", "PI", 22, {86,89} })
+    Aadd(aArrayExemplo, { "Pará", "PA", 15, {91,93,94} })
+    Aadd(aArrayExemplo, { "Amazonas", "AM", 13, {92,97} })
+    Aadd(aArrayExemplo, { "Roraima", "RR", 11, {95} })
+    Aadd(aArrayExemplo, { "Amapá", "AP", 16, {96} })
+    Aadd(aArrayExemplo, { "Maranhão", "MA", 21, {98,99} })
+
+
+    Aadd(aEstado, { "Roraima", "RR", 11, {95} })
+    Aadd(aEstado, { "Acre", "AC", 12, {68} })    
+    Aadd(aEstado, { "Rondônia", "RO", 14, {69} })    
+    Aadd(aEstado, { "Amapá", "AP", 16, {96} })
+    Aadd(aEstado, { "Tocantins", "TO", 17, {63} })    
+    Aadd(aEstado, { "Rio Grande do Norte", "RN", 24, {84} })
+    Aadd(aEstado, { "Paraíba", "PB", 25, {83} })    
+    Aadd(aEstado, { "Alagoas", "AL", 27, {82} })
+    Aadd(aEstado, { "Sergipe", "SE", 28, {79} })    
+    Aadd(aEstado, { "Mato Grosso do Sul", "MS", 50, {67} })
+
+    aRetorno := u_exercicio8(aClone(aArrayExemplo))
+
+    aSort(aRetorno,,, {|x,y| x[1] < y[1]})
+    aSort(aEstado,,, {|x,y| x[1] < y[1]})
+
+    If ArrayCompare(aRetorno, aEstado)
+        Conout("Teste 1 - OK")
+    Else
+        Conout("Teste 1 - Falhou")
+    Endif
+
+    aSize(aEstado, 0)
+
 Return
 
 
+User function test_exercicio8()
+
+    Local aEstado := {}
+    Local aRetorno := {}
+    Local aArrayExemplo := {}
+
+    Aadd(aArrayExemplo, { "Goiás", "GO", 52, {62,64, 61} })
+    Aadd(aArrayExemplo, { "Tocantins", "TO", 17, {63} })
+    
+    Aadd(aEstado, { "Tocantins", "TO", 17, {63} })
+
+    aRetorno := u_exercicio8(aArrayExemplo)
+
+    If ArrayCompare(aRetorno, aEstado)
+        Conout("Teste 1 - OK")
+    Else
+        Conout("Teste 1 - Falhou")
+    Endif
+
+    aSize(aEstado, 0)
+
+Return
 
