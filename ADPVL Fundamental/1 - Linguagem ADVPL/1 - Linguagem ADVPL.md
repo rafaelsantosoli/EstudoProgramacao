@@ -40,7 +40,7 @@ conectividade no Protheus.
 
 Por exemplo uso de rotinas com front-end Angular, React, Vue, etc. e back-end em ADVPL e TLPP.
 
-De acordo com a utilização e com o meio de conectividade utilizado, estas rotinas são subcategorizadas assim:
+De acordo com a utilização e com o meio de conectividade utilizado, estas rotinas são subcategorias assim:
 
 - Programação por Processos: Rotinas escritas em ADVPL podem ser iniciadas como processos individuais 
 (sem interface), no Protheus Server através de duas maneiras: Iniciadas por outra rotina ADVPL por meio da 
