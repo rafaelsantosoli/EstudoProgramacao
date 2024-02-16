@@ -86,8 +86,9 @@ Exemplo:
 
 ```advpl
 
+Static nNum := 0
+
 User Function Main()
-    Static nNum := 0
 
     nNum := nNum + 1
 
