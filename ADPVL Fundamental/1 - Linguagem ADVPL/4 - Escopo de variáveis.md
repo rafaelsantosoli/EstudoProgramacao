@@ -124,7 +124,9 @@ Return
 - A declaração é opcional para variáveis privadas. Mas podem ser declaradas explicitamente com o identificador 
 PRIVATE. 
 
-:exclamation: **Atenção**: A declaração de variáveis privadas é opcional, mas é uma boa prática declarar variáveis privadas explicitamente. Isso torna o código mais legível e fácil de entender. Hoje em dia, é considerado débito técnico não declarar variáveis explicitamente.
+:exclamation: **Atenção**: A declaração de variáveis privadas é opcional, mas é uma boa prática declarar variáveis privadas explicitamente. 
+
+Isso torna o código mais legível e fácil de entender. Hoje em dia, é considerado débito técnico não declarar variáveis explicitamente.
 
 Adicionalmente, a atribuição de valor a uma variável não criada anteriormente, de forma automática cria-se a variável como privada. Uma vez criada, uma variável privada continua a existir e mantém seu valor até que o programa ou função onde foi criada termine (ou seja, até que a função onde foi feita retorne para o código que a executou). Neste momento, é automaticamente destruída.
 
