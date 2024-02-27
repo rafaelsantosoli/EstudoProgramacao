@@ -1,0 +1,72 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+#include 'protheus.ch'
+
+ /*
+ Programa criado para comparar as direrenças entre tipos de variaveis
+
+ Public cVar1 := "Brasil"
+ Private cVar1 := "Brasil"
+ Static cVar1 := "Brasil"
+
+ */
+
+
+// STATIC cVar1 := "Brasil"
+User Function Call()
+
+    Public cVar1 := "Brasil"
+    
+    u_filha2()
+
+    CONOUT(cVar1)
+
+Return
+
+User Function filha2()
+
+    Private cVar1 := "São Paulo"
+    // alert(cVar1)
+
+Return
+
+// Crie um programa que declare uma variável global e acesse-a em uma função.
+User Function CallGlobal()
+Local nValor
+Local aGlbPut:={}
+  // Alimenta valores das variáveis globais
+  aGlbPut := {}
+  aadd(aGlbPut,{"VarGlb01","Valor 01"})
+  aadd(aGlbPut,{"VarGlb02","Valor 02"})
+  aadd(aGlbPut,{"VarGlb03","Valor 03"})
+  nValor := 123
+
+  PutGlbVars("GlbNames",aGlbPut,nValor)
+  // Retorna os valores das variáveis globais
+  nValRet := 0
+  aGlbRet := {}
+
+  BuscaGlobal(aGlbRet,nValRet)
+
+Return  
+
+/*/{Protheus.doc} BuscaGlobal
+    (long_description)
+    @type  Static Function
+    @Edinei Cruz
+    @since 27/02/2024
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+/*/
+Static Function BuscaGlobal(aGlbRet,nValRet)
+Local nI
+    GetGlbVars("GlbNames",aGlbRet,nValRet)
+    // Exibe os valores das variáveis globais
+  For nI := 1 To Len(aGlbRet)
+     Conout(aGlbRet[nI][1]+" = "+aGlbRet[nI][2])
+  Next nI
+Return 

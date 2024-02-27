@@ -1,0 +1,142 @@
+#include 'tlpp-core.th'
+#include 'tlpp-rest.th'
+#include 'protheus.ch'
+
+#DEFINE ENTER Chr(13) + Chr(10)
+
+user function api_teste()
+    Local nCnt
+    Local nSoma := 0
+        For nCnt := 1 To 10
+            nSoma += nCnt
+        Next nCnt
+    conout("Soma: " + cValToChar(nSoma))
+
+Return  
+
+
+
+    /*
+    +===========================================+
+    | Programa: Cálculo do Fatorial |
+    | Autor : Microsiga Software S.A. |
+    | Data : 02 de outubro de 2001 |
+    +===========================================+
+    */
+User Function CalcFator()
+    Local nCnt
+    Local nResultado := 1 // Resultado do fatorial
+    Local nFator := 5 // Número para o cálculo
+    
+    // Cálculo do fatorial
+    For nCnt := nFator To 1 Step -1
+        nResultado *= nCnt
+    Next nCnt
+    
+    // Exibe o resultado na tela, através da função alert
+    MsgAlert("O fatorial de " + cValToChar(nFator) + ;
+    " é " + cValToChar(nResultado))
+    
+    // Termina o programa
+Return( NIL )
+
+
+// Escopo de variaveis Private
+
+User Function Principal()
+    Private nNum := 10
+
+    u_Funcao1()
+
+Return
+
+User Function Funcao1()
+    Private nNum := 20
+
+    u_Funcao2()
+
+Return
+
+User Function Funcao2()
+    Private nNum := 30
+
+Return
+
+
+// Escope de variaveis Public
+
+User Function PrincipalPublica()
+    Public cString := "Texto"
+    Public lVerdadeiro := .T.
+    Public dDataSystem := Date()
+    Public dData := dtoc(dDataSystem)
+    Public nNum := 10
+
+    u_filha()
+
+Return
+
+User Function filha()
+    Private nNum := 20
+Return nNum
+
+// Escopo de variaveis Globais
+
+User Function testeGlobal()
+  // Neste exemplo, será demonstrado como criar, utilizar e limpar variáveis globais
+  cGlbName  := "TPL_GLBVALUE"
+  cGlbValue := ""// Alimenta variável
+  PutGlbValue(cGlbName,"Teste")
+  // Verifica valor da variável
+  cGlbValue := GetGlbValue(cGlbName)
+  // Limpa variável
+  If Trim(cGlbValue) <> ""
+    ClearGlbValue(cGlbName)
+  Endif
+Return
+
+
+// Exemplo dois de Globais
+
+User Function testeGetGlbVars()
+  // Alimenta valores das variáveis globais
+  aGlbPut := {}
+  aadd(aGlbPut,{"VarGlb01","Valor 01"})
+  aadd(aGlbPut,{"VarGlb02","Valor 02"})
+  aadd(aGlbPut,{"VarGlb03","Valor 03"})
+  nValor := 123
+  PutGlbVars("GlbNames",aGlbPut,nValor)
+  // Retorna os valores das variáveis globais
+  nValRet := 0
+  aGlbRet := {}
+  GetGlbVars("GlbNames",aGlbRet,nValRet)
+Return
+
+
+// Variaveis exemplos de interação
+
+User Function VarsTestes()
+    Local xVariavel as Variant // Declara a variável inicialmente com valor nulo
+
+    xVariavel := "Agora a variável é caractere..."
+    Alert(valtype(xVariavel))
+    Alert("Valor do Texto: " + xVariavel)
+
+    xVariavel := 22 // Agora a variável é numérica
+    Alert(valtype(xVariavel))
+    Alert(cValToChar(xVariavel))
+    xVariavel := .T. // Agora a variável é lógica
+    Alert(valtype(xVariavel))
+    If xVariavel
+    Alert("A variável tem valor verdadeiro...")
+    Else
+    Alert("A variável tem valor falso...")
+    Endif
+    xVariavel := Date() // Agora a variável é data
+    Alert(valtype(xVariavel))
+    Alert("Hoje é: " + DtoC(xVariavel))
+
+    xVariavel := nil // Nulo novamente
+    Alert(valtype(xVariavel))
+    Alert("Valor nulo: " + cValToChar(xVariavel))
+Return
