@@ -769,3 +769,4 @@ A Orientação a Objetos é um paradigma de programação poderoso e flexível, 
 [Curso de Design Patterns](https://www.alura.com.br/artigos/como-nao-aprender-orientacao-a-objetos-heranca)
 [Como não aprender Java e Orientação a Objetos: getters e setters](https://www.alura.com.br/artigos/nao-aprender-oo-getters-e-setters)
 [Clean Code: O que é, Casos de Uso, Exemplo de Código Limpo](https://www.alura.com.br/artigos/o-que-e-clean-code)
+[TLPP - Recursos de Linguagem - Classes](https://tdn.totvs.com/display/tec/Classes)
