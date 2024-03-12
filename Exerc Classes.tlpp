@@ -1,0 +1,96 @@
+#include 'tlpp-core.th'
+
+Class Carro
+	Data marca                          as character
+	Data modelo                         as character
+	Data cor                            as character
+	Data ano                            as number
+	Data velocidadeMax := 200           as number
+	Data velocidadeAtual := 0           as number
+	Data ligado := false                as boolean
+	Data nivelCombustivel := 'Full'     as character
+	Data consumoPorKM                   as number
+	Data capacidadeTanque               as number
+	Data quilometragemTotal             as number
+	Data quantidadePortas               as number
+	Data marcha := 'P'                  as character
+	Data autonomia := 200               as number
+	Data combustivelRestante := 0       as number
+
+	Method new(marca, modelo, cor, ano) constructor
+	Method Ligar()
+	Method Desligar()
+	Method Acelerar(qtdAceleracao)
+	Method Frear(qtdFrenagem)
+	Method TrocarMarcha(marcha)
+	Method Abastecer(qtdCombustivel)
+	Method Dados()
+
+EndClass
+
+Method new(marca, modelo, cor, ano)  Carro
+Self:marca := marca
+Self:modelo := modelo
+Self:cor := cor
+Self:ano := ano
+Return
+
+Method Ligar() Carro
+Self:Ligado := true
+conout('O carro foi ligado')
+Return
+
+Method Desligar() Carro
+Self:Ligado := false
+conout('O carro foi desligado')
+Return
+
+Method Acelerar(qtdAceleracao) Carro
+Self:velocidadeAtual + qtdAceleracao
+conout('A velocidade atual do carro é:' + cValToChar(Self:velocidadeAtual))
+Return
+
+Method Frear(qtdFrenagem) Carro
+Self:velocidadeAtual - qtdFrenagem
+conout('A velocidade atual do carro é:' + cValToChar(Self:velocidadeAtual))
+Return
+
+Method TrocarMarcha(marcha) Carro
+if(marcha <> 'P' .or. marcha <> 'R' .or.marcha <> 'N' .or. marcha <> 'D')
+	conout ('Selecionar uma marcha (P,R,N,D)')
+else
+	Self:marcha := marcha
+	conout('A velocidade atual do carro é:' + cValToChar(Self:velocidadeAtual))
+endIf
+Return
+
+Method Abastecer(qtdCombustivel) Carro
+Self:combustivelRestante + qtdCombustivel
+conout('A quantidade de combustível atual do carro é:' + cValToChar(Self:combustivelRestante))
+Return
+
+Method Dados() Carro
+Self:marca
+Self:modelo
+Self:cor
+Self:ano
+Self:velocidadeMax
+Self:velocidadeAtual
+Self:ligado
+Self:nivelCombustivel
+Self:consumoPorKM
+Self:capacidadeTanque
+Self:quilometragemTotal
+Self:quantidadePort
+Self:marcha
+Self:autonomia
+Self:combustivelRestante
+Return
+
+
+
+
+
+
+
+
