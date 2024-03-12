@@ -1,0 +1,169 @@
+#include 'tlpp-core.th'
+
+Class Carro
+	//Define os atributos da classe
+	public Data cCor                 as character
+	Data cMarca               as character
+	Data cMarcha              as character
+	Data cModelo              as character
+	Data cNivelCombustivel    as character
+	Data lLigado              as logical	
+	Data nAno                 as numeric
+	Data nAutonomia           as numeric
+	Data nCapacidadeTanque    as numeric
+	Data nCombustivelRestante as numeric
+	Data nConsumoPorKM        as numeric
+	Data nQuantidadePortas    as numeric
+	Data nQuilometragemTotal  as numeric
+	Data nVelocidadeAtual     as numeric
+	Data nVelocidadeMax       as numeric
+	Private Data ojson                as object
+
+	//Define os métodos da classe
+	Method new(marca, modelo, cor, ano) constructor
+	Method Ligar()
+	Method Desligar()
+	Method Acelerar(qtdAceleracao)
+	Method Frear(qtdFrenagem)
+	Method TrocarMarcha(marcha)
+	Method Abastecer(qtdCombustivel)
+	Method Dados()
+
+	//Define os métodos de acesso aos atributos da classe
+	//Metodos set e get
+
+	Public setmudacor(cCor)
+	Private setCor(cCor)
+	setMarca(cMarca)	
+	setModelo(cModelo)
+	setAno(nAno)
+
+	Public getLigado()
+	Public getAutonomia()
+EndClass
+
+Method new(marca, modelo, cor, ano) class Carro
+	//self:cCor                	:= cor
+	self:cMarca              	:= marca
+	self:cMarcha             	:= ''
+	self:cModelo             	:= modelo
+	self:cNivelCombustivel   	:= ''
+	self:lLigado             	:= .F.	
+	self:nAno                	:= ano
+	self:nAutonomia          	:= 0
+	self:nCapacidadeTanque   	:= 0
+	self:nCombustivelRestante	:= 0
+	self:nConsumoPorKM       	:= 0
+	self:nQuantidadePortas   	:= 0
+	self:nQuilometragemTotal 	:= 0
+	self:nVelocidadeAtual    	:= 0
+	self:nVelocidadeMax      	:= 0
+	self:ojson               	:= json():new()
+
+	self:setcor(cor)
+Return
+
+Method setmudacor(cCor as character) class Carro
+	self:setcor(cCor)
+Return
+
+Method getstrCor() Class Carro
+Return Substring(self:cCor,3,5)
+
+Method getLigado() class Carro
+Return self:lLigado	
+
+Method setCor(cCor as character) class Carro
+	If cCor $ 'Azul|Branco|Amarelo'
+		Self:cCor := cCor
+	Else
+		conout('Cor inválida')
+	EndIf
+Return
+
+Method Ligar() class Carro
+	Self:lLigado := true
+	conout('O carro foi ligado')
+Return
+
+Method Desligar() class Carro
+	Self:lLigado := false
+	self:setcor('Preto')
+	conout('O carro foi desligado')
+Return
+
+Method Acelerar(nQtdAceleracao as numeric) class Carro
+	Self:nVelocidadeAtual += qtdAceleracao
+	conout('A velocidade atual do carro é:' + cValToChar(Self:nVelocidadeAtual))
+Return
+
+Method Frear(nQtdFrenagem as numeric) class Carro
+	Self:nVelocidadeAtual -= qtdFrenagem
+	conout('A velocidade atual do carro é:' + cValToChar(Self:nVelocidadeAtual))
+Return
+
+Method TrocarMarcha(cMarcha as character) class Carro
+	if(cMarcha <> 'P' .or. cMarcha <> 'R' .or.cMarcha <> 'N' .or. cMarcha <> 'D')  // cMarcha $ 'PRND'
+		conout ('Selecionar uma marcha (P,R,N,D)')
+	else
+		Self:cMarcha := cMarcha
+		conout('A velocidade atual do carro é:' + cValToChar(Self:nVelocidadeAtual))
+	endIf
+Return
+
+Method Abastecer(nQtdCombustivel as numeric) class Carro
+	Self:combustivelRestante += nQtdCombustivel
+	conout('A quantidade de combustível atual do carro é:' + cValToChar(Self:combustivelRestante))
+Return
+
+Method Dados() class Carro	
+	ojson := json():new()
+	ojson:['marca'] := self:cMarca
+	ojson:['modelo'] := self:cModelo
+	ojson:['cor'] := self:cCor	
+	ojson:['ano'] := self:nAno
+	ojson:['velocidadeMax'] := self:nVelocidadeMax
+	ojson:['velocidadeAtual'] := self:nVelocidadeAtual
+	ojson:['ligado'] := self:lLigado
+	ojson:['nivelCombustivel'] := self:cNivelCombustivel
+	ojson:['consumoPorKM'] := self:nConsumoPorKM
+	ojson:['capacidadeTanque'] := self:nCapacidadeTanque
+	ojson:['quilometragemTotal'] := self:nQuilometragemTotal
+	ojson:['quantidadePort'] := self:nQuantidadePortas
+	ojson:['marcha'] := self:cMarcha
+	ojson:['autonomia'] := self:nAutonomia
+	ojson:['combustivelRestante'] := self:nCombustivelRestante	
+	
+Return ojson:tojson()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
