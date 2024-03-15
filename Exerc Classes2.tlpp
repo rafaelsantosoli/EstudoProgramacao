@@ -1,45 +1,66 @@
 #include 'tlpp-core.th'
 
+
+
+User Function testclass()
+
+	Local oCarro as object
+	Local cJson as character
+
+	oCarro := Carro():new('Fiat', 'Uno', 'Azul', 2010)
+	oCarro:setmudacor('Branco')
+	oCarro:setMarca('Fiat')
+	oCarro:setCor('Azul')
+	oCarro:setCor('Verde')
+	oCarro:Ligar()
+	oCarro:Acelerar(10)
+	oCarro:Frear(5)
+	oCarro:TrocarMarcha('D')
+	oCarro:Abastecer(10)
+	cJson := oCarro:Dados()
+	conout(cJson)
+
+Return
+
+
 Class Carro
 	//Define os atributos da classe
 	public Data cCor                 as character
-	Data cMarca               as character
-	Data cMarcha              as character
-	Data cModelo              as character
-	Data cNivelCombustivel    as character
-	Data lLigado              as logical	
-	Data nAno                 as numeric
-	Data nAutonomia           as numeric
-	Data nCapacidadeTanque    as numeric
-	Data nCombustivelRestante as numeric
-	Data nConsumoPorKM        as numeric
-	Data nQuantidadePortas    as numeric
-	Data nQuilometragemTotal  as numeric
-	Data nVelocidadeAtual     as numeric
-	Data nVelocidadeMax       as numeric
-	Private Data ojson                as object
+	private Data cMarca               as character
+	private Data cMarcha              as character
+	private Data cModelo              as character
+	private Data cNivelCombustivel    as character
+	private Data lLigado              as logical	
+	private Data nAno                 as numeric
+	private Data nAutonomia           as numeric
+	private Data nCapacidadeTanque    as numeric
+	private Data nCombustivelRestante as numeric
+	private Data nConsumoPorKM        as numeric
+	private Data nQuantidadePortas    as numeric
+	private Data nQuilometragemTotal  as numeric
+	private Data nVelocidadeAtual     as numeric
+	private Data nVelocidadeMax       as numeric
+	private Data ojson                as json
 
 	//Define os métodos da classe
-	Method new(marca, modelo, cor, ano) constructor
-	Method Ligar()
-	Method Desligar()
-	Method Acelerar(qtdAceleracao)
-	Method Frear(qtdFrenagem)
-	Method TrocarMarcha(marcha)
-	Method Abastecer(qtdCombustivel)
-	Method Dados()
+	Public Method new(marca, modelo, cor, ano) constructor
+	Public Method Ligar()
+	Public Method Desligar()
+	Public Method Acelerar(qtdAceleracao)
+	Public Method Frear(qtdFrenagem)
+	Public Method TrocarMarcha(marcha)
+	Public Method Abastecer(qtdCombustivel)
+	Public Method Dados()
 
 	//Define os métodos de acesso aos atributos da classe
 	//Metodos set e get
 
-	Public setmudacor(cCor)
-	Private setCor(cCor)
-	setMarca(cMarca)	
-	setModelo(cModelo)
-	setAno(nAno)
+	Public Method setmudacor(cCor)
+	Public Method setCor(cCor)
+	Public Method setMarca(cMarca)
 
-	Public getLigado()
-	Public getAutonomia()
+	Public Method getLigado()
+	Public Method getAutonomia()
 EndClass
 
 Method new(marca, modelo, cor, ano) class Carro
@@ -58,7 +79,7 @@ Method new(marca, modelo, cor, ano) class Carro
 	self:nQuilometragemTotal 	:= 0
 	self:nVelocidadeAtual    	:= 0
 	self:nVelocidadeMax      	:= 0
-	self:ojson               	:= json():new()
+	self:ojson               	:= JsonObject():New()
 
 	self:setcor(cor)
 Return
@@ -67,11 +88,20 @@ Method setmudacor(cCor as character) class Carro
 	self:setcor(cCor)
 Return
 
-Method getstrCor() Class Carro
-Return Substring(self:cCor,3,5)
+Method setMarca(cMarca as character) class Carro
+	self:cMarca := cMarca
+Return
 
 Method getLigado() class Carro
-Return self:lLigado	
+	Local cReturn := ""
+
+	If Self:lLigado
+		cReturn := 'ligado'
+	Else
+		cReturn := 'desligado'
+	EndIf
+
+Return cReturn
 
 Method setCor(cCor as character) class Carro
 	If cCor $ 'Azul|Branco|Amarelo'
@@ -82,23 +112,23 @@ Method setCor(cCor as character) class Carro
 Return
 
 Method Ligar() class Carro
-	Self:lLigado := true
+	Self:lLigado := .T.
 	conout('O carro foi ligado')
 Return
 
 Method Desligar() class Carro
-	Self:lLigado := false
+	Self:lLigado := .F.
 	self:setcor('Preto')
 	conout('O carro foi desligado')
 Return
 
 Method Acelerar(nQtdAceleracao as numeric) class Carro
-	Self:nVelocidadeAtual += qtdAceleracao
+	Self:nVelocidadeAtual += nQtdAceleracao
 	conout('A velocidade atual do carro é:' + cValToChar(Self:nVelocidadeAtual))
 Return
 
 Method Frear(nQtdFrenagem as numeric) class Carro
-	Self:nVelocidadeAtual -= qtdFrenagem
+	Self:nVelocidadeAtual -= nQtdFrenagem
 	conout('A velocidade atual do carro é:' + cValToChar(Self:nVelocidadeAtual))
 Return
 
@@ -112,29 +142,30 @@ Method TrocarMarcha(cMarcha as character) class Carro
 Return
 
 Method Abastecer(nQtdCombustivel as numeric) class Carro
-	Self:combustivelRestante += nQtdCombustivel
-	conout('A quantidade de combustível atual do carro é:' + cValToChar(Self:combustivelRestante))
+	Self:ncombustivelRestante += nQtdCombustivel
+	conout('A quantidade de combustível atual do carro é:' + cValToChar(Self:ncombustivelRestante))
 Return
 
 Method Dados() class Carro	
-	ojson := json():new()
-	ojson:['marca'] := self:cMarca
-	ojson:['modelo'] := self:cModelo
-	ojson:['cor'] := self:cCor	
-	ojson:['ano'] := self:nAno
-	ojson:['velocidadeMax'] := self:nVelocidadeMax
-	ojson:['velocidadeAtual'] := self:nVelocidadeAtual
-	ojson:['ligado'] := self:lLigado
-	ojson:['nivelCombustivel'] := self:cNivelCombustivel
-	ojson:['consumoPorKM'] := self:nConsumoPorKM
-	ojson:['capacidadeTanque'] := self:nCapacidadeTanque
-	ojson:['quilometragemTotal'] := self:nQuilometragemTotal
-	ojson:['quantidadePort'] := self:nQuantidadePortas
-	ojson:['marcha'] := self:cMarcha
-	ojson:['autonomia'] := self:nAutonomia
-	ojson:['combustivelRestante'] := self:nCombustivelRestante	
+
+	self:ojson := JsonObject():New()
+	self:ojson['marca'] := self:cMarca
+	self:ojson['modelo'] := self:cModelo
+	self:ojson['cor'] := self:cCor	
+	self:ojson['ano'] := self:nAno
+	self:ojson['velocidadeMax'] := self:nVelocidadeMax
+	self:ojson['velocidadeAtual'] := self:nVelocidadeAtual
+	self:ojson['ligado'] := self:lLigado
+	self:ojson['nivelCombustivel'] := self:cNivelCombustivel
+	self:ojson['consumoPorKM'] := self:nConsumoPorKM
+	self:ojson['capacidadeTanque'] := self:nCapacidadeTanque
+	self:ojson['quilometragemTotal'] := self:nQuilometragemTotal
+	self:ojson['quantidadePort'] := self:nQuantidadePortas
+	self:ojson['marcha'] := self:cMarcha
+	self:ojson['autonomia'] := self:nAutonomia
+	self:ojson['combustivelRestante'] := self:nCombustivelRestante	
 	
-Return ojson:tojson()
+Return Self:ojson:tojson()
 
 
 
