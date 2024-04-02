@@ -1,8 +1,6 @@
 #include 'tlpp-core.th'
 
-
-
-User Function testclass()
+User Function testeCarro()
 
 	Local oCarro as object
 	Local cJson as character
@@ -11,7 +9,6 @@ User Function testclass()
 	oCarro:setmudacor('Branco')
 	oCarro:setMarca('Fiat')
 	oCarro:setCor('Azul')
-	oCarro:setCor('Verde')
 	oCarro:Ligar()
 	oCarro:Acelerar(10)
 	oCarro:Frear(5)
@@ -23,45 +20,55 @@ User Function testclass()
 Return
 
 
-Class Carro
-	//Define os atributos da classe
-	public Data cCor                 as character
-	private Data cMarca               as character
-	private Data cMarcha              as character
-	private Data cModelo              as character
-	private Data cNivelCombustivel    as character
-	private Data lLigado              as logical	
-	private Data nAno                 as numeric
-	private Data nAutonomia           as numeric
-	private Data nCapacidadeTanque    as numeric
-	private Data nCombustivelRestante as numeric
-	private Data nConsumoPorKM        as numeric
-	private Data nQuantidadePortas    as numeric
-	private Data nQuilometragemTotal  as numeric
-	private Data nVelocidadeAtual     as numeric
-	private Data nVelocidadeMax       as numeric
-	private Data ojson                as json
+	Class Carro
+		//Define os atributos da classe
+		public Data cCor                 as character
+		private Data cMarca               as character
+		private Data cMarcha              as character
+		private Data cModelo              as character
+		private Data cNivelCombustivel    as character
+		private Data lLigado              as logical
+		private Data nAno                 as numeric
+		private Data nAutonomia           as numeric
+		private Data nCapacidadeTanque    as numeric
+		private Data nCombustivelRestante as numeric
+		private Data nConsumoPorKM        as numeric
+		private Data nQuantidadePortas    as numeric
+		private Data nQuilometragemTotal  as numeric
+		private Data nVelocidadeAtual     as numeric
+		private Data nVelocidadeMax       as numeric
+		private Data ojson                as json
 
-	//Define os métodos da classe
-	Public Method new(marca, modelo, cor, ano) constructor
-	Public Method Ligar()
-	Public Method Desligar()
-	Public Method Acelerar(qtdAceleracao)
-	Public Method Frear(qtdFrenagem)
-	Public Method TrocarMarcha(marcha)
-	Public Method Abastecer(qtdCombustivel)
-	Public Method Dados()
+		//Define os métodos da classe
+		Public Method new(marca, modelo, cor, ano) constructor
+		Public Method Ligar()
+		Public Method Desligar()
+		Public Method Acelerar(qtdAceleracao)
+		Public Method Frear(qtdFrenagem)
+		Public Method TrocarMarcha(marcha)
+		Public Method Abastecer(qtdCombustivel)
+		Public Method Dados()
 
-	//Define os métodos de acesso aos atributos da classe
-	//Metodos set e get
+		//Define os métodos de acesso aos atributos da classe
+		//Metodos set e get
 
-	Public Method setmudacor(cCor)
-	Public Method setCor(cCor)
-	Public Method setMarca(cMarca)
+		Public Method setmudacor(cCor)
+		Public Method setCor(cCor)
+		Public Method setMarca(cMarca)
+		Public Method setAno(nAno)
+		Public Method setModelo(cModelo)
+		Public Method setQtdPortas(nQtdPortas)
 
-	Public Method getLigado()
-	Public Method getAutonomia()
-EndClass
+		Public Method getMarca()
+		Public Method getAno()
+		Public Method getModelo()
+		Public Method getQtdPortas()
+		Public Method getMarcha()
+		Public Method getLigado()
+		Public Method getAutonomia()
+
+
+	EndClass
 
 Method new(marca, modelo, cor, ano) class Carro
 	//self:cCor                	:= cor
@@ -69,7 +76,7 @@ Method new(marca, modelo, cor, ano) class Carro
 	self:cMarcha             	:= ''
 	self:cModelo             	:= modelo
 	self:cNivelCombustivel   	:= ''
-	self:lLigado             	:= .F.	
+	self:lLigado             	:= .F.
 	self:nAno                	:= ano
 	self:nAutonomia          	:= 0
 	self:nCapacidadeTanque   	:= 0
@@ -80,16 +87,60 @@ Method new(marca, modelo, cor, ano) class Carro
 	self:nVelocidadeAtual    	:= 0
 	self:nVelocidadeMax      	:= 0
 	self:ojson               	:= JsonObject():New()
-
 	self:setcor(cor)
 Return
 
+//Métodos SET:
 Method setmudacor(cCor as character) class Carro
 	self:setcor(cCor)
 Return
 
+Method setCor(cCor as character) class Carro
+	If cCor $ 'Azul|Branco|Amarelo'
+		Self:cCor := cCor
+	Else
+		conout('Cor inválida')
+	EndIf
+Return
+
+//Ver com STEVE: os 3 sets abaixo (marca ano e modelo) já foram setados no metodo new, tem alguma restrição criar um set pra eles?
 Method setMarca(cMarca as character) class Carro
 	self:cMarca := cMarca
+Return
+
+Method setAno(nAno as numeric) class Carro
+	self:nAno := nAno
+Return
+
+Method setModelo(cModelo as character) class Carro
+	self:cModelo := cModelo
+Return
+
+Method setQtdPortas(nQtdPortas as numeric) class Carro
+	self:nQuantidadePortas := nQtdPortas
+Return
+
+
+
+//Métodos GET:
+Method getMarca() class Carro
+	conout('A Marca do carro é: '+ (Self:cMarca))
+Return
+
+Method getAno() class Carro
+	conout('O Ano do carro é: ' + cValToChar(Self:nAno))
+Return
+
+Method getModelo() class Carro
+	conout('O Modelo do carro é: '+ (Self:cModelo))
+Return
+
+Method getMarcha() class Carro
+	self:cMarcha := cMarcha
+Return
+
+Method getQtdPortas() class Carro
+	conout('A Quantidade de portas do carro é: '+ cValToChar(Self:nQuantidadePortas))
 Return
 
 Method getLigado() class Carro
@@ -103,13 +154,14 @@ Method getLigado() class Carro
 
 Return cReturn
 
-Method setCor(cCor as character) class Carro
-	If cCor $ 'Azul|Branco|Amarelo'
-		Self:cCor := cCor
-	Else
-		conout('Cor inválida')
-	EndIf
+Method getAutonomia() class Carro
+	conout('A autonomia do carro é: '+ cValToChar(Self:nAutonomia))
 Return
+
+
+
+
+
 
 Method Ligar() class Carro
 	Self:lLigado := .T.
@@ -118,7 +170,6 @@ Return
 
 Method Desligar() class Carro
 	Self:lLigado := .F.
-	self:setcor('Preto')
 	conout('O carro foi desligado')
 Return
 
@@ -133,11 +184,11 @@ Method Frear(nQtdFrenagem as numeric) class Carro
 Return
 
 Method TrocarMarcha(cMarcha as character) class Carro
-	if(cMarcha <> 'P' .or. cMarcha <> 'R' .or.cMarcha <> 'N' .or. cMarcha <> 'D')  // cMarcha $ 'PRND'
+	if(cMarcha $ 'PRND')
 		conout ('Selecionar uma marcha (P,R,N,D)')
 	else
 		Self:cMarcha := cMarcha
-		conout('A velocidade atual do carro é:' + cValToChar(Self:nVelocidadeAtual))
+		conout('A marcha atual do carro é:' + (Self:cMarcha))
 	endIf
 Return
 
@@ -146,12 +197,12 @@ Method Abastecer(nQtdCombustivel as numeric) class Carro
 	conout('A quantidade de combustível atual do carro é:' + cValToChar(Self:ncombustivelRestante))
 Return
 
-Method Dados() class Carro	
+Method Dados() class Carro
 
 	self:ojson := JsonObject():New()
 	self:ojson['marca'] := self:cMarca
 	self:ojson['modelo'] := self:cModelo
-	self:ojson['cor'] := self:cCor	
+	self:ojson['cor'] := self:cCor
 	self:ojson['ano'] := self:nAno
 	self:ojson['velocidadeMax'] := self:nVelocidadeMax
 	self:ojson['velocidadeAtual'] := self:nVelocidadeAtual
@@ -163,38 +214,6 @@ Method Dados() class Carro
 	self:ojson['quantidadePort'] := self:nQuantidadePortas
 	self:ojson['marcha'] := self:cMarcha
 	self:ojson['autonomia'] := self:nAutonomia
-	self:ojson['combustivelRestante'] := self:nCombustivelRestante	
-	
+	self:ojson['combustivelRestante'] := self:nCombustivelRestante
+
 Return Self:ojson:tojson()
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
