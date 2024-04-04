@@ -1,0 +1,177 @@
+#include "tlpp-core.th"
+#include "totvs.ch"
+
+/*/{Protheus.doc} Carro
+    Classe que representa um carro.
+    @type  Class 
+    @author user
+    @since 16/03/2024
+/*/
+
+Class Carro
+    // Atributos
+    protected Data modelo as character
+	protected data cor 	as character	
+	protected data ano as numeric
+    protected data Ligar as logical
+    protected data ligado as logical
+    protected data velocidade as numeric	
+	protected data velocidadeMaxima as numeric
+    protected data VelocidadeAtual as numeric
+    protected data capacidadeTanque as numeric
+    protected data nivelCombustivel as character
+    protected data consumoPorKm as numeric
+	protected data quilometragemTotal 	as numeric	
+	protected data quantidadePortas 	as numeric	
+	protected data marcha as character
+    protected data autonomia as numeric
+    protected data combustivelRestante as numeric
+    protected data Abastecer as numeric
+    protected data abastecido as logical
+    protected data Acelerar as logical
+    protected data acelerando as logical
+    protected data garagem as logical
+    protected data Frear as logical
+    protected data TirarCarroGaragem as logical
+    protected data Desligar as logical
+
+    
+   // Construtor
+   public Method New(modelo) constructor
+   
+   // Métodos
+   public Method SetModelo(modelo)
+   public Method SetCor(cor)
+   public Method SetAno(ano)
+   public Method Ligar()
+   public Method Ligado(ligado)
+   public method velocidade()
+   public Method VelocidadeMaxima()
+   public Method VelocidadeAtual()
+   public Method CapacidadeTanque(capacidadeTanque)
+   public Method NivelCombustivel(nivelCombustivel)
+   public Method ConsumoPorKm(consumoPorKm)
+   public Method QuilometragemTotal(quilometragemTotal)
+   public Method QuantidadePortas(quantidadePortas)
+   public Method Marcha(marcha)
+   public Method CombustivelRestante(combustivelRestante)
+   public Method Abastecer(abastecer)
+   public Method Abastecido()
+   public Method Acelerar()
+   public Method Frear()
+   public Method TrocarMarcha(marcha)
+   public Method TirarCarroGaragem()
+   public Method Desligar()
+   
+EndClass
+
+// Implementando os métodos da classe Carro
+Method New(modelo) class Carro
+    ::modelo := modelo
+Return Self
+
+Method SetModelo(modelo) class Carro
+    Self:modelo := modelo
+Return Self
+
+Method SetCor(cor) class Carro
+    Self:cor := cor
+Return Self
+
+Method SetAno(ano) class Carro
+    Self:ano := ano
+Return Self
+
+Method Ligar() class Carro
+    Self:ligado := .T.
+Return
+
+Method Ligado(ligado) class Carro
+    Self:ligado := ligado
+Return
+
+Method velocidade(velocidade) class Carro
+    Self:velocidade := velocidade
+Return
+
+Method VelocidadeMaxima(VelocidadeMaxima) class Carro
+    Self:velocidadeMaxima := VelocidadeMaxima
+Return
+
+Method VelocidadeAtual(VelocidadeAtual) class Carro
+    Self:VelocidadeAtual := VelocidadeAtual
+Return
+
+Method CapacidadeTanque(capacidade) class Carro
+    Self:capacidadeTanque := capacidade
+Return
+
+Method NivelCombustivel(nivel) class Carro
+    Self:nivelCombustivel := nivel
+Return
+
+Method Abastecer() class Carro
+    Self:nivelCombustivel := "Cheio"
+Return
+
+Method Abastecido(abastecido) class Carro
+    Self:nivelCombustivel := abastecido
+Return
+
+Method ConsumoPorKm(consumo) class Carro
+    Self:consumoPorKm := consumo
+Return
+
+Method QuilometragemTotal(quilometragem) class Carro
+    Self:quilometragemTotal := quilometragem
+Return
+
+Method QuantidadePortas(portas) class Carro
+    Self:quantidadePortas := portas
+Return
+
+Method Marcha(marcha) class Carro
+    Self:marcha := marcha
+Return
+
+Method CombustivelRestante(combustivel) class Carro
+    Self:combustivelRestante := combustivel
+Return
+
+Method Acelerar() class Carro
+    Self:acelerando := .T.
+Return
+
+Method Frear() class Carro
+    Self:acelerando := .F.
+Return
+
+Method TirarCarroGaragem() class Carro
+    Self:garagem := .F.
+Return
+
+Method Desligar() class Carro
+    Self:ligado := .F.
+Return
+
+
+// Implementando a classe filha ElectrickCar de Carro
+/////////////////////////////////////////////////////////////////
+
+Class ElectrickCar From Carro
+   private data bateria as numeric
+   public method New(ligar as logical, ligado as logical)
+   public method CarregarBateria()
+EndClass
+ 
+method New(ligar as logical, ligado as logical) class ElectrickCar
+  _Super:New(ligar, ligado)
+Return Self
+ 
+method CarregarBateria(bateria) class ElectrickCar
+  Self:bateria := bateria
+Return Self
+ 
+
+
+

@@ -1,0 +1,51 @@
+#include "totvs.ch"
+#include "tlpp-core.th"
+
+User Function Fiat()
+  Local obj as Object
+  obj:= carro():New(147)
+  obj:SetModelo("147")
+  obj:SetCor("Azul")
+  obj:SetAno(1980)
+  obj:Ligar(.T.)
+  obj:Ligado(.T.)
+  obj:velocidade(0)
+  obj:VelocidadeMaxima(120)
+  obj:VelocidadeAtual(0)
+  obj:CapacidadeTanque(40)
+  obj:Abastecer(40)
+  obj:Abastecido(.T.)
+  obj:NivelCombustivel("Cheio")
+  obj:ConsumoPorKm(10)
+  obj:QuilometragemTotal(0)
+  obj:QuantidadePortas(2)
+  obj:Marcha("Neutro")
+  obj:CombustivelRestante(40)
+  obj:Acelerar(.T.)
+  obj:Frear(.F.)
+  obj:TirarCarroGaragem(.F.)
+  obj:Desligar(.T.)
+
+Return obj
+
+User Function Ford()
+  Local obj as Object
+  obj:= carro():New(01)
+  obj:SetModelo("Fiesta")
+  obj:SetCor("Vermelho")
+  obj:SetAno(2000)
+  
+Return obj
+
+User Function CarroEletrico()
+  Local obj as Object
+  obj:= ElectrickCar():New(.T.)
+  obj:SetModelo("Tesla")
+  obj:SetCor("Preto")
+  obj:SetAno(2020)
+  obj:Ligar(.T.)
+  obj:Ligado(.T.)
+  obj:CarregarBateria(100)
+  
+Return obj
+  
