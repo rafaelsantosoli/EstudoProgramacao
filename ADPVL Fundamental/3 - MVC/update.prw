@@ -1,5 +1,10 @@
 #INCLUDE "UPDFIS.CH"
 #INCLUDE "PROTHEUS.CH"
+#INCLUDE "FWLIBVERSION.CH"
+#Include "rwmake.ch" 
+#Include "topconn.ch" 
+#include "fileio.ch" 
+#INCLUDE "TBICONN.CH"
  
 #DEFINE X3_USADO_EMUSO          "€€€€€€€€€€€€€€ "   //TORNA USADO POR TODOS OS MODULOS
 #DEFINE X3_USADO_USADOKEY       "€€€€€€€€€€€€€€°"   //PERMITE ALTERAR SOMENTE O FORMATO E O BROWSE DO USO
@@ -401,6 +406,8 @@ oX3:Hlp({'Campo de Contato '})
 FreeObj(oX3)
 oX3 := Nil
 
+BEGIN TRANSACTION
+
 For i:= 1 To Len(aSX3)
 	If !Empty(aSX3[i][1])
 		//A ordem sera analisada no momento da gravacao visto que³a base pode conter alguns dos cam  pos informados neste
@@ -440,6 +447,8 @@ For i:= 1 To Len(aSX3)
 		Endif
 	EndIf
 Next i
+
+END TRANSACTION
 
 Return
 
@@ -1199,3 +1208,29 @@ METHOD Add() Class UPDGEN
     Self:Ini()
     
 Return
+
+ /*/{Protheus.doc} nomeFunction
+    (long_description)
+    @type  Function
+    @author user
+    @since 09/05/2024
+    @version version
+    @param param_name, param_type, param_descr
+    @return return_var, return_type, return_description
+    @example
+    (examples)
+    @see (links_or_references)
+    /*/
+user Function criatab()
+//Não tem conexão com banco de dados
+//Não usou dbaccess
+Local cTab := "Z01"
+
+PREPARE ENVIRONMENT EMPRESA "T1" FILIAL "XIFIS26" MODULO "FIS" TABLES "SF1","SD1","SA1","SA2","SB1","SB2","SF4"
+
+    dbSelecTArea(cTab)
+    dbCloseArea(cTab)
+    
+RESET ENVIRONMENT
+
+Return 
