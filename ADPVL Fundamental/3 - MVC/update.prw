@@ -6,7 +6,8 @@
 #include "fileio.ch" 
 #INCLUDE "TBICONN.CH"
  
-#DEFINE X3_USADO_EMUSO          "€€€€€€€€€€€€€€ "   //TORNA USADO POR TODOS OS MODULOS
+//#DEFINE X3_USADO_EMUSO          "€€€€€€€€€€€€€€ "   //TORNA USADO POR TODOS OS MODULOS
+#DEFINE X3_USADO_EMUSO "x       x       x       x       x       x       x       x       x       x       x       x       x       x       x xx    "
 #DEFINE X3_USADO_USADOKEY       "€€€€€€€€€€€€€€°"   //PERMITE ALTERAR SOMENTE O FORMATO E O BROWSE DO USO
 #DEFINE X3_USADO_NAOUSADO       "€€€€€€€€€€€€€€€"   //TORNA NAO USADO PELOS MODULOS
 #DEFINE X3_RES                  "€€"                //PERMITE ALTERAR OBRIGATORIO, BROWSE E FORMATO
