@@ -8,17 +8,30 @@
 @author Rafael dos Santos
 @version 1.0
 
+//FWMBrowse - Fornece um objeto do tipo grid, botões laterais e detalhes das colunas baseado no dicionário de dados
+//https://tdn.totvs.com/pages/releaseview.action?pageId=62390842
+//https://tdn.totvs.com/display/public/framework/FWMarkBrowse
+//https://tdn.totvs.com/display/public/framework/FWMBrowse
+//https://tdn.totvs.com/display/public/framework/FWBrwColumn
+
+//Esta função fornece o objeto com as estruturas de metadado do dicionário de dados, utilizadas pelas classes Model e View.
+//https://tdn.totvs.com/display/public/framework/FWFormStruct
+//https://tdn.totvs.com/display/public/framework/FWFormModelStruct
+
 /*/
 //-------------------------------------------------------------------
 user Function MVC001()
 
 	Local   oBrowse
+	Local  cAlias := "Z01"
 
-	IF  AliasIndic("Z01") 
-		oBrowse := FWMBrowse():New()
-		oBrowse:SetAlias("Z01")
-		oBrowse:SetDescription("Z01") //Tabela de Inscrição Estadual
-		oBrowse:Activate()	
+	IF  AliasIndic(cAlias)  //Verifica se a tabela existe no dicionário de dados
+		oBrowse := FWMBrowse():New() //Cria um objeto do tipo Browse
+		oBrowse:SetAlias(cAlias) // Define uma tabela ou view um ponteiro do branco de dados
+		oBrowse:SetDescription("Descrição") //Tabela de Inscrição Estadual
+		oBrowse:Activate() //Ativa o objeto Browse
+	else
+		Alert("Alias "+cAlias+" não encontrado!")	
 	EndIf
 	
 Return
@@ -86,7 +99,7 @@ Static Function ViewDef()
 
 	oView:AddField("VIEW_CAB",oStructCAB,'MVC001MOD')	
 
-	oView:CreateHorizontalBox("CABEC",100)
+	oView:CreateHorizontalBox("CABEC",50)
 
 	oView:SetOwnerView("VIEW_CAB","CABEC")	
 	
