@@ -1,10 +1,16 @@
 #include 'tlpp-core.th'
 
+// Função para retornar o tamanho do campo
+Static cTamA1loja := TamSx3('A1_LOJA')[1]
+Static cTamA1cod := TamSx3('A1_COD')[1]
+
+
 User Function alteraCampos()
 
 Local cCodigo := '000002'
 Local cLoja := '01'
 Local cNome := 'CLIENTE ANDREA'
+
 
 
 //prepara ambiente
@@ -21,7 +27,7 @@ Local cNome := 'CLIENTE ANDREA'
     dbSeek -- Busca o registro - è o mais lento, mas busca sempre na base de dados
     MsSeek -- Busca o registro - è o mais rapido pois possui tratamaneto de cache
 */
-    if SA1->(MsSeek(XFILIAL('SA1')+ padR(cCodigo, TamSx3('A1_COD')[1])+padR(cLoja, TamSx3('A1_LOJA')[1]))) // Busca o registro
+    if SA1->(MsSeek(XFILIAL('SA1')+ padR(cCodigo, cTamA1cod)+padR(cLoja, cTamA1loja))) // Busca o registro
         
         // Trava o registro
         While .T. // Loop infinito
