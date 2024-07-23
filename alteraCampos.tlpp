@@ -1,0 +1,51 @@
+#include 'tlpp-core.th'
+
+User Function alteraCampos()
+
+Local cCodigo := '000002'
+Local cLoja := '01'
+Local cNome := 'CLIENTE ANDREA'
+
+
+//prepara ambiente
+    RpcSetEnv('T1', 'D MG 01',,,"FIS")
+
+//abre a tabela
+
+    dbSelectArea("SA1") // Seleciona a área de trabalho
+    dbSetOrder(1) // Seleciona a ordem/Indice
+
+// Busco o registro que desejo alterar
+
+/*
+    dbSeek -- Busca o registro - è o mais lento, mas busca sempre na base de dados
+    MsSeek -- Busca o registro - è o mais rapido pois possui tratamaneto de cache
+*/
+    if SA1->(MsSeek(XFILIAL('SA1')+ padR(cCodigo, TamSx3('A1_COD')[1])+padR(cLoja, TamSx3('A1_LOJA')[1]))) // Busca o registro
+        
+        // Trava o registro
+        While .T. // Loop infinito
+            IF SA1->(RecLock("SA1", .F.)) //Quando o parâmetro .T. é passado, o sistema trava o registro para inclusão, quando .F. é passado, o sistema trava o registro para alteração.
+                // Altera os campos
+                SA1->A1_NOME := 'CLIENTE ANDREA_4'
+                SA1->A1_NREDUZ := 'CLIENTE ANDREA_4'
+                SA1->(MsUnLock()) // Confirma e finaliza a operação
+                //SA1->(dbCommit()) // Força a gravação do registro //usar apenas quando tabela em questão for dinâmica for necessário consultar o dado gravado em seguida
+                Exit // Sai do loop
+            Endif            
+        Enddo
+	Endif
+
+    If SA1->A1_NOME == 'CLIENTE ANDREA_4'
+        Conout('Registro alterado com sucesso')
+    Else
+        Conout('Registro não alterado')
+    Endif
+
+    SA1->(dbCloseArea()) // Fecha a área de trabalho
+Return 
+
+
+//documentação
+//https://tdn.totvs.com/display/tec/PadR
+//https://tdn.totvs.com/display/public/framework/MsSeek
